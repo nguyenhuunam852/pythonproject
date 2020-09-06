@@ -1,0 +1,36 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Employee Records</title>  
+     {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Url ID</th>  
+        <th>Url Name</th>  
+        <th>Url Valid</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for url in urls %}  
+    <tr>  
+        <td>{{ url.id }}</td>  
+        <td>{{ url.name }}</td>  
+        <td>{{ url.is_valid }}</td>  
+        <td>  
+            <a href="/edit/{{ url.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ url.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/add" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+<body id="main">
+{% block content %}
+{% load static %}  
+<head>
+	<meta charset="utf-8">
+	<title>CKEditor Sample</title>
+
+	<link type="text/css" href="css/samples.css">
+  <link type="text/css" href="toolbarconfigurator/lib/codemirror/neo.css">
+ 
+
+  <script src="{% static '/ckeditor.js' %}" type="text/javascript"></script> 
+  <script src="{% static '/js/sample.js' %}" type="text/javascript"></script> 
+  {% block js %}{% endblock %}
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="Try the latest sample of CKEditor 4 and learn more about customizing your WYSIWYG editor with endless possibilities.">
+</head>
+
+
+
+
+
+<form method="Post" class="post-form" id="submit">  
+  {% csrf_token %}
+  {{ form.name }}
+  <button id="submit" class="btn btn-primary">Submit</button>  
+</form>
+
+<body id="main">
+	<main>
+	
+  	<div class="adjoined-bottom">
+      <div class="grid-container">
+        <div class="grid-width-100">
+          <div id="editor">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  </main>
+  
+</body>
+
+
+
+{% endblock %}
+
+
+
+{% block javascript %}
+<script>
+  initSample();
+</script>
+<script>
+  $(document).ready(function () {  
+    // You can define it before replacing the editor
+    CKEDITOR.on('instanceReady', function(evt){
+       
+        var editor = evt.editor;
+    });
+    html="<h1>HTML Buttons</h1><p>HTML buttons are defined with the button tag:</p><button>Click me</button>"
+    CKEDITOR.instances['editor'].setData(html)
+    CKEDITOR.config.allowedContent = true;
+
+});
+
+  $("#submit").submit(function (e) {
+      
+      e.preventDefault();
+      var serializedData = $(this).serialize();
+      console.log(serializedData)
+      $.ajax({
+          method: "POST",
+          url: "./",
+          data: serializedData,
+        
+          success: function (response) {
+           
+            var instance = JSON.parse(response);
+            CKEDITOR.instances['editor'].setData(instance.check)
+           
+          },
+          error: function (response) {
+              alert("fail");
+          }
+      })
+  })
+</script>
+
+{% endblock javascript %}
+</html>
+
+
+
