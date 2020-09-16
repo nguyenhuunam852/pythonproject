@@ -1,0 +1,26 @@
+
+{% block content %}
+
+{% load static %}  
+{% static "" as baseUrl %}
+
+<head>
+    <meta charset="utf-8">
+
+	{% block js %}{% endblock %}
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+<img id="pic" src="{{ baseUrl }}website/{{id}}{{word}}.png">
+{% endblock %}
+{% block javascript %}
+<script>
+  if(parent!=undefined)
+  {
+	 var a = {{loca}}
+	 console.log(a)
+     parent.tunnel1(a);
+  }
+</script>
+{% endblock javascript %}
+</body>

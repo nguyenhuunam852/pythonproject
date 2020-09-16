@@ -1,91 +1,231 @@
-<!DOCTYPE html>
+
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
-<body id="main">
+
 {% block content %}
-{% load static %}  
+{% load static  %}  
+{% static "" as baseUrl %}
 <head>
 	<meta charset="utf-8">
-	<title>CKEditor Sample</title>
-
-	<link type="text/css" href="css/samples.css">
-  <link type="text/css" href="toolbarconfigurator/lib/codemirror/neo.css">
- 
-
-  <script src="{% static '/ckeditor.js' %}" type="text/javascript"></script> 
-  <script src="{% static '/js/sample.js' %}" type="text/javascript"></script> 
-  {% block js %}{% endblock %}
+	<title>Home</title>
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<meta name="description" content="Try the latest sample of CKEditor 4 and learn more about customizing your WYSIWYG editor with endless possibilities.">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
+<style>
 
+#showprogress
+{
+  margin:20px;
+  border-style: inset;
+  border-color: coral;
+  border-width: 7px;
+  height:370px;
+  width:100%;
+}
+#style-list{
+  background-color:white; 
+  width:100%; 
+  height:50px;
+}
+.word-list
+{
+    width: 90%;
+    height: 370px;
+    margin:20px;
+    background-color: white;
+    overflow: scroll;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    border-style:inset;
+}
+.word-list::-webkit-scrollbar { 
+    display: none; 
+}
+.word-list ul
+{
+  text-align: left;
+ 
+}
+.word-list ul li:hover{
+    background-color: #00ffbf;
+    height:90px;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 70px; 
+}
 
+.word-list li a { margin: 0px; display: block; width: 100%; height: 100%;text-decoration:none; }
+.word-list li a:hover 
+{ 
+  color:black;
+}
+.form-popup {
+  display: none;
+  border: 3px solid #f1f1f1;
+}
 
+</style>
+<body>
 
+<br/>
 
 <form method="Post" class="post-form" id="submit">  
   {% csrf_token %}
+  <div style="margin:20px">
   {{ form.name }}
-  <button id="submit" class="btn btn-primary">Submit</button>  
+  <button class="btn btn-primary">Check</button>  
+  </div>
 </form>
+<br/>
+<div class="row">
+  <div class="col-8">
+    <div id="showprogress">
+      
+    </div>  
+    
+  </div>
 
-<body id="main">
-	<main>
-	
-  	<div class="adjoined-bottom">
-      <div class="grid-container">
-        <div class="grid-width-100">
-          <div id="editor">
-            
-          </div>
-        </div>
-      </div>
+
+  <div class="col-4">
+    <div class="word-list">
+      <ul class="w3-ul w3-card">
+      
+      </ul>
     </div>
-  
-  
-  </main>
-  
-</body>
+  </div>
+ 
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ShowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Check Links</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="w3-bar w3-black">
+         <button class="w3-bar-item w3-button" onclick="openTab('first')">Source Code</button>
+         <button class="w3-bar-item w3-button" onclick="openTab('second')">View on Website</button>
+      </div>
+      <br/>
+      <div id="first" class="w3-container w3-display-container view">
+            <div style="width:100%;height:400px;border-style:inset;">
+                <iframe id="iframe" src="" width=100% height=100% allowfullscreen></iframe>
+            </div>
+      </div>
+      <div id="second" class="w3-container w3-display-container view" style="display:none">
+           <div id="google" style="width: 100%; height: 400px; overflow: auto;">
+                <div class="form-popup" id="myForm" style="width: 100%; height: 400px;">
+                  Opps! We can't find this fault in Website, maybe it just in Source           
+                </div>
+                <iframe id="picture" src="" scrolling="no" allowfullscreen></iframe>
+           </div>
+      </div>
+      
+     <div class="modal-footer justify-content-between">                    
+        <button id="next" class="btn btn-danger">Find Another</button>                                    
+        <div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>  
+     </div>
+    </div>
+  </div>
+
+
+</div>
+</div>
+
 
 
 
 {% endblock %}
 
-
+</body>
 
 {% block javascript %}
-<script>
-  initSample();
-</script>
-<script>
-  $(document).ready(function () {  
-    // You can define it before replacing the editor
-    CKEDITOR.on('instanceReady', function(evt){
-       
-        var editor = evt.editor;
-    });
-    html="<h1>HTML Buttons</h1><p>HTML buttons are defined with the button tag:</p><button>Click me</button>"
-    CKEDITOR.instances['editor'].setData(html)
-    CKEDITOR.config.allowedContent = true;
 
-});
-
+<script>
+  var index=0;
+  var index1=0;
+  var ins;
+ function openTab(Name) {
+  var i;
+  var size;
+  var loca1=[];
+  var x = document.getElementsByClassName("view");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(Name).style.display = "block";  
+  }
+  window.onload = function()
+  {
+  }
+  $( "#next" ).click(function() {
+    if(document.getElementById("first").style.display != "none" )
+    {
+      var childiFrame = document.getElementById("iframe");
+      childiFrame.contentWindow.gotoAnother();
+    }
+    else{
+      index1+=1;
+      PicgotoAnother();
+    }
+  });
+  function PicgotoAnother()
+  {
+     if(index1==loca1.length)
+     {
+       index1=0;
+     }
+    $("#google").scrollTop=0;
+    $("#google").scrollLeft=0;
+    var x = loca1[index1][0]-250;
+    var y = loca1[index1][1]-250;
+    if(x<0){
+      x=0
+    }
+    if(y<0){
+      y=0
+    }
+    console.log(x,y)
+    $("#google").scrollTop(y).scrollLeft(x);
+  }
   $("#submit").submit(function (e) {
       
       e.preventDefault();
+      var hrefurl = $("#id_name").val();
+      $("#showprogress").append('<span style="margin:20px"><span id="id0" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Try to Scan Website <a style="color:blue;" href="'+hrefurl+'">'+hrefurl+'</a> .... </span>')
       var serializedData = $(this).serialize();
-      console.log(serializedData)
+      
       $.ajax({
           method: "POST",
           url: "./",
           data: serializedData,
         
           success: function (response) {
-           
-            var instance = JSON.parse(response);
-            CKEDITOR.instances['editor'].setData(instance.check)
+          
+            ins = JSON.parse(response);
+            text=ins.check.replaceAll('<','&lt;')
+            $('.word-list ul').empty();
+            ins.tagname.forEach(element => 
+            {
+              href='/gethref/?id='+ins.id+'&word='+element
+              $(".word-list ul").append('<li><a data-toggle="modal" data-target="#ShowModal" data-url="'+href+'">'+element+'</a></li>');
+            });
+            $("#showprogress").append('<i class="fa fa-check" aria-hidden="true"></i>')
+            var spinner=$('#id0').hide();
+            size=ins.size
            
           },
           error: function (response) {
@@ -93,6 +233,51 @@
           }
       })
   })
+  function tunnel(fn) {
+    fn();
+  }
+  function tunnel1(loca) {
+    loca1=loca;
+    $("#google").scrollTop=0;
+    if(loca1.length==0)
+    {
+       document.getElementById("myForm").style.display = "block";
+    }
+    else
+    {
+       document.getElementById("myForm").style.display = "none";
+       PicgotoAnother()
+    }
+  }
+  $('#ShowModal').on('show.bs.modal', function(e) {
+    openTab('first');
+    var href=$(e.relatedTarget).data('url');
+    var ifame = $("#iframe");
+    var pic = $("#picture");
+    document.getElementById("myForm").style.display = "none";
+    $(e.currentTarget).find(ifame).attr('src', '');
+    $(e.currentTarget).find(pic).attr('src', '');  
+
+    $(e.currentTarget).find(ifame).attr('src', href);
+    $(e.currentTarget).find(pic).attr('width', size[0]);
+    $(e.currentTarget).find(pic).attr('height', size[1]);
+    href=href.replace("gethref","getpic")
+   
+    $(e.currentTarget).find(pic).attr('src', href);
+  
+
+   
+});
+  function set(text){
+      
+      var block = document.getElementById("abc");
+      block.innerHTML=text;
+      Prism.highlightElement(block);
+   
+  }
+  
+
+
 </script>
 
 {% endblock javascript %}

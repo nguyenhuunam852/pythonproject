@@ -1,0 +1,92 @@
+
+{% block content %}
+
+{% load static %}  
+{% load replace_text %}
+
+<head>
+    <meta charset="utf-8">
+
+	{% block js %}{% endblock %}
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <link rel="stylesheet" href="{% static "styles/default.css"%}">
+    <script type="application/javascript" src="{% static "highlight.pack.js"%}"></script>
+
+</head>
+<style>
+html{
+    scroll-behavior: smooth;
+}
+code mark{
+
+}
+code mark span{
+  background-color:yellow;
+}
+
+</style>
+<body>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+  <pre id="code"><code class="html">{{st}}</mark> </code></pre>
+
+
+</body>
+{% endblock %}
+
+{% block javascript %}
+<script>
+  var index=0;
+  var a = document.getElementById("code").innerHTML;
+  document.getElementById("code").innerHTML=a.replaceAll("&lt;mark&gt;","<mark>").replaceAll("&lt;/mark&gt;","</mark>")
+  var tg = document.getElementsByTagName("mark");
+
+  for(i=0;i<tg.length;i++)
+  {
+    tg[i].innerHTML='<span>'+String("{{word}}")+'<span>'
+  }
+  test(0);
+  document.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+
+
+
+  function test(i)
+  {
+    Element.prototype.documentOffsetTop = function () {
+    return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
+    };
+    var top = document.getElementsByTagName('mark')[i].documentOffsetTop() - ( window.innerHeight / 2 );
+    window.scrollTo( 0, top );
+    
+  }
+  window.gotoAnother = function() {
+     index+=1;
+     if(index==tg.length)
+     {
+       index=0;
+     }
+     test(index);
+
+  }
+
+ 
+
+  var myFunction = function() {
+    test(0); 
+  }
+
+  if(parent!=undefined)
+  {
+     parent.tunnel(myFunction);
+  }
+
+</script>
+{% endblock javascript %}
+</html>

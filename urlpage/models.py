@@ -1,7 +1,6 @@
 from django.db import models
 
 class Urlspage(models.Model):
-
     id = models.AutoField(primary_key=True)
     name = models.CharField("urls",max_length=200)
     is_valid=models.BooleanField(default=True)
