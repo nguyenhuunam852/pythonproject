@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect  
 from urlpage.forms import UrlsForm ,UrlsChangeForm 
-from urlpage.models import Urlspage
+from users.models import Url_User 
+from urlpage.models import Urlspage,WordUrls
 from validator_collection import validators, checkers
 from django.http import JsonResponse
 from django.core import serializers
@@ -28,13 +29,20 @@ import cv2
 import os
 from pytesseract import Output
 import PIL
+from users.models import Url_User
+from django.views.decorators.csrf import csrf_exempt
+import urllib.parse
+from urllib.parse import urlparse
 spellchecker = hunspell.HunSpell('/usr/share/hunspell/en_GB.dic',
                                  '/usr/share/hunspell/en_GB.aff')
 index=0
 id_array_tag=[]
-name_array_tag=[]
-correction={}
 
+correction={}
+def getdomainname(url):
+    parsed_uri = urlparse(url)
+    result = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+    return result
 def test(word):
     return spellchecker.spell(word)
 
@@ -46,6 +54,9 @@ def getobject(text):
    for x in doc:
        if(x.ent_type_ == ''):
         text=str(x)
+        if(text=="n't"):
+             list_name.pop()
+             continue
         if(text.isalpha()==True):
           if (text in list_name)==False:
              list_name.append(text)
@@ -62,10 +73,18 @@ def getobject(text):
 data={
 }
 save=""
+server_dict={
 
-def dataAnalysist(r):
-    global name_array_tag
-    name_array_tag=[]
+}
+server_dict_done={
+
+}
+user_domain={
+
+}
+
+
+def dataAnalysist(r,name_array_tag):
     texts=[]
     n_arrays=[]
     w_arrays=[]
@@ -86,69 +105,130 @@ def dataAnalysist(r):
           n_arrays.append(text)
          
     name_array_tag=n_arrays
-    return soup.prettify()
+
+    return soup.prettify(),name_array_tag
 
 
-async def savedata(data,id):
-    browser = await launch(
-         handleSIGINT=False,
-         handleSIGTERM=False,
-         handleSIGHUP=False
-    )
-    page = await browser.newPage()
-    await page.goto(data)
-    await page.screenshot({'path': 'urlpage/static/website/'+str(id)+'.png','fullPage':'true'})
-    await browser.close()
-  
-  
 
+def savedata(data,id):
    
-    
+  BASE = 'https://mini.s-shot.ru/1024x0/JPEG/1024/Z100/?' # you can modify size, format, zoom
+  url = data
+  url = urllib.parse.quote_plus(url) #service needs link to be joined in encoded format
+
+
+  path = 'urlpage/static/website/'+str(id)+'.png'
+  response = requests.get(BASE + url, stream=True)
+
+  if response.status_code == 200:
+    with open(path, 'wb') as file:
+        for chunk in response:
+            file.write(chunk)
+
+def get_all_domain(r,user):
+    global server_dict
+    global server_dict_done
+    global user_domain
+    pattern = re.compile("^(/)")
+    soup = BeautifulSoup(r.text, 'lxml')
+
+    for link in soup.find_all("a", href=pattern):
+       if "href" in link.attrs:
+         linka=user_domain[user]+'/'+link.attrs["href"]
+         if linka not in server_dict[user] and linka not in server_dict_done[user]:
+               new_page = link.attrs["href"]
+               server_dict[user].append(user_domain[user]+'/'+new_page)
+
+def checkWebsite(urlpath,request):
+    try:
+     name_array_tag=[]   
+     global server_dict
+     global server_dict_done
+     global user_domain
+     url = urlpath.name
+     p=Url_User(idurl=urlpath,iduser=request.user)
+     p.save()
+     r = requests.get(url, timeout=5)
+     get_all_domain(r,request.user.id)
+     text,name_array_tag=dataAnalysist(r,name_array_tag)
+     savedata(url,urlpath.id)
+     image = PIL.Image.open('urlpage/static/website/'+str(urlpath.id)+'.png')
+     width, height = image.size
+     size=[width,height]
+     data={}
+     data['check']=text
+     data['tagname']=name_array_tag
+     data['id']=urlpath.id
+     data['size']=size
+     data['error']=0
+     if(len(server_dict)==0):
+        data['continue']=0
+     else:
+        data['next']=server_dict[request.user.id][1]                     
+        data['continue']=1
+        server_dict_done[request.user.id].append(server_dict[request.user.id].pop(0))
+     return data
+    except Exception as e: 
+      print(e)
+
 # Create your views here.  
 def emp(request):  
+    global server_dict
+    global server_dict_done
+    global user_domain
     if request.is_ajax and request.method == "POST":
+      if('continue' not in request.POST):
         form = UrlsForm(request.POST)  
         if form.is_valid():
             data= form.cleaned_data.get("name")
+            server_dict[request.user.id]=[data]
+            server_dict_done[request.user.id]=[]
+            user_domain[request.user.id]=getdomainname(data)
             if checkers.is_url(data)==True:
-                try:  
-                 global index
-                 index=0
-                 global name_array_tag
-                 name_array_tag=[]
-                 testtype=1
-                 if(testtype==1):
-                   urlpath=form.save()
-                   url = data
-                   r = requests.get(url)
-                   text=dataAnalysist(r)
-                   loop = asyncio.new_event_loop()
-                   asyncio.set_event_loop(loop)
-                   loop.run_until_complete(savedata(data,urlpath.id))  
-                   image = PIL.Image.open('urlpage/static/website/'+str(urlpath.id)+'.png')
-                   width, height = image.size
-                   size=[width,height]
-                   data={}
-                   data['check']=text
-                   data['tagname']=name_array_tag
-                   data['id']=urlpath.id
-                   data['size']=size
-                   return JsonResponse(
-                      json.dumps(data),
-                      safe=False
-                   ) 
-                 else:
-                   url = data
-                   r = requests.get(url)
-                   soup = BeautifulSoup(r.text, 'lxml')
-                   texts = soup.get_text(separator=' ')
-                   
-                   texts= ' '.join(getobject(texts))
-
+                try:             
+                 urlpath=form.save()
+                 checkWebsite(urlpath,request)
+                 return JsonResponse(json.dumps(checkWebsite(urlpath,request)),safe=False) 
                 except Exception as e: 
-                  print(e)  
+                    print(e)
+                    data={}
+                    data['error']=1
+                    if(len(server_dict)==0):
+                     data['continue']=0
+                    else:
+                     data['next']=server_dict[request.user.id][1]
+                     data['continue']=1
+                    server_dict_done[request.user.id].append(server_dict[request.user.id].pop(0))
+                    return JsonResponse(
+                     json.dumps(data),
+                     safe=False
+                    ) 
+                 
+
             else:
                 print('Sai')
+      else:
+       try:
+        data=server_dict[request.user.id][0]
+        urlpath= Urlspage(name=data)
+        urlpath.save()
+        return JsonResponse(json.dumps(checkWebsite(urlpath,request)),safe=False) 
+       except Exception as e: 
+            print(e)
+            data={}
+            data['error']=1
+            if(len(server_dict)==0):
+                     data['continue']=0
+            else:
+                     data['next']=server_dict[request.user.id][0]
+                     data['continue']=1
+            server_dict_done[request.user.id].append(server_dict[request.user.id].pop(0))
+            return JsonResponse(
+                     json.dumps(data),
+                     safe=False
+                    ) 
+                 
+
     else:  
         form = UrlsForm()  
     return render(request,'home.html',{'form':form})  
@@ -161,7 +241,7 @@ def analystPicture(id,word):
     overlay = img.copy()
     for i in range(n_boxes):
       text = d['text'][i]
-      if text == word:
+      if word in text:
         (x1, y1, w1, h1) = (d['left'][i], d['top'][i], d['width'][i], d['height'][i])
         loca.append([x1, y1, w1, h1])
         cv2.rectangle(overlay, (x1, y1), (x1 + w1, y1 + h1), (255, 0, 0), -1)
@@ -196,8 +276,15 @@ def checkpic(request):
     return render(request,'picture.html',{'id':id,'word':word,'loca':loca})  
 
 def show(request):
-    urls = Urlspage.objects.all()
-    return render(request,"show.html",{'urls':urls})  
+    user_url=[]
+    if(request.user.is_authenticated):
+      userurl=Url_User.objects.filter(iduser=request.user.id).values_list('idurl', flat=True)
+      listurl=list(userurl)
+      for url in listurl:
+        url=Urlspage.objects.get(id=url)
+        user_url.append(url)
+    return render(request,"show.html",{'urls':user_url})  
+
 def edit(request, id):  
     url = Urlspage.objects.get(id=id)  
     return render(request,'edit.html', {'url':url})  

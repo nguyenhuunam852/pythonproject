@@ -205,7 +205,7 @@
       
       e.preventDefault();
       var hrefurl = $("#id_name").val();
-      $("#showprogress").append('<span style="margin:20px"><span id="id0" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Try to Scan Website <a style="color:blue;" href="'+hrefurl+'">'+hrefurl+'</a> .... </span>')
+      $("#showprogress").append('<span style="margin:20px"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Try to Scan Website <a style="color:blue;" href="'+hrefurl+'">'+hrefurl+'</a> .... </span>')
       var serializedData = $(this).serialize();
       
       $.ajax({
@@ -214,8 +214,17 @@
           data: serializedData,
         
           success: function (response) {
-          
+           explore(response);
+          },
+          error: function (response) {
+              alert("fail");
+          }
+      })
+  })
+  function explore(response){
             ins = JSON.parse(response);
+            if(ins.error==0)
+            {
             text=ins.check.replaceAll('<','&lt;')
             $('.word-list ul').empty();
             ins.tagname.forEach(element => 
@@ -223,29 +232,60 @@
               href='/gethref/?id='+ins.id+'&word='+element
               $(".word-list ul").append('<li><a data-toggle="modal" data-target="#ShowModal" data-url="'+href+'">'+element+'</a></li>');
             });
-            $("#showprogress").append('<i class="fa fa-check" aria-hidden="true"></i>')
-            var spinner=$('#id0').hide();
+            $("#showprogress").append('<i class="fa fa-check" aria-hidden="true"></i><br/>')
+            var spinner=$('.spinner-border').hide();
             size=ins.size
-           
+            }
+            else{
+              $("#showprogress").append('<i class="fa fa-times" aria-hidden="true"></i><br/>')
+              var spinner=$('.spinner-border').hide();
+            }
+            if(ins.continue==1)
+            {
+              ContinueAjax()
+            }
+            
+  }
+  function ContinueAjax(){
+     
+     $("#showprogress").append('<span style="margin:20px"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Try to Scan Website <a style="color:blue;" href="'+ins.next+'">'+ins.next+'</a> .... </span>')
+     $.ajax({
+          method: "POST",
+          url: "./",
+          data: {
+            'continue':1,
+            'csrfmiddlewaretoken': '{{ csrf_token }}',
+          },
+          dataType: 'json',
+          success: function (response) {
+          
+            explore(response);
+            
           },
           error: function (response) {
               alert("fail");
           }
       })
-  })
+  }
   function tunnel(fn) {
     fn();
   }
   function tunnel1(loca) {
     loca1=loca;
     $("#google").scrollTop=0;
+    console.log(loca1)
     if(loca1.length==0)
     {
+       console.log(1);
+       $('#picture').attr('src', '');  
        document.getElementById("myForm").style.display = "block";
+       document.getElementById("picture").style.display = "none";
     }
     else
     {
+       document.getElementById("picture").style.display = "block";
        document.getElementById("myForm").style.display = "none";
+       index1=0;
        PicgotoAnother()
     }
   }
@@ -254,7 +294,6 @@
     var href=$(e.relatedTarget).data('url');
     var ifame = $("#iframe");
     var pic = $("#picture");
-    document.getElementById("myForm").style.display = "none";
     $(e.currentTarget).find(ifame).attr('src', '');
     $(e.currentTarget).find(pic).attr('src', '');  
 
@@ -262,9 +301,10 @@
     $(e.currentTarget).find(pic).attr('width', size[0]);
     $(e.currentTarget).find(pic).attr('height', size[1]);
     href=href.replace("gethref","getpic")
-   
-    $(e.currentTarget).find(pic).attr('src', href);
-  
+    document.getElementById("myForm").style.display = "none";
+    setTimeout(function(){ 
+       $(e.currentTarget).find(pic).attr('src', href);
+    }, 2000);
 
    
 });
