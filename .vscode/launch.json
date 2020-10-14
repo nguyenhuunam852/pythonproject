@@ -8,12 +8,28 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "/home/nam/Desktop/project/manage.py",
+            "program": "I:/djangoWeb/pythonproject/manage.py",
             "args": [
                 "runserver",
                 "--noreload"
             ],
             "django": true
+        },
+        {
+            "name": "Python: Celery",
+            "type": "python",
+            "request": "launch",
+            "module": "celery",
+            "console": "integratedTerminal",
+            "args": [
+                "-A",
+                "tsbc",
+                "worker",
+                "-l",
+                "info",
+                "-P",
+                "solo",
+            ]
         }
     ]
 }

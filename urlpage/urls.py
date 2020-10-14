@@ -3,6 +3,7 @@ from urlpage import views
 from django.urls import path  
 urlpatterns = [
     path('',views.show),
+    path('poll_state',views.poll_state),
     path('add/',views.emp),
     path('gethref/',views.checkref),
     path('getpic/',views.checkpic),
