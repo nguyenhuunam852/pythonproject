@@ -132,6 +132,7 @@ def checkref(request):
     st = soup.prettify()
     return render(request,'watch.html',{'id':id,'word':word,'st':st})  
 
+
 def checkpic(request):
     id = request.GET.get('id', None)
     word = request.GET.get('word', None)
@@ -141,12 +142,14 @@ def checkpic(request):
     
     return render(request,'picture.html',{'id':id,'word':word,'loca':loca})  
 
+#Hàm cập nhật trạng thái cho process
 def poll_state(request):
     data = 'Wait'
     if(request.user.id in user_process):
       if request.is_ajax():
           task = AsyncResult(user_process[request.user.id])
           data = task.result or task.state
+          
           if(data['process_percent']==100):
             user_process.pop(request.user.id)
       else:

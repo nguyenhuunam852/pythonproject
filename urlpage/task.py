@@ -11,6 +11,7 @@ import urllib
 from urllib.parse import urlparse
 import re
 import PIL
+import subprocess
 import en_core_web_sm
 from celery.contrib import rdb
 nlp = en_core_web_sm.load()
@@ -21,24 +22,24 @@ server_dict={}
 server_dict_done={}
 #lưu hình ảnh
 def savedata(data,id):
-   
-  BASE = 'https://mini.s-shot.ru/1024x0/PNG/400/Z100/?' # you can modify size, format, zoom
-  url = data
-  url = urllib.parse.quote_plus(url) #service needs link to be joined in encoded format
+  subprocess.call("I:/djangoWeb/pythonproject/party_softw/CaptureWebsite.exe "+data+" "+str(id))
 
-
-  path = 'urlpage/static/website/'+str(id)+'.png'
-  response = requests.get(BASE + url, stream=True)
-
-  if response.status_code == 200:
-    with open(path, 'wb') as file:
-        for chunk in response:
-            file.write(chunk)
 
 
 #kiểm tra từ điển
 def test(word):
     return spellchecker.spell(word)
+#chuẩn hóa link
+def Urls_check(url):
+ 
+  while('//' in url):
+      url=url.replace('//','/')
+
+  if(url[0]=='/'):
+    url = url[1:]
+ 
+  return url
+
 
 #lấy tất cả trang web trong web vừa quét
 def get_all_web_domain(domain,r,user):
@@ -48,10 +49,11 @@ def get_all_web_domain(domain,r,user):
 
     for link in soup.find_all("a", href=pattern):
        if "href" in link.attrs:
-         linka= domain+'/'+link.attrs["href"]
+         linkb = Urls_check(link.attrs["href"]+"/")
+         linka= domain+linkb
+         
          if linka not in server_dict[user] and len(server_dict[user])<=3 and linka not in server_dict_done[user]:
-               new_page = link.attrs["href"]
-               server_dict[user].append(domain+'/'+new_page)
+               server_dict[user].append(linka)
 
 #lấy tất cả trang web trong web vừa quét
 def getdomainname(url):
@@ -65,7 +67,7 @@ def getobject(text):
    NNP_name=[]
    list_name=[]
    newString = (text.replace(u'\u200b', ' '))
-   doc = nlp(newString)
+   doc = nlp(newString)  
    for x in doc:
        if(x.ent_type_ == ''):
         text=str(x)
@@ -139,6 +141,7 @@ def checkWebsite(url,domain_id,userid):
 
 
 @shared_task
+
 def do_task(url,domain_id,userid):
     try:
      server_dict[userid]=[]
@@ -152,8 +155,7 @@ def do_task(url,domain_id,userid):
           checkWebsite(web,domain_id,userid)
           server_dict_done[userid].append(web)
 
-     return {'process_percent': process_percent,'current_web':web}
-
+     return 1
      """
      data={}
      data['check']=text

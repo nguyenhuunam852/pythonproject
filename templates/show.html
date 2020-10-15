@@ -153,7 +153,8 @@
             csrfmiddlewaretoken: "{{csrf_token}}",
         },
         success: function(result) {
-                    if(result=="Wait" && willstop==0)
+          
+                    if(result=="Wait" && willstop==0 && result.process_percent==100)
                     {
                       window.alert("Your Task is done, Let Checkout!!!");
                       location.reload();
