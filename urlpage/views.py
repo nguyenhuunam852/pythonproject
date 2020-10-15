@@ -51,6 +51,7 @@ def getobject(text):
    list_name=[]
    newString = (text.replace(u'\u200b', ' '))
    doc = nlp(newString)
+   print(doc)
    for x in doc:
        if(x.ent_type_ == ''):
         text=str(x)
@@ -65,6 +66,7 @@ def getobject(text):
         if(text.isalpha()==True):
           if (text in NNP_name)==False:
             NNP_name.append(text.lower())
+   print(NNP_name)
    for w in list_name:
        if w.lower() in NNP_name:  
           list_name.remove(w)
@@ -82,14 +84,27 @@ server_dict_done={
 user_domain={
 
 }
-
+def removeatinde(texts,index):
+    newstr = texts[:index] + texts[index+1:]
+    return newstr
 
 def dataAnalysist(r,name_array_tag):
     texts=[]
     n_arrays=[]
     w_arrays=[]
     soup = BeautifulSoup(r.text, 'lxml')
-    texts = soup.get_text(separator=', ')
+    texts = soup.get_text(separator='\n')
+    i=0
+    n=len(texts)
+    while i < n-11:
+        if(texts[i]=='\n'):
+            if(texts[i+1].isalpha()==True and texts[i+1].islower()==True):
+                texts=removeatinde(texts,i)
+                n=len(texts)
+
+        i+=1
+    
+    print(texts)
     texts= ' '.join(getobject(texts))
     w_arrays=re.split(r"[^a-zA-Z']",texts)
 
@@ -101,6 +116,7 @@ def dataAnalysist(r,name_array_tag):
                  w_arrays.remove(w)
     
     for text in w_arrays:
+        print(text)
         if(test(text)==False):
           n_arrays.append(text)
          
@@ -112,7 +128,7 @@ def dataAnalysist(r,name_array_tag):
 
 def savedata(data,id):
    
-  BASE = 'https://mini.s-shot.ru/1024x0/JPEG/1024/Z100/?' # you can modify size, format, zoom
+  BASE = 'https://mini.s-shot.ru/1024x0/PNG/1024/Z100/?' # you can modify size, format, zoom
   url = data
   url = urllib.parse.quote_plus(url) #service needs link to be joined in encoded format
 
@@ -165,7 +181,7 @@ def checkWebsite(urlpath,request):
         data['continue']=0
      else:
         data['next']=server_dict[request.user.id][1]                     
-        data['continue']=1
+        data['continue']=0
         server_dict_done[request.user.id].append(server_dict[request.user.id].pop(0))
      return data
     except Exception as e: 
@@ -187,8 +203,8 @@ def emp(request):
             if checkers.is_url(data)==True:
                 try:             
                  urlpath=form.save()
-                 checkWebsite(urlpath,request)
-                 return JsonResponse(json.dumps(checkWebsite(urlpath,request)),safe=False) 
+                 data=checkWebsite(urlpath,request)
+                 return JsonResponse(json.dumps(data),safe=False) 
                 except Exception as e: 
                     print(e)
                     data={}
@@ -262,7 +278,7 @@ def checkref(request):
     
     for comment in findtoure:
        fixed_text = comment.replace(word, ' <mark>'+word+'</mark> ')
-       comment.replace_with(BeautifulSoup(fixed_text))
+       comment.replace_with(BeautifulSoup(fixed_text),"lxml")
     st = soup.prettify()
     return render(request,'watch.html',{'id':id,'word':word,'st':st})  
 
