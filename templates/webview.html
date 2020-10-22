@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}View{% endblock %}
+
+{% block content %}
+{% load static  %}  
+{% static "" as baseUrl %}
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>URL List</title>  
+     {% load static %}  
+</head>
+<style>
+    .url_row{
+        padding: 2px 6px 2px 50px;
+    }
+</style> 
+<br/>
+{% if user.is_authenticated %}
+<h1 style="padding: 2px 6px 2px 50px;">
+    List Domain URLs 
+</h1>
+{% for url in list_url %}  
+
+    <tr>  
+        {% if url.is_valid %}
+        <div>
+        <td><a style="max-width: 50%;max-height:50px ;" href="/words/{{url.id}}" class="url_row">{{ url.name }}</a></td> 
+        <td><i class="fa fa-check" aria-hidden="true"></i></td>
+        </div>
+        {% else %}
+        <td><a style="color:red;" href="/words/{{url.id}}" class="url_row">{{ url.name }}</a></td> 
+        <td><i class="fa fa-times-circle" aria-hidden="true"></i></td>
+        {% endif %} 
+    </tr>  
+{% endfor %}  
+{% endif %}
+{% endblock %}

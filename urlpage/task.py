@@ -13,16 +13,20 @@ import re
 import PIL
 import subprocess
 import en_core_web_sm
+import os
+from urlpage.mongo import checkWord
+
 from celery.contrib import rdb
 nlp = en_core_web_sm.load()
 from hunspell import Hunspell
-spellchecker = Hunspell('en_US')
 
+current_dic = os.path.dirname(os.path.abspath(__file__))
+spellchecker = Hunspell('en_US',hunspell_data_dir=current_dic+'/dic/')
 server_dict={}
 server_dict_done={}
 #lưu hình ảnh
 def savedata(data,id):
-  subprocess.call("I:/djangoWeb/pythonproject/party_softw/CaptureWebsite.exe "+data+" "+str(id))
+  subprocess.call(current_dic+"/../party_softw/CaptureWebsite.exe "+data+" "+str(id))
 
 
 
@@ -31,18 +35,15 @@ def test(word):
     return spellchecker.spell(word)
 #chuẩn hóa link
 def Urls_check(url):
- 
   while('//' in url):
       url=url.replace('//','/')
-
   if(url[0]=='/'):
     url = url[1:]
- 
   return url
 
 
 #lấy tất cả trang web trong web vừa quét
-def get_all_web_domain(domain,r,user):
+def get_all_web_domain(domain,r,user,n):
     global server_dict
     pattern = re.compile("^(/)")
     soup = BeautifulSoup(r.text, 'lxml')
@@ -52,7 +53,7 @@ def get_all_web_domain(domain,r,user):
          linkb = Urls_check(link.attrs["href"]+"/")
          linka= domain+linkb
          
-         if linka not in server_dict[user] and len(server_dict[user])<=3 and linka not in server_dict_done[user]:
+         if linka not in server_dict[user] and len(server_dict[user])<int(n) and linka not in server_dict_done[user]:
                server_dict[user].append(linka)
 
 #lấy tất cả trang web trong web vừa quét
@@ -82,11 +83,18 @@ def getobject(text):
         if(text.isalpha()==True):
           if (text in NNP_name)==False:
             NNP_name.append(text.lower())
+
    for w in list_name:
        if w.lower() in NNP_name:  
           list_name.remove(w)
    return list_name
 
+def removeatinde(texts,index):
+    newstr = texts[:index]+' '+texts[index+1:]
+    return newstr
+
+def removeduplicate(x):
+  return list(dict.fromkeys(x))
 
 def dataAnalysist(r,name_array_tag):
     texts=[]
@@ -94,6 +102,16 @@ def dataAnalysist(r,name_array_tag):
     w_arrays=[]
     soup = BeautifulSoup(r.text, 'lxml')
     texts = soup.get_text(separator='\n')
+    i=0
+    texts = texts.replace(u'\u200b', ' ')
+    n=len(texts)
+    while(i<n-1):
+      if(texts[i]=='\n'):
+        if(texts[i+1].isalpha()==True and texts[i+1].islower()==True):
+          texts=removeatinde(texts,i)
+          n=len(texts)
+      i+=1
+  
     texts= ' '.join(getobject(texts))
     w_arrays=re.split(r"[^a-zA-Z']",texts)
     for w in w_arrays :
@@ -106,35 +124,52 @@ def dataAnalysist(r,name_array_tag):
         if(test(text)==False):
           n_arrays.append(text)
     name_array_tag=n_arrays
+    result_array=[]
+    for w in name_array_tag:
+       ck = checkWord(w)
+       if(ck>0):
+          result_array.append(w)
+    
+    print(result_array)
     #soup.prettify()
-    return name_array_tag
+    return result_array
 
-def checkWebsite(url,domain_id,userid):
+def checkWebsite(url,domain_id,userid,n):
      name_array_tag=[]  
      domain_object = Domain.objects.get(id=domain_id)
-     get_url = Urlspage.objects.create(name=url,idDomain=domain_object)
-     get_url.save()
      # lấy văn bảng từ trang web
-     r = requests.get(url, timeout=5)
-     # lấy tát cả internal website
-     get_all_web_domain(domain_object.name,r,userid)
-     #phân tích từ vựng của trang web
-     name_array_tag=dataAnalysist(r,name_array_tag)
-     #lưu từng từ vào database
-     for word in name_array_tag:
-       check= Words.objects.filter(name=word).exists()
-       if(check==True):
-         save_word = Words.objects.get(name=word)
-       else:
-         save_word = Words.objects.create(name=word)
-         save_word.save()
-       save_word_url= WordUrls.objects.create(idurl=get_url,idword=save_word)
-       save_word_url.save()
-     #lưu hình ảnh trang web
-     savedata(url,get_url.id)
-     #image = PIL.Image.open('urlpage/static/website/'+str(get_url.id)+'.png')
-     #width, height = image.size
-     #size=[width,height]
+     try:
+
+       r = requests.get(url, timeout=5)
+       if(r.status_code==200):
+         get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=True)
+         get_url.save()
+         # lấy tát cả internal website
+         get_all_web_domain(domain_object.name,r,userid,n)
+         #phân tích từ vựng của trang web
+         name_array_tag=dataAnalysist(r,name_array_tag)
+         lower_array = [x.lower() for x in name_array_tag]
+         res = [] 
+         [res.append(x) for x in lower_array if x not in res] 
+         #lưu từng từ vào database
+         for word in res:
+           check= Words.objects.filter(name=word).exists()
+           if(check==True):
+             save_word = Words.objects.get(name=word)
+           else:
+             save_word = Words.objects.create(name=word)
+             save_word.save()
+           save_word_url= WordUrls.objects.create(idurl=get_url,idword=save_word)
+           save_word_url.save()
+         #lưu hình ảnh trang web
+         savedata(url,get_url.id)
+         #image = PIL.Image.open('urlpage/static/website/'+str(get_url.id)+'.png')
+         #width, height = image.size
+         #size=[width,height]
+     except:
+         get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=False)
+         get_url.save()
+
 
      
 
@@ -142,20 +177,21 @@ def checkWebsite(url,domain_id,userid):
 
 @shared_task
 
-def do_task(url,domain_id,userid):
+def do_task(url,domain_id,userid,n):
     try:
      server_dict[userid]=[]
      server_dict_done[userid]=[]
      server_dict[userid].append(url)
     
-     while(len(server_dict_done[userid])<=3):
+     while(len(server_dict_done[userid])<int(n)):
           web = server_dict[userid].pop()
-          process_percent = int(100 * float(len(server_dict_done[userid])) / float(3))
+          process_percent = int(100 * float(len(server_dict_done[userid])) / float(int(n)))
           current_task.update_state(state='PROGRESS',meta={'process_percent': process_percent,'current_web':web})
-          checkWebsite(web,domain_id,userid)
+          checkWebsite(web,domain_id,userid,n)
           server_dict_done[userid].append(web)
 
-     return 1
+     return {'process_percent': 100}
+     
      """
      data={}
      data['check']=text

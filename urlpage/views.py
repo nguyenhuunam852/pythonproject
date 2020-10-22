@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect  
 from urlpage.forms import UrlsForm ,UrlsChangeForm,DomainsForm
 from users.models import Domain_User 
-from urlpage.models import Urlspage,WordUrls,Domain
+from urlpage.models import Urlspage,WordUrls,Domain,Words
 from validator_collection import validators, checkers
 from django.http import JsonResponse,HttpResponse, HttpResponseRedirect
 from django.core import serializers
@@ -46,12 +46,6 @@ def getdomainname(url):
     result = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return result
 
-
-
-
-
-
-
 """
 def checkWebsite(urlpath,request):
     try:
@@ -85,16 +79,6 @@ def checkWebsite(urlpath,request):
     except Exception as e: 
       print(e)
 """
-
-
-
-
-
-
-
-
-
-
 #Another process
 def analystPicture(id,word):
     loca=[]
@@ -149,9 +133,11 @@ def poll_state(request):
       if request.is_ajax():
           task = AsyncResult(user_process[request.user.id])
           data = task.result or task.state
-          
-          if(data['process_percent']==100):
-            user_process.pop(request.user.id)
+          print(data)
+          if(isinstance(data,dict)==True):
+
+             if(data['process_percent']==100):
+               user_process.pop(request.user.id)
       else:
         data = 'This is not an ajax request'
     else:
@@ -165,6 +151,7 @@ def show(request):
     json_data={}
     if request.is_ajax and request.method == "POST":
       form = UrlsForm(request.POST)  
+      quantity = request.POST.get('quantity')
       if form.is_valid():
            data= form.cleaned_data.get("name")
            domain = getdomainname(data)
@@ -173,12 +160,13 @@ def show(request):
            # lưu Domain vào database
            p= Domain_User(idurl=domain_process,iduser=request.user)
            p.save()
-           job = do_task.delay(url=data,domain_id=domain_process.id,userid=request.user.id)
+           job = do_task.delay(url=data,domain_id=domain_process.id,userid=request.user.id,n=quantity)
            user_process[request.user.id]=job.id
            json_data['domain']=domain
       json_data['done']=1
       res = json.dumps(json_data)
       return JsonResponse(res, safe=False) 
+
     if(request.user.is_authenticated and request.method == "GET"):
       if((request.user.id in user_process)==False):
        form = UrlsForm()
@@ -211,9 +199,21 @@ def update(request, id):
     return render(request, 'edit.html', {'employee': form})  
 
 def delete(request, id):  
-    url = Urlspage.objects.get(id=id)  
+    url = Domain.objects.get(id=id)  
     url.delete()  
     return redirect("/")  
+
+def get_all_web(request, id):  
+    url = Urlspage.objects.filter(idDomain=id)  
+    list_url = url
+    return render(request, 'webview.html', {'list_url': list_url})  
+
+def get_all_word(request, id):  
+    words = WordUrls.objects.filter(idurl=id)  
+    list_word = []
+    for w in words:
+      list_word.append(w.idword)
+    return render(request, 'wordsview.html', {'list_word': list_word})  
 
 def deleteAll(request):  
     url = Urlspage.objects.all()

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}View{% endblock %}
+
+{% block content %}
+{% load static  %}  
+{% static "" as baseUrl %}
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>URL List</title>  
+     {% load static %}  
+</head>
+<style>
+    .container{
+      padding-left:10px;
+      padding-right:10px;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style>
+<br/>
+{% if user.is_authenticated %}
+<h1 style="padding: 2px 6px 2px 50px;">
+    List Domain URLs 
+</h1>
+{% for word in list_word %}  
+<div class="container">
+<table>
+    <tr>  
+        <td style="width: 85%;text-align: center;"><span class="url_row">{{ word.name }}</span></td> 
+        <td style="width: 15%;"><a href="/view/{{ url.id }}" class="button">test</a></td>
+
+    </tr>
+</table>
+</div>
+{% endfor %}  
+{% endif %}
+{% endblock %}
