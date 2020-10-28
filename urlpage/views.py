@@ -30,6 +30,8 @@ from hunspell import Hunspell
 from urlpage.task import do_task
 from celery.result import AsyncResult
 
+
+
 index=0
 id_array_tag=[]
 data={}
@@ -39,6 +41,11 @@ server_dict_done={}
 user_domain={}
 correction={}
 user_process={}
+
+
+
+    
+
 
 
 def getdomainname(url):
@@ -79,6 +86,7 @@ def checkWebsite(urlpath,request):
     except Exception as e: 
       print(e)
 """
+
 #Another process
 def analystPicture(id,word):
     loca=[]
@@ -103,24 +111,34 @@ def emp(request):
   return 1
 
 def checkref(request):
-    id = request.GET.get('id', None)
-    word = request.GET.get('word', None)
-    form = Urlspage.objects.get(id=id)
-    r = requests.get(form.name)
-    soup = BeautifulSoup(r.text, 'lxml')
-    findtoure = soup.find_all(text = re.compile(r'\b%s\b'%word))
+    idurl = request.GET.get('idurl', None)
+    idword = request.GET.get('idword', None)
+
+    url = Urlspage.objects.get(id=idurl)
+    word = Words.objects.get(id=idword).name
+    w_url = WordUrls.objects.get(idurl=idurl,idword=idword)
     
-    for comment in findtoure:
-       fixed_text = comment.replace(word, ' <mark>'+word+'</mark> ')
-       comment.replace_with(BeautifulSoup(fixed_text))
+    r = requests.get(url.name)
+    soup = BeautifulSoup(r.text, 'lxml')
+
+    list_form = w_url.form_pre.split(',')
+    for w in list_form:
+       findtoure = soup.find_all(text = re.compile(r'\b%s\b'%w))
+    
+       for comment in findtoure:
+         fixed_text = comment.replace(w, ' <mark>'+w+'</mark> ')
+         comment.replace_with(BeautifulSoup(fixed_text))
+
     st = soup.prettify()
-    return render(request,'watch.html',{'id':id,'word':word,'st':st})  
+    return render(request,'watch.html',{'word':word,'st':st})  
 
 
 def checkpic(request):
     id = request.GET.get('id', None)
     word = request.GET.get('word', None)
+
     filename=id+word+'.png'
+
     if(os.path.isfile('urlpage/static/website/'+filename)==False):
       loca= analystPicture(id,word)
     
@@ -149,6 +167,7 @@ def show(request):
     global user_process
     user_domain=[]
     json_data={}
+
     if request.is_ajax and request.method == "POST":
       form = UrlsForm(request.POST)  
       quantity = request.POST.get('quantity')
@@ -163,6 +182,7 @@ def show(request):
            job = do_task.delay(url=data,domain_id=domain_process.id,userid=request.user.id,n=quantity)
            user_process[request.user.id]=job.id
            json_data['domain']=domain
+
       json_data['done']=1
       res = json.dumps(json_data)
       return JsonResponse(res, safe=False) 
@@ -209,11 +229,12 @@ def get_all_web(request, id):
     return render(request, 'webview.html', {'list_url': list_url})  
 
 def get_all_word(request, id):  
+    url = Urlspage.objects.get(id=id)
     words = WordUrls.objects.filter(idurl=id)  
     list_word = []
     for w in words:
       list_word.append(w.idword)
-    return render(request, 'wordsview.html', {'list_word': list_word})  
+    return render(request, 'wordsview.html', {'list_word': list_word,'url':url})  
 
 def deleteAll(request):  
     url = Urlspage.objects.all()
