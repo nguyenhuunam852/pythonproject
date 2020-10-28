@@ -15,11 +15,7 @@
       padding-left:10px;
       padding-right:10px;
     }
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
+ 
     
     td, th {
       border: 1px solid #dddddd;
@@ -36,16 +32,96 @@
 <h1 style="padding: 2px 6px 2px 50px;">
     List Domain URLs 
 </h1>
-{% for word in list_word %}  
-<div class="container">
-<table>
-    <tr>  
-        <td style="width: 85%;text-align: center;"><span class="url_row">{{ word.name }}</span></td> 
-        <td style="width: 15%;"><a href="/view/{{ url.id }}" class="button">test</a></td>
 
-    </tr>
-</table>
+<div class="container">
+  <table class="table table-striped table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Words</th>
+        <th>Button</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for word in list_word %}  
+      <tr>
+        <td style="width: 85%;text-align: center;"><span class="url_row">{{ word.name }}</span></td> 
+        <td style="width: 10%;">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ShowModal1" data-url="/gethref?idurl={{url.id}}&idword={{word.id}}">
+             
+          </button> 
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ShowModal1" data-url="/gethref?idurl={{url.id}}&idword={{word.id}}"> 
+          </button> 
+      </tr>
+    {% endfor %} 
+    </tbody>
+    
+    </table>
+
+<div class="modal fade" id="ShowModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Check Links</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="first" class="w3-container w3-display-container view">
+            <div style="width:100%;height:400px;border-style:inset;">
+                <iframe id="iframe" src="" width=100% height=100% allowfullscreen></iframe>
+            </div>
+      </div>
+      
+     <div class="modal-footer justify-content-between">                    
+        <button id="next" class="btn btn-danger">Find Another</button>                                    
+        <div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>  
+     </div>
+    </div>
+  </div>
+
+
 </div>
-{% endfor %}  
+</div>
+<script>
+   var index=0;
+   $('#ShowModal1').on('show.bs.modal', function(e) {
+    var href=$(e.relatedTarget).data('url');
+    var ifame = $("#iframe");
+    $(e.currentTarget).find(ifame).attr('src', '');
+    $(e.currentTarget).find(ifame).attr('src', href);
+   });
+   $( "#next" ).click(function() {
+    if(document.getElementById("first").style.display != "none" )
+    {
+      var childiFrame = document.getElementById("iframe");
+      childiFrame.contentWindow.gotoAnother();
+    }
+    else{
+      index1+=1;
+      PicgotoAnother();
+    }
+  });
+  $(window).on('popstate', function() { 
+    $(".modal").modal('hide');
+  });
+   window.gotoAnother = function() {
+     index+=1;
+     if(index==tg.length)
+     {
+       index=0;
+     }
+     test(index);
+
+  }
+  
+  function tunnel(fn) {
+    fn();
+  }
+  </script>
+
 {% endif %}
 {% endblock %}

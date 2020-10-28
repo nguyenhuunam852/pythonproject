@@ -23,5 +23,6 @@ class Words(models.Model):
 class WordUrls(models.Model):
     idurl = models.ForeignKey(Urlspage,on_delete=models.CASCADE)
     idword = models.ForeignKey(Words,on_delete=models.CASCADE)
+    form_pre = models.CharField(default="",max_length=2000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

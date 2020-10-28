@@ -15,24 +15,38 @@ import subprocess
 import en_core_web_sm
 import os
 from urlpage.mongo import checkWord
+from spellchecker import SpellChecker
+spell = SpellChecker()
 
 from celery.contrib import rdb
 nlp = en_core_web_sm.load()
 from hunspell import Hunspell
 
+
+
 current_dic = os.path.dirname(os.path.abspath(__file__))
 spellchecker = Hunspell('en_US',hunspell_data_dir=current_dic+'/dic/')
 server_dict={}
 server_dict_done={}
-#lưu hình ảnh
-def savedata(data,id):
-  subprocess.call(current_dic+"/../party_softw/CaptureWebsite.exe "+data+" "+str(id))
+
+
+
 
 
 
 #kiểm tra từ điển
 def test(word):
     return spellchecker.spell(word)
+
+def checkwordowl(word):
+    headers = {
+    'Authorization': 'Token 7797d0ab6586ff0a131921d4f85c5db8958e8d86',
+    }
+    response = requests.get('https://owlbot.info/api/v4/dictionary/'+word, headers=headers)
+    if(response.status_code==404):
+      return False
+    return True
+
 #chuẩn hóa link
 def Urls_check(url):
   while('//' in url):
@@ -43,18 +57,42 @@ def Urls_check(url):
 
 
 #lấy tất cả trang web trong web vừa quét
-def get_all_web_domain(domain,r,user,n):
+def get_all_web_domain(domain,r,user,n,url):
     global server_dict
     pattern = re.compile("^(/)")
     soup = BeautifulSoup(r.text, 'lxml')
-
+    list_url = []
     for link in soup.find_all("a", href=pattern):
        if "href" in link.attrs:
-         linkb = Urls_check(link.attrs["href"]+"/")
+         #linkb = Urls_check(link.attrs["href"]+"/")
+         #linka= domain+linkb
+         list_url.append(link.attrs["href"])
+         #if linka not in server_dict[user] and linka not in server_dict_done[user]:
+               #server_dict[user].append(linka)
+
+    pattern = re.compile("^"+domain)
+    for link in soup.find_all("a", href=pattern):
+        if "href" in link.attrs:
+          if link not in server_dict[user] and link not in server_dict_done[user] and link!=url:
+               server_dict[user].append(link.attrs["href"])
+
+
+    pattern = re.compile("^(./)")
+    for link in soup.find_all("a", href=pattern):
+      if "href" in link.attrs:
+          if link not in server_dict[user] and link not in server_dict_done[user] and link!=url:
+               server_dict[user].append(domain+link.attrs["href"].replace('./',''))
+
+    
+    p = re.compile('^(//)')
+    l2 = [ s for s in list_url if p.match(s)]
+    l3 = [s for s in list_url if s not in l2]
+    for link in l3:
+         linkb = Urls_check(link+"/")
          linka= domain+linkb
-         
-         if linka not in server_dict[user] and len(server_dict[user])<int(n) and linka not in server_dict_done[user]:
+         if linka not in server_dict[user] and linka not in server_dict_done[user] and link!=url:
                server_dict[user].append(linka)
+
 
 #lấy tất cả trang web trong web vừa quét
 def getdomainname(url):
@@ -83,10 +121,10 @@ def getobject(text):
         if(text.isalpha()==True):
           if (text in NNP_name)==False:
             NNP_name.append(text.lower())
-
    for w in list_name:
        if w.lower() in NNP_name:  
           list_name.remove(w)
+          
    return list_name
 
 def removeatinde(texts,index):
@@ -105,6 +143,7 @@ def dataAnalysist(r,name_array_tag):
     i=0
     texts = texts.replace(u'\u200b', ' ')
     n=len(texts)
+
     while(i<n-1):
       if(texts[i]=='\n'):
         if(texts[i+1].isalpha()==True and texts[i+1].islower()==True):
@@ -114,25 +153,35 @@ def dataAnalysist(r,name_array_tag):
   
     texts= ' '.join(getobject(texts))
     w_arrays=re.split(r"[^a-zA-Z']",texts)
+
     for w in w_arrays :
         t=str(w)
         for ew in t:
             if(ew.isalnum()==False):
                if w in w_arrays:  
                  w_arrays.remove(w)
+
     for text in w_arrays:
         if(test(text)==False):
           n_arrays.append(text)
+
     name_array_tag=n_arrays
     result_array=[]
+
     for w in name_array_tag:
        ck = checkWord(w)
        if(ck>0):
           result_array.append(w)
-    
-    print(result_array)
+
+    result_array_owlDic=[]
+
+    for w in result_array:
+       ck = checkwordowl(w)
+       if(ck==False):
+          result_array_owlDic.append(w)
+   
     #soup.prettify()
-    return result_array
+    return result_array_owlDic
 
 def checkWebsite(url,domain_id,userid,n):
      name_array_tag=[]  
@@ -145,28 +194,39 @@ def checkWebsite(url,domain_id,userid,n):
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=True)
          get_url.save()
          # lấy tát cả internal website
-         get_all_web_domain(domain_object.name,r,userid,n)
+         get_all_web_domain(domain_object.name,r,userid,n,url)
          #phân tích từ vựng của trang web
+         
          name_array_tag=dataAnalysist(r,name_array_tag)
-         lower_array = [x.lower() for x in name_array_tag]
-         res = [] 
-         [res.append(x) for x in lower_array if x not in res] 
+         lower_array={}
+
+         for word in name_array_tag:
+            if(word.lower() not in lower_array):
+              lower_array[word.lower()]=[word]
+            else:
+              lower_array[word.lower()].append(word)
+         
          #lưu từng từ vào database
-         for word in res:
+         for word in lower_array:
            check= Words.objects.filter(name=word).exists()
            if(check==True):
              save_word = Words.objects.get(name=word)
            else:
              save_word = Words.objects.create(name=word)
              save_word.save()
-           save_word_url= WordUrls.objects.create(idurl=get_url,idword=save_word)
+             #,form_pre=lower_array[word].join(',')
+           save_word_url= WordUrls.objects.create(idurl=get_url,idword=save_word,form_pre=','.join(lower_array[word]))
            save_word_url.save()
-         #lưu hình ảnh trang web
-         savedata(url,get_url.id)
          #image = PIL.Image.open('urlpage/static/website/'+str(get_url.id)+'.png')
          #width, height = image.size
          #size=[width,height]
-     except:
+       else:
+
+         get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=False)
+         get_url.save()
+
+     except Exception as e:
+         print(e)
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=False)
          get_url.save()
 
@@ -184,7 +244,7 @@ def do_task(url,domain_id,userid,n):
      server_dict[userid].append(url)
     
      while(len(server_dict_done[userid])<int(n)):
-          web = server_dict[userid].pop()
+          web = server_dict[userid].pop(0)
           process_percent = int(100 * float(len(server_dict_done[userid])) / float(int(n)))
           current_task.update_state(state='PROGRESS',meta={'process_percent': process_percent,'current_web':web})
           checkWebsite(web,domain_id,userid,n)
