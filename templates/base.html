@@ -8,12 +8,54 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  {% load static %} 
+  <script type="text/javascript" src="{% static "/js/spinner.js" %}"></script>
+ 
   
 </head>
 <style>
+  @keyframes spinner-line-fade-more {
+  0%, 100% {
+    opacity: 0; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-quick {
+  0%, 39%, 100% {
+    opacity: 0.25; /* minimum opacity */
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-fade-default {
+  0%, 100% {
+    opacity: 0.22; /* minimum opacity */
+  }
+  1% {
+    opacity: 1;
+  }
+}
+
+@keyframes spinner-line-shrink {
+  0%, 25%, 100% {
+    /* minimum scale and opacity */
+    transform: scale(0.5);
+    opacity: 0.25;
+  }
+  26% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
     #table_style
     {
-      padding: 20px;
+      width: 70%;
+      padding-left: 50px;
     }
     th{
       background-color:limegreen; 
@@ -55,8 +97,9 @@
     {% block javascript %}
     {% endblock javascript %}
   </main>
+
   <script>
-    console.log('test')
+    
     var tables = document.getElementsByTagName('table');
     var table = tables[tables.length - 1];
     var rows = table.rows;
@@ -66,6 +109,7 @@
         td.width='5%';
         rows[i].insertBefore(td, rows[i].firstChild);
     }
+
   </script>
 </body>
 </html>
