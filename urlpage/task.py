@@ -14,7 +14,7 @@ import PIL
 import subprocess
 import en_core_web_sm
 import os
-from urlpage.mongo import checkWord
+from mymodule.mongo import checkWord
 from spellchecker import SpellChecker
 spell = SpellChecker()
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect  
 from urlpage.forms import UrlsForm ,UrlsChangeForm,DomainsForm
 from users.models import Domain_User 
-from urlpage.models import Urlspage,WordUrls,Domain,Words
+from urlpage.models import Urlspage,WordUrls,Domain,Words,Words_picture
 from validator_collection import validators, checkers
 from django.http import JsonResponse,HttpResponse, HttpResponseRedirect
 from django.core import serializers
@@ -14,9 +14,9 @@ import os
 import spacy
 from spacy import displacy
 from collections import Counter
-
+from mymodule.pic_analyze import Analyze
 from html import unescape
-
+from django.conf import settings
 import asyncio
 from pyppeteer import launch
 import pytesseract
@@ -29,7 +29,7 @@ from urllib.parse import urlparse
 from hunspell import Hunspell
 from urlpage.task import do_task
 from celery.result import AsyncResult
-
+from words_lib.models import Ignore_word_domain,Personal_words
 
 
 index=0
@@ -41,12 +41,6 @@ server_dict_done={}
 user_domain={}
 correction={}
 user_process={}
-
-
-
-    
-
-
 
 def getdomainname(url):
     parsed_uri = urlparse(url)
@@ -107,20 +101,51 @@ def analystPicture(id,word):
     cv2.imwrite("urlpage/static/website/"+filename,img_new)
     return loca
 
-def emp(request):
-  return 1
+def pictureAnalyze(request):
+    data={}
+    if(request.method == "POST"):
+      picture_list=[]
+      id = request.POST.get("id")
+      word_url = WordUrls.objects.get(id=id)
+      check = word_url.checkpic
+      if (check==False):
+        picture_list=[]
+        word_url = WordUrls.objects.get(id=int(id))
+        web = Urlspage.objects.get(id=int(word_url.idurl.id))
+        word = Words.objects.get(id=int(word_url.idword.id))
+        picture_list_str=Analyze(web.name,word_url.form_pre.split(','),word.name.lower())
+        for pic in picture_list_str:
+          file_name = os.path.basename(pic)
+          new_words_pic = Words_picture.objects.create(idwords_url=word_url,picture=file_name)
+          new_words_pic.save()
+          picture_list.append(new_words_pic.picture)
+        word_url.checkpic=True
+        word_url.save()
+      else:
+        picture_words_list=Words_picture.objects.filter(idwords_url=int(id))
+        for pic in picture_words_list:
+          picture_list.append(pic.picture)
+    if(len(picture_list)==0):
+      picture_list.append('fail.jpeg')
+    data['list_pic']=picture_list
+    size_list=[]
+    for pic in picture_list:
+        image = PIL.Image.open(settings.MEDIA_ROOT+'/picture/'+str(pic))
+        width, height = image.size
+        size=[width,height]
+        size_list.append(size)
+    data['list_size']=size_list
+    json_data = json.dumps(data)
+    return HttpResponse(json_data, content_type='application/json')
 
 def checkref(request):
     idurl = request.GET.get('idurl', None)
     idword = request.GET.get('idword', None)
-
     url = Urlspage.objects.get(id=idurl)
     word = Words.objects.get(id=idword).name
-    w_url = WordUrls.objects.get(idurl=idurl,idword=idword)
-    
+    w_url = WordUrls.objects.get(idurl=idurl,idword=idword)  
     r = requests.get(url.name)
     soup = BeautifulSoup(r.text, 'lxml')
-
     list_form = w_url.form_pre.split(',')
     for w in list_form:
        findtoure = soup.find_all(text = re.compile(r'\b%s\b'%w))
@@ -130,18 +155,14 @@ def checkref(request):
          comment.replace_with(BeautifulSoup(fixed_text))
 
     st = soup.prettify()
-    return render(request,'watch.html',{'word':word,'st':st})  
-
+    return render(request,'watch.html',{'word':word,'st':st,'id':w_url.id})  
 
 def checkpic(request):
     id = request.GET.get('id', None)
     word = request.GET.get('word', None)
-
     filename=id+word+'.png'
-
     if(os.path.isfile('urlpage/static/website/'+filename)==False):
       loca= analystPicture(id,word)
-    
     return render(request,'picture.html',{'id':id,'word':word,'loca':loca})  
 
 #Hàm cập nhật trạng thái cho process
@@ -151,9 +172,7 @@ def poll_state(request):
       if request.is_ajax():
           task = AsyncResult(user_process[request.user.id])
           data = task.result or task.state
-          print(data)
           if(isinstance(data,dict)==True):
-
              if(data['process_percent']==100):
                user_process.pop(request.user.id)
       else:
@@ -167,7 +186,6 @@ def show(request):
     global user_process
     user_domain=[]
     json_data={}
-
     if request.is_ajax and request.method == "POST":
       form = UrlsForm(request.POST)  
       quantity = request.POST.get('quantity')
@@ -206,18 +224,6 @@ def show(request):
        return render(request,"show.html",context)
     return render(request,"show.html") 
 
-def edit(request, id):  
-    url = Urlspage.objects.get(id=id)  
-    return render(request,'edit.html', {'url':url})  
-
-def update(request, id):  
-    url = Urlspage.objects.get(id=id)  
-    form = UrlsChangeForm(request.POST, instance = url)  
-    if form.is_valid():  
-        form.save()  
-        return redirect('/')  
-    return render(request, 'edit.html', {'employee': form})  
-
 def delete(request, id):  
     url = Domain.objects.get(id=id)  
     url.delete()  
@@ -230,14 +236,19 @@ def get_all_web(request, id):
 
 def get_all_word(request, id):  
     url = Urlspage.objects.get(id=id)
-    words = WordUrls.objects.filter(idurl=id)  
+    words = WordUrls.objects.filter(idurl=id,available=True)  
+    ignore_domain = Ignore_word_domain.objects.filter(idurl=url.idDomain.id)
+    personal_words = Personal_words.objects.filter(iduser=request.user)
+    list_ignore=[x.idword.id for x in ignore_domain]
+    list_person=[x.idword.id for x in personal_words]
     list_word = []
     for w in words:
-      list_word.append(w.idword)
-    return render(request, 'wordsview.html', {'list_word': list_word,'url':url})  
-
-def deleteAll(request):  
-    url = Urlspage.objects.all()
-    url.delete()  
-    return redirect("/")  
+      w.idword.idcommon = w.id
+      if(w.idword.id not in list_ignore):
+        if(w.idword.id not in list_person):
+          list_word.append(w.idword)
+    if(len(list_word)>0):
+      return render(request, 'wordsview.html', {'list_word': list_word,'url':url})  
+    else:
+      return render(request, 'no_word_view.html', {})  
 

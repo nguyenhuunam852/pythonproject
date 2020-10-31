@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_results',
     'users',
-    'urlpage'
+    'urlpage',
+    'words_lib',
 ]
 
 MIDDLEWARE = [

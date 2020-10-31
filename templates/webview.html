@@ -37,7 +37,7 @@
         <th>#</th>
         <th>URL</th>
         <th>State</th>
-        <th>Test</th>
+        <th>Button</th>
       </tr>
     </thead>
     
@@ -45,7 +45,7 @@
     {% for url in list_url %} 
       <tr>
         
-        <td style="width: 75%;">
+        <td style="width: 35%;">
           <a href="/words/{{url.id}}">{{ url.name }}</a>
         </td>
         <td style="width: 10%;text-align: center;">
@@ -55,8 +55,8 @@
              <i class="fa fa-times-circle" style="color: red;" aria-hidden="true"></i>
             {% endif %} 
         </td>
-        <td style="width: 10%;">
-            <a href="" class="button" style="background-color:#DF0101;"><i class="fa fa-plus-square" aria-hidden="true"></i></a>  
+        <td style="width: 20%;">
+            <a href="" class="button" style="background-color:#DF0101;"><i class="fa fa-list" aria-hidden="true"></i></a>  
             <a href="" class="button" style="background-color:#0080ff;"><i class="fa fa-trash" aria-hidden="true"></i></a>  
         </td> 
       </tr>
