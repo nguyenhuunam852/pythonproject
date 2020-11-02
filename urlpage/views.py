@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect  
 from urlpage.forms import UrlsForm ,UrlsChangeForm,DomainsForm
 from users.models import Domain_User 
-from urlpage.models import Urlspage,WordUrls,Domain,Words,Words_picture
+from urlpage.models import Urlspage,WordUrls,Domain,Words
 from validator_collection import validators, checkers
 from django.http import JsonResponse,HttpResponse, HttpResponseRedirect
 from django.core import serializers
@@ -10,10 +10,8 @@ import json
 import requests
 import hunspell
 import re
-import os 
 import spacy
 from spacy import displacy
-from collections import Counter
 from mymodule.pic_analyze import Analyze
 from html import unescape
 from django.conf import settings
@@ -104,37 +102,30 @@ def analystPicture(id,word):
 def pictureAnalyze(request):
     data={}
     if(request.method == "POST"):
-      picture_list=[]
-      id = request.POST.get("id")
-      word_url = WordUrls.objects.get(id=id)
-      check = word_url.checkpic
-      if (check==False):
-        picture_list=[]
-        word_url = WordUrls.objects.get(id=int(id))
-        web = Urlspage.objects.get(id=int(word_url.idurl.id))
-        word = Words.objects.get(id=int(word_url.idword.id))
-        picture_list_str=Analyze(web.name,word_url.form_pre.split(','),word.name.lower())
-        for pic in picture_list_str:
-          file_name = os.path.basename(pic)
-          new_words_pic = Words_picture.objects.create(idwords_url=word_url,picture=file_name)
-          new_words_pic.save()
-          picture_list.append(new_words_pic.picture)
-        word_url.checkpic=True
-        word_url.save()
-      else:
-        picture_words_list=Words_picture.objects.filter(idwords_url=int(id))
-        for pic in picture_words_list:
-          picture_list.append(pic.picture)
-    if(len(picture_list)==0):
-      picture_list.append('fail.jpeg')
-    data['list_pic']=picture_list
-    size_list=[]
-    for pic in picture_list:
-        image = PIL.Image.open(settings.MEDIA_ROOT+'/picture/'+str(pic))
-        width, height = image.size
-        size=[width,height]
-        size_list.append(size)
-    data['list_size']=size_list
+      idpage = request.POST.get("idpage")
+      list_word = WordUrls.objects.filter(idurl=idpage)
+      words=[]
+      for w in list_word:
+        for w1 in w.form_pre.split(','):
+          words.append(w1)
+      page = Urlspage.objects.get(id=idpage)
+      check = page.piclink
+      file_name=""
+      if (check==""):
+        try: 
+         pic = Analyze(page,words)
+         file_name = os.path.basename(pic)
+         page.piclink = file_name
+         page.save()
+        except:
+         file_name='fail.jpeg'
+    else:
+        file_name=page.piclink
+    data['pic']=file_name
+    size=[]
+    image = PIL.Image.open(settings.MEDIA_ROOT+'/picture/'+str(file_name))
+    size = [image.width, image.height] 
+    data['size']=size
     json_data = json.dumps(data)
     return HttpResponse(json_data, content_type='application/json')
 

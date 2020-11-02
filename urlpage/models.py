@@ -12,6 +12,7 @@ class Urlspage(models.Model):
     name = models.CharField("url",max_length=2000)
     is_valid=models.BooleanField(default=True)
     idDomain=models.ForeignKey(Domain,default="",on_delete=models.CASCADE)
+    piclink = models.CharField(default="",max_length=2000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -26,12 +27,9 @@ class WordUrls(models.Model):
     idurl = models.ForeignKey(Urlspage,on_delete=models.CASCADE)
     idword = models.ForeignKey(Words,on_delete=models.CASCADE)
     form_pre = models.CharField(default="",max_length=2000)
-    checkpic = models.BooleanField(default=False,max_length=2000)
     available = models.BooleanField(default=True,max_length=2000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-class Words_picture(models.Model):
-    idwords_url = models.ForeignKey(WordUrls,on_delete=models.CASCADE)
-    picture = models.CharField(default="",max_length=5000)
+
 

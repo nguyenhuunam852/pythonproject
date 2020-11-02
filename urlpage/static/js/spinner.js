@@ -52,7 +52,7 @@
             this.el.setAttribute('role', 'progressbar');
             css(this.el, {
                 position: this.opts.position,
-                width: 0,
+                width: '20px',
                 zIndex: this.opts.zIndex,
                 left: this.opts.left,
                 top: this.opts.top,

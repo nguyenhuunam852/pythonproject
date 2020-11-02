@@ -75,24 +75,21 @@ def get_all_web_domain(domain,r,user,n,url):
         if "href" in link.attrs:
           if link not in server_dict[user] and link not in server_dict_done[user] and link!=url:
                server_dict[user].append(link.attrs["href"])
-
-
-    pattern = re.compile("^(./)")
-    for link in soup.find_all("a", href=pattern):
-      if "href" in link.attrs:
-          if link not in server_dict[user] and link not in server_dict_done[user] and link!=url:
-               server_dict[user].append(domain+link.attrs["href"].replace('./',''))
-
     
-    p = re.compile('^(//)')
-    l2 = [ s for s in list_url if p.match(s)]
-    l3 = [s for s in list_url if s not in l2]
-    for link in l3:
-         linkb = Urls_check(link+"/")
-         linka= domain+linkb
-         if linka not in server_dict[user] and linka not in server_dict_done[user] and link!=url:
+    for link in list_url:
+        if("//" in link):
+           check_domain = urlparse(link).netloc
+           if check_domain==urlparse(domain).netloc:
+              if link not in server_dict[user] and link not in server_dict_done[user] and link!=url:
+                server_dict[user].append(link)
+        else:
+           linkb = Urls_check(link+"/")
+           linka= domain+linkb
+           if linka not in server_dict[user] and linka not in server_dict_done[user] and link!=url:
                server_dict[user].append(linka)
 
+
+  
 
 #lấy tất cả trang web trong web vừa quét
 def getdomainname(url):
@@ -150,8 +147,15 @@ def dataAnalysist(r,name_array_tag):
           texts=removeatinde(texts,i)
           n=len(texts)
       i+=1
-  
+
+ 
     texts= ' '.join(getobject(texts))
+    texts = texts.split(' ')
+    for i,w in enumerate(texts):
+      if(w.encode().isalpha()==False):
+        texts[i]=""
+    texts = ' '.join(texts)
+
     w_arrays=re.split(r"[^a-zA-Z']",texts)
 
     for w in w_arrays :
