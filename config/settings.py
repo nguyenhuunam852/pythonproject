@@ -16,6 +16,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
 
 # Application definition
 
@@ -26,8 +30,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',
     'users',
-    'urlpage'
+    'urlpage',
+    'words_lib',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +75,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',  
         'NAME': 'project',  
         'USER':'root',  
-        'PASSWORD':'Nam781999@',  
+        'PASSWORD':'Abc123456@',  
         'HOST':'localhost',  
         'PORT':'3306'  
     }

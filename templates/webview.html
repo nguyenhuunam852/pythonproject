@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}View{% endblock %}
+
+{% block content %}
+{% load static  %}  
+{% static "" as baseUrl %}
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>URL List</title>  
+     {% load static %}  
+</head>
+<style>
+    .url_row{
+        padding: 2px 6px 2px 50px;
+    }
+    .button {
+     font: bold 11px Arial;
+     color: white;
+     padding: 2px 6px 2px 6px;
+     border-top: 1px solid #CCCCCC;
+     border-right: 1px solid #333333;
+     border-bottom: 1px solid #333333;
+     border-left: 1px solid #CCCCCC;
+    }
+</style> 
+<br/>
+{% if user.is_authenticated %}
+<h1 style="padding: 2px 6px 2px 50px;">
+    List URL in Your Domain 
+</h1>
+ <div id="table_style">
+<table class="table table-striped table-bordered table-sm">
+
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>URL</th>
+        <th>State</th>
+        <th>Button</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    {% for url in list_url %} 
+      <tr>
+        
+        <td style="width: 35%;">
+          <a href="/words/{{url.id}}">{{ url.name }}</a>
+        </td>
+        <td style="width: 10%;text-align: center;">
+            {% if url.is_valid %}
+             <i class="fa fa-check" style="color: red;" aria-hidden="true"></i>
+            {% else %}
+             <i class="fa fa-times-circle" style="color: red;" aria-hidden="true"></i>
+            {% endif %} 
+        </td>
+        <td style="width: 20%;">
+            <a href="" class="button" style="background-color:#DF0101;"><i class="fa fa-list" aria-hidden="true"></i></a>  
+            <a href="" class="button" style="background-color:#0080ff;"><i class="fa fa-trash" aria-hidden="true"></i></a>  
+        </td> 
+      </tr>
+    {% endfor %} 
+    </tbody>
+    
+    </table>
+  </div>
+   
+ 
+{% endif %}
+{% endblock %}

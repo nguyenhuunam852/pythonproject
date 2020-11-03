@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}View{% endblock %}
+{% block content %}
+<head>  
+    <meta charset="UTF-8">  
+    <title>Nothing Wrong in this Website</title>  
+    {% load static %} 
+</head>
+<style>
+    #outPopUp {
+  position: absolute;
+  width: 700px;
+  height: 200px;
+  z-index: 15;
+  top: 50%;
+  left: 30%;
+  margin: -200px 0 0 -260px;
+
+}
+</style>
+<body>
+    <h1 id="outPopUp" style="padding: 20px;left:50%;">Nothing Wrong in This Website!</h1>
+    <img style="  top: 50%;
+    left: 30%;z-index: 15;position: absolute;margin: -100px 0 0 -10px;width: 500px;" src="/media/picture/thanks_for.jpg"></img>
+</body>
+{% endblock %}

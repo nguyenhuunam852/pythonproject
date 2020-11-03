@@ -1,0 +1,561 @@
+{% extends 'base.html' %}
+{% block title %}View{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<head>  
+    <meta charset="UTF-8">  
+    <title>URL List</title>  
+    {% load static %} 
+    
+</head>
+<style>
+  
+#body1 {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row > .column1 {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column1 {
+  float: left;
+  width: 25%;
+}
+
+/* The Modal (background) */
+.modal1 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content1 {
+  position: relative;
+  background-color: black;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: block;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+    .container{
+      padding-left:10px;
+      padding-right:10px;
+    }
+ 
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style>
+<br/>
+{% if user.is_authenticated %}
+<div id="body1">
+<h1 style="padding: 2px 6px 2px 50px;">
+    List Domain URLs 
+</h1>
+
+<div class="container">
+  <div id="button_viewpic">
+    <button class="btn btn-danger check_pic" style="float: right;">View Picture</button>
+  </div>
+  <br/>
+  <br/>
+  <div id="table_style">
+  <table class="table table-striped table-bordered table-sm">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Words</th>
+        <th>Test</th>
+        <th>Button</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for word in list_word %}  
+      
+      <tr>
+        <td style="width: 38%;text-align: center;"><span class="url_row">{{ word.name }}</span></td>
+        <td style="width: 45%;text-align: center;"><span class="url_row"></span></td>  
+        <td style="width: 12%;">
+          <button type="button" style="font-size: 0.6rem;" class="btn btn-primary" data-toggle="modal" data-target="#ShowModal1" data-url="/gethref?idurl={{url.id}}&idword={{word.id}}">
+           <i class="fa fa-code" aria-hidden="true"></i>
+          </button> 
+          <button type="button" style="font-size: 0.6rem;" class="btn btn-success" data-toggle="modal" data-target="#ShowModal2" data-id="{{word.id}}"> 
+            <i class="fa fa-times" aria-hidden="true"></i>
+           </button> 
+      </tr>
+    {% endfor %} 
+    </tbody>
+    
+    </table>
+  </div>
+  <div>
+    </div>
+</div>
+
+<div class="modal fade" id="ShowModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Check Links</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="first" class="w3-container w3-display-container view">
+            <div style="width:100%;height:400px;border-style:inset;">
+                <iframe id="iframe" src="" width=100% height=100% allowfullscreen></iframe>
+            </div>
+      </div>
+     <div class="modal-footer justify-content-between">                    
+        <button id="next" class="btn btn-danger">Find Another</button>                                    
+        <div>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>  
+     </div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal" class="modal1">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content1">
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <div class="caption-container">
+    <p id="caption"></p>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade" id="ShowModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ignore Words</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <button id="ignore_page" type="button" style="width: 50%;margin-left: 120px;" class="btn btn-primary" >
+             Ignore Just For This Page
+         </button>
+         <br/>
+         <br/>
+         <button id="ignore_domain" type="button" style="width: 50%;margin-left: 120px;" class="btn btn-success" >
+          Ignore For All Domain
+         </button>
+         <br/>
+         <br/>
+         <butto id="person"n type="button" style="width: 50%;margin-left: 120px;" class="btn btn-danger" >
+          Add To Personal List
+         </button>
+      </div>
+    
+    </div>
+  </div>
+</div>
+</div>
+<script>
+   var index=0;
+
+   $('#ShowModal1').on('show.bs.modal', function(e) {
+    var href=$(e.relatedTarget).data('url');
+    var ifame = $("#iframe");
+    $(e.currentTarget).find(ifame).attr('src', '');
+    $(e.currentTarget).find(ifame).attr('src', href);
+   });
+   $( "#next" ).click(function() {
+    if(document.getElementById("first").style.display != "none" )
+    {
+      var childiFrame = document.getElementById("iframe");
+      childiFrame.contentWindow.gotoAnother();
+    }
+    else{
+      index1+=1;
+      PicgotoAnother();
+    }
+  });
+
+  $('#ShowModal2').on('show.bs.modal', function(e) {
+    var id=$(e.relatedTarget).data('id');
+    $('#ignore_page').val(id)
+    $('#ignore_domain').val(id)
+    $('#person').val(id)
+   });
+
+   $( "#next" ).click(function() {
+    if(document.getElementById("first").style.display != "none" )
+    {
+      var childiFrame = document.getElementById("iframe");
+      childiFrame.contentWindow.gotoAnother();
+    }
+    else{
+      index1+=1;
+      PicgotoAnother();
+    }
+  });
+
+  $(window).on('popstate', function() { 
+    $(".modal").modal('hide');
+  });
+   window.gotoAnother = function() {
+     index+=1;
+     if(index==tg.length)
+     {
+       index=0;
+     }
+     test(index);
+  }
+  
+  function tunnel(fn) {
+    fn();
+  }
+  var opts = {
+  lines: 13, // The number of lines to draw
+  length: 10, // The length of each line
+  width: 10, // The line thickness
+  radius: 10, // The radius of the inner circle
+  scale: 1, // Scales overall size of the spinner
+  corners: 1, // Corner roundness (0..1)
+  speed: 5, // Rounds per second
+  rotate: 0, // The rotation offset
+  animation: 'spinner-line-fade-quick', // The CSS animation name for the lines
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#ffffff', // CSS color or array of colors
+  fadeColor: 'transparent', // CSS color or array of colors
+  top: String(document.documentElement.clientHeight/2-65)+'px', // Top position relative to parent
+  left: String(document.documentElement.clientWidth/2-65)+'px', // Left position relative to parent
+  shadow: '0 0 1px transparent', // Box-shadow for the lines
+  zIndex: 2000000000, // The z-index (defaults to 2e9)
+  className: 'spinner', // The CSS class to assign to the spinner
+  position: 'absolute', // Element positioning
+  };
+  var spinner = new Spin.Spinner(opts)
+  console.log(spinner)
+ 
+  var poll = function()
+  {
+        poll_xhr = $.ajax(
+        {
+        url:'/analyze_pic',
+        type: 'POST',
+        data: {
+            idpage:"{{url.id}}",
+            csrfmiddlewaretoken: "{{csrf_token}}",
+        },
+        success: function(result) {
+          spinner.stop();
+          $(".mySlides").remove();
+          
+          list_pic = result.list_pic;
+          list_size = result.list_size;
+         
+          var i=0
+          var fn = function myFunction(item) {
+           
+            var tag = document.createElement("div");
+            tag.classList.add('mySlides')
+            tag.style.paddingTop='50px';
+            var img = document.createElement("img");
+            img.src = '/media/picture/'+item;
+            img.style.width= list_size[0][0];
+            img.style.height = list_size[0][1];
+            var height = document.documentElement.clientHeight;
+            img.id = item.replace('.png','');
+            img.style.paddingTop = String((height- list_size[0][1])/2-120-list_size[0][1]/2)+'px';
+            img.style.paddingLeft = String((width- list_size[0][0])/2-list_size[0][0]/2)+'px';
+            i+=1;
+            tag.appendChild(img);
+            $('.modal-content1').append(tag);
+          }
+          list_pic.forEach(fn)
+          openModal();
+          var width =0;
+          var list_slides = document.getElementsByClassName('mySlides');
+          for(i=0;i<list_slides.length;i++)
+          {
+             if(list_slides[i].offsetWidth>0)
+             {
+               width=list_slides[i].offsetWidth;
+             }
+          }
+          console.log(width)
+          var i =0
+          var calculate = function Calculate(item) {
+           list_item = item.replace('.png','');
+           var img = document.getElementById(list_item);
+           var img_width = list_size[i][0];
+           console.log('imgwidth:'+img_width)
+           img.style.paddingLeft = String((width-img_width)/2)+'px';
+          }
+          list_pic.forEach(calculate)
+          showSlides(slideIndex);
+      
+                 
+        }}
+      )
+  }
+
+  var ignore_page = function(id)
+  {
+        poll_xhr = $.ajax(
+        {
+        url:'/ignore/ignore_page',
+        type: 'POST',
+        data: {
+            id:id,
+            idpage:"{{url.id}}",
+            csrfmiddlewaretoken: "{{csrf_token}}",
+        },
+        success: function(result) {
+            if(result=='success')
+            {
+              window.alert("Your Task is done, Let Checkout!!!");
+            }
+            else
+            {
+              window.alert("Something Went Wrong!!!");
+            }
+            location.reload();
+        }
+        }
+      )
+  }
+  var ignore_domain = function(id)
+  {
+        poll_xhr = $.ajax(
+        {
+        url:'/ignore/ignore_domain',
+        type: 'POST',
+        data: {
+            id:id,
+            idDomain:"{{url.idDomain.id}}",
+            csrfmiddlewaretoken: "{{csrf_token}}",
+        },
+        success: function(result) {
+            if(result=='success')
+            {
+              window.alert("Your Task is done, Let Checkout!!!");
+            }
+            else
+            {
+              window.alert("Something Went Wrong!!!");
+            }
+            location.reload();
+        }
+        }
+      )
+  }
+  var personal = function(id)
+  {
+        poll_xhr = $.ajax(
+        {
+        url:'/ignore/personal',
+        type: 'POST',
+        data: {
+            id:id,
+            csrfmiddlewaretoken: "{{csrf_token}}",
+        },
+        success: function(result) {
+            if(result=='success')
+            {
+              window.alert("Your Task is done, Let Checkout!!!");
+            }
+            else
+            {
+              window.alert("Something Went Wrong!!!");
+            }
+            location.reload();
+        }
+        }
+      )
+  }
+
+  $(".check_pic").click(function() {
+    var idcommon = $(this).val();
+    setTimeout(() => {    
+      poll(idcommon);
+    }, 2000);
+    $(".mySlides").remove();
+    openModal();
+    var target = document.getElementsByClassName('modal-content1')[0];
+    spinner.spin(target);
+   
+  });
+  $("#ignore_page").click(function() {
+    var id = $(this).val();
+    setTimeout(() => {    
+      ignore_page(id);
+    }, 500);
+  });
+  $("#ignore_domain").click(function() {
+    var id = $(this).val();
+    setTimeout(() => {    
+      ignore_domain(id);
+    }, 500);
+  });
+  $("#person").click(function() {
+    var id = $(this).val();
+    setTimeout(() => {    
+      personal(id);
+    }, 500);
+  });
+
+
+  function openModal() {
+  document.getElementById("myModal").style.display = "block";
+  }
+  function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+  }
+ 
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  var slideIndex = 1;
+  function showSlides(n) {
+
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex-1].style.display = "block";
+
+  } 
+  </script>
+
+{% endif %}
+{% endblock %}
