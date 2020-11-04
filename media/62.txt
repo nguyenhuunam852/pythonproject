@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en" class="en">
+<head>
+    <title>Homemade Apple Juice Recipe - Tablespoon.com</title>
+    <meta charset="utf-8" />
+
+
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta property='og:site_name' content='Tablespoon.com'><meta property='og:url' content='https://www.tablespoon.com/recipes/homemade-apple-juice/bcf44468-1eed-479a-88d6-2bd4c3cfacd3'><meta property='og:title' content='Homemade Apple Juice'><meta property='og:description' content='Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.'><meta property='og:image' content='https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg'><meta property='og:type' content='article'><meta property='gmi:topics' content='Boil, Beverage, Non-Alcoholic Drink, Sweet, How To, DAP, Apple, Fruit'><meta property='fb:app_id' content='1599284803660306'><meta property='twitter:card' content='summary'><meta property='onespot:page-type' content='Recipe'><meta name='description' content='Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.'>    <link rel="canonical" href="https://www.tablespoon.com/recipes/homemade-apple-juice/bcf44468-1eed-479a-88d6-2bd4c3cfacd3" />
+    <script type="application/ld+json">{"@type":"Recipe","@context":"http://schema.org/","name":"Homemade Apple Juice","keywords":"homemade apple juice","recipeCategory":"Beverage","image":"https://images-gmi-pmc.edge-generalmills.com/7b1508ef-06e3-45fa-97b5-43f2bb7752e3.jpg","description":"Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.","recipeIngredient":["18  Apples","  Cinnamon (optional)","  Sugar (optional)"],"totalTime":"PT1H0M","prepTime":"PT0H20M","recipeYield":"8","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.5","ratingCount":"6","bestRating":"5","worstRating":"1"},"author":{"@type":"Person","name":"TBSP Kitchens"},"recipeInstructions":[{"@type":"HowToStep","text":"Start by washing and then coring the apple to remove seeds. Cut the apples into slices. There is no need to peel the apples."},{"@type":"HowToStep","text":"Add the apples to the pot and add enough water to just cover them. Too much water and you’ll have pretty diluted juice. This juice may come out a bit strong, but it’s a lot easier to dilute the juice with extra water rather than trying to make the flavor stronger."},{"@type":"HowToStep","text":"Slowly boil the apples for about 20-25 minutes or until the apples are quite soft. Place a coffee filter or piece of cheesecloth in your fine mesh strainer and place over a bowl."},{"@type":"HowToStep","text":"Slowly ladle the hot juice/apple mixture into a fine mesh strainer and gently mash the apples. The juice will be filtered through the bottom into your bowl while the apple mush will be left behind. Place the mush in a separate bowl for later. Repeat this process until all of your juice is in the bowl."},{"@type":"HowToStep","text":"Taste the juice after it’s cooled for a bit. You can add additional sugar or cinnamon depending on your preferences. Again, if the flavor is too strong, you can add water a little bit at a time to weaken the flavor."},{"@type":"HowToStep","text":"The apple mush you collected can easily be turned into applesauce by pureeing and adding a smidgen of sugar and cinnamon to taste."},{"@type":"HowToStep","text":"Keep in mind your homemade apple juice doesn’t have any preservatives so be sure to keep it refrigerated and to use it within a week!"}],"nutrition":{"@type":"NutritionInformation","servingSize":"1 Serving"},"dateCreated":"03/02/2011"}</script><script type="text/javascript">GeneralMills = window.GeneralMills || {}; GeneralMills.ContentMetadata = {"contentId":"bcf44468-1eed-479a-88d6-2bd4c3cfacd3","contentType":"Recipe","title":"Homemade Apple Juice","description":"Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.","pageUrl":"https://www.tablespoon.com/recipes/homemade-apple-juice/bcf44468-1eed-479a-88d6-2bd4c3cfacd3","imageUrl":"https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg","averageRating":0.89999997615814209,"reviewCount":6};</script>
+    <script charset='UTF-8'> window['adrum-start-time'] = new Date().getTime();(function(config){config.appKey = 'AD-AAB-AAS-UYS';config.adrumExtUrlHttp = 'http://cdn.appdynamics.com';config.adrumExtUrlHttps = 'https://cdn.appdynamics.com';config.beaconUrlHttp = 'http://col.eum-appdynamics.com';config.beaconUrlHttps = 'https://col.eum-appdynamics.com';config.xd = {enable : false};})(window['adrum-config'] || (window['adrum-config'] = {})); </script><script src='/scripts/adrum-4.5.13.2640.js'></script><script type="text/javascript">(function() {  GeneralMills = window.GeneralMills || {}; GeneralMills.getGlobalSetting = function(key) {  var config = {"isSearchEngineRequest":false,"userPrivacy_CookieExists":false,"userPrivacy_AnalyticsEnabled":true,"userPrivacy_FunctionalEnabled":true,"userPrivacy_TargetingEnabled":true}; return config[key]; }; })();</script><link href="//tags.tiqcdn.com/utag/generalmills/tablespoon.com/prod/utag.js" rel="preload" as="script"><script src="//tags.tiqcdn.com/utag/generalmills/tablespoon.com/prod/utag.js" async=""></script><script type="text/javascript">
+                (function () {
+                    GeneralMills = window.GeneralMills || {};
+                    GeneralMills.Analytics = GeneralMills.Analytics || {
+                        eventQueue: [],
+                        queueInterval: 0
+                    };
+
+                    GeneralMills.Analytics.raiseEvent = function(d, o) { 
+                        var options = o || {};
+
+                        if(!window.utag) {
+                            GeneralMills.Analytics.eventQueue.push({ eventData: d, eventOptions: options });
+
+                            GeneralMills.Analytics.queueInterval = GeneralMills.Analytics.queueInterval || setInterval(function () {
+                                if(window.utag) {
+                                    clearInterval(GeneralMills.Analytics.queueInterval);
+                                    for(var i = 0; i < GeneralMills.Analytics.eventQueue.length; i++) {
+                                        var eventObj = GeneralMills.Analytics.eventQueue[i];
+                                        
+                                        if(eventObj.eventOptions.virtualPageView)
+                                            utag.view(eventObj.eventData);
+                                        else
+                                            utag.link(eventObj.eventData);
+                                    }
+
+                                    GeneralMills.Analytics.eventQueue = [];
+                                }
+                            }, 1000);
+                        } else {
+                            if(options.virtualPageView)
+                                window.utag.view(d);
+                            else
+                                window.utag.link(d);
+                        }
+
+                        if (options.redirectUrl)
+                            setTimeout(function() { window.location = options.redirectUrl }, 500);
+                    };                
+                })();
+            </script><script type="text/javascript">window.utag_data = {"ContentId":"bcf44468-1eed-479a-88d6-2bd4c3cfacd3","ContentType":"Recipe","Language":"en","ContentTitle":"Homemade Apple Juice","SearchRelevancyScore":"78.9999997615814","AverageRating":"0.899999976158142","RatingCount":"6","ReviewCount":"6","PublishDate":"03/02/2011","Author":"tbspKitchens","MetadataLabel":["Prep Method","Meal Type","Dish Type","Flavor","Theme","Theme","Key Ingredient","Key Ingredient"],"MetadataValue":["Boil","Beverage","Non-Alcoholic Drink","Sweet","How To","DAP","Apple","Fruit"],"RecordType":"Recipe","PrepTime":"20 min","TotalTime":"60 min","NumberOfServings":"8","IsMemberGenerated":"false","IngredientBase":["apple","cinnamon","sugar"],"PageName":"","PageType":"Content","UserId":"9f3eca13-7fa3-4d56-9900-36fcae8679d5","UserStatus":"Anonymous","EsrcCode":"16797"};</script><!-- DCI c7aad482-ba0f-4bd1-a8ed-8c06cde10c6e -->
+<meta http-equiv="origin-trial" content="AqnHTqnkaJn/fKPxhgE19OZBGfomtygqpM7GgDI9HoGkl+rsypO+ZF4M3ClVMZleXLXUItorXbcmsdWhJyU3LQ8AAABjeyJvcmlnaW4iOiJodHRwczovL3RhYmxlc3Bvb24uY29tOjQ0MyIsImZlYXR1cmUiOiJXYWtlTG9jayIsImV4cGlyeSI6MTU5MDc1NzYxOSwiaXNTdWJkb21haW4iOnRydWV9">
+
+    <script>
+/* DCI 4187d833-8f30-4061-afc5-2bb4ef21aa97 */
+window.SearchTrackingInfo = window.SearchTrackingInfo || {};
+/* DCI 6f1dbd76-db12-4127-8f2f-cd15e95c0ef0 */
+window.globalCellfireDisable = true;
+/* DCI 2cb53969-34df-4f50-ace0-7a590a3d48b1 */
+/* Wrapper for General Mills, generated on 2019-05-21T15:30:36-04:00 */
+(function() {
+    var w = window;
+    var h = 'clarium.global.ssl.fastly.net';
+    w._clrm = w._clrm || {};
+    w._clrm.gpt = {
+        propertyId: 'geYynq1W4s9N58tYm_9pTFd8rfw',
+        confiantCdn: h,
+        sandbox: 0,
+        mapping: 'W3siaSI6MiwidCI6Int7b319Ont7d319eHt7aH19IiwicCI6MCwiRCI6MSwiciI6W119LHsiaSI6NiwidCI6Int7Y299fTp7e3d9fXh7e2h9fSIsInAiOjUwLCJEIjowLCJyIjpbeyJ0IjoiZXgiLCJzIjpudWxsLCJ2IjoiY28ifV19XQ==',
+        activation: '',
+        callback: function(blockingType, blockingId, isBlocked, wrapperId, tagId, impressionData) {
+            console.log("w00t one more bad ad nixed.", arguments);
+        }
+    };
+    var e = document.createElement('script');
+    e.async = true;
+    e.src = '//' + h + '/gpt/a/wrap.js?v2_1';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(e, s);
+})();
+
+</script>
+
+<link href="/dist/TBSP/global.8c7231cdf78e91b719b8b02bef6d978b.css" rel="stylesheet"><link href="/dist/TBSP/rdp.1f2263b9ed7058c1c9feccef82415d90.css" rel="stylesheet"><link rel="preload" href="/dist/TBSP/main.187c35a4ed62ef03debc4315436f63bf.bundle.js" as="script"/><link rel="preload" href="/dist/TBSP/global.8c7231cdf78e91b719b8b02bef6d978b.bundle.js" as="script"/><link rel="preload" href="/dist/TBSP/rdp.1f2263b9ed7058c1c9feccef82415d90.bundle.js" as="script"/><link rel="preload" as="style" href="/dist/TBSP/global.8c7231cdf78e91b719b8b02bef6d978b.async.css" onload="this.onload=null;this.rel='stylesheet';"><link rel="preload" as="style" href="/dist/TBSP/rdp.1f2263b9ed7058c1c9feccef82415d90.async.css" onload="this.onload=null;this.rel='stylesheet';"></head>
+<body class="">
+    <div class="topOfBody"></div>
+    <script>
+/* DCI f9711e93-24d7-485d-b1de-1a9d187e8f1e */
+if(typeof window.GeneralMills.getGlobalSetting === "function" && window.GeneralMills.getGlobalSetting("userPrivacy_FunctionalEnabled") == 0) { }
+else {
+
+//Lytics tag loader for TBSP
+var tablespoonCid = "ce5b9f19194475b296cb9c8f75e08eb9";
+window.jstag = function () { function t(t) { return function () { return t.apply(this, arguments), this } } function n() { var n = ["ready"].concat(c.call(arguments)); return t(function () { n.push(c.call(arguments)), this._q.push(n) }) } var i = { _q: [], _c: {}, ts: (new Date).getTime(), ver: "2.0.0" }, c = Array.prototype.slice; return i.init = function (t) { return i._c = t, t.synchronous || i.loadtagmgr(t), this }, i.loadtagmgr = function (t) { var n = document.createElement("script"); n.type = "text/javascript", n.async = !0, n.src = t.url + "/api/tag/" + t.cid + "/lio.js"; var i = document.getElementsByTagName("script")[0]; i.parentNode.insertBefore(n, i) }, i.ready = n(), i.send = n("send"), i.mock = n("mock"), i.identify = n("identify"), i.pageView = n("pageView"), i.bind = t(function (t) { i._q.push([t, c.call(arguments, 1)]) }), i.block = t(function () { i._c.blockload = !0 }), i.unblock = t(function () { i._c.blockload = !1 }), i }(), window.jstag.init({ cid: tablespoonCid, url: "//c.lytics.io", min: true, loadid: false });
+
+//Lytics entity callback handler
+!function(l,a){a.liosetup=a.liosetup||{},a.liosetup.callback=a.liosetup.callback||[],a.liosetup.addEntityLoadedCallback=function(l){if("function"==typeof a.liosetup.callback){var o=[];o.push(a.liosetup.callback),a.liosetup.callback=o}a.lio&&a.lio.loaded?l(a.lio.data):a.liosetup.callback.push(l)}}(document,window);
+
+}
+</script>
+
+    
+
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22OneTrust_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22Simple\x22,\x22deferId\x22\x3a\x22r9a136ed9cc84456cbf3daf43e9c179b6\x22,\x22deferredContainerId\x22\x3anull,\x22deferredContainerView\x22\x3a\x22OneTrust\x22\x7d,\x22viewName\x22\x3a\x22OneTrust\x22\x7d');
+		 var configuration = {"domainId":"54b94d70-2de5-435b-a62e-7ca19d974d88","isMultilingual":false};
+		 var moduleName = 'oneTrust';
+		 var isVueModule = false;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+
+<div class="adhesiveAdSpacing"></div>
+<div class="adhesiveAd adhesiveAdHidden">
+    <div id=re379cb94d7874e7b9ff8d1225f55a654 data-deferId=re379cb94d7874e7b9ff8d1225f55a654 class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_18ca5739-9fae-499e-8982-cfb74365a3bf\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22re379cb94d7874e7b9ff8d1225f55a654\x22,\x22deferredContainerId\x22\x3a\x22\x2fadhesiveAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/m_tablespoon/recipes/mRDP-adhesive-320x50","minPageWidth":"299","maxPageWidth":"767","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[[320,50],[300,50]]","refreshWhenViewed":false,"adContainerId":"61e28f78-6a8f-4a63-ac55-ae9194607af9","doubleClickAdContainerId":"225658c1-b013-4fbe-ba48-36798e96b115","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+</div>
+
+
+<header>
+    
+    <div class="headerContainer">
+        <section class="headerMain">
+            <a href="/" title="Home" class="headerLogo"></a>
+            <a class="simpleNavToggle"><span>MENU</span></a>
+            <div id=re37afba4500a4018afb2e2eaac767eb0 data-deferId=re37afba4500a4018afb2e2eaac767eb0 class="userLinks">
+        <div class="headerAnonymous">
+            <ul class="headerLogin">
+                <li>
+                    <a href="/register/reg-fp?returnUrl=%2frecipes%2fhomemade-apple-juice%2fbcf44468-1eed-479a-88d6-2bd4c3cfacd3&isRegistrationFirstStep=true&escr=16797&RegAction=HEADERJOINLOGIN">Join Free</a>
+                </li>
+                <li>
+                    <a href="/register/reg-fp?returnUrl=%2frecipes%2fhomemade-apple-juice%2fbcf44468-1eed-479a-88d6-2bd4c3cfacd3&isRegistrationFirstStep=false&escr=16797&RegAction=HEADERJOINLOGIN">Log In</a>
+                </li>
+            </ul>
+        </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22UserLinks_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3afalse,\x22deferType\x22\x3a\x22None\x22,\x22deferId\x22\x3a\x22re37afba4500a4018afb2e2eaac767eb0\x22,\x22deferredContainerId\x22\x3anull,\x22deferredContainerView\x22\x3anull\x7d,\x22viewName\x22\x3a\x22UserLinks\x22\x7d');
+		 var configuration = {};
+		 var moduleName = 'userLinks';
+		 var isVueModule = false;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+            <div class="headerSearch">
+                <div class="search-box-container search clearfix" id=rf3096db3593748b886a3750ceceddd4d data-deferId=rf3096db3593748b886a3750ceceddd4d
+     @keyup.enter="searchEnter"
+     @keyup.down="searchListDown"
+     @keyup.up="searchListUp">
+    <div class="search-box-hints">
+        <input class="search-box" @focus="searchFocus" @focusout="searchBlur" v-model="searchInput" placeholder="Search Tablespoon">
+        <div class="search-hint-container">
+            <component :is="searchHintsComponent"
+                       :searchterm="searchInput"
+                       :config="config"
+                       :selected="hintListIndex"
+                       @reset-hints="resetHints"></component>
+        </div>
+    </div>
+    <a class="SearchLinkButton searchTermFilter" @click="searchClick"></a>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22SearchBox_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3afalse,\x22deferType\x22\x3a\x22None\x22,\x22deferId\x22\x3a\x22rf3096db3593748b886a3750ceceddd4d\x22,\x22deferredContainerId\x22\x3anull,\x22deferredContainerView\x22\x3anull\x7d,\x22viewName\x22\x3a\x22SearchBox\x22\x7d');
+		 var configuration = {"searchDefaultText":"Search Tablespoon","searchProcessingMessage":"Please Wait..","searchLinkButtonText":"","searchLinkButtonToolTip":"Search","headerSearchBoxTitle":"Search","searchBoxTitle":"","autocompleteSearchPath":"/search","autocompleteSuggestionLimit":10,"minimumSearchHintCharacters":3,"language":"en","id":"f96bd02f-f5ad-4189-b64b-18cf73593bb0","enableSearchTerms":true,"contentTypeFilter":"","dataSourceId":"d6fb75f5-d19a-49cd-9ba0-c10a6e45afb2"};
+		 var moduleName = 'searchBox';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+            </div>
+        </section>
+    </div>
+        <nav id=r8aefd695e8244858bb9cd497efff371f data-deferId=r8aefd695e8244858bb9cd497efff371f class="simpleNavigation">
+        <ul class="simpleNavItems">
+                <li class=" withChildren">
+                    <a href="/apps-snacks">Apps &amp; Snacks</a>
+                        <ul class="simpleNavSecondaryItems">
+                                <li>
+                                    <a href="/courses/appetizer">Appetizers</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/appetizer/mini-appetizer">Mini Appetizers</a></li>
+                                                <li><a href="/courses/appetizer/slow-cooker-appetizer">Slow-Cooker Appetizers</a></li>
+                                                <li><a href="/courses/appetizer/dips">Dips</a></li>
+                                                <li><a href="/ingredients/egg/deviled-egg">Deviled Eggs</a></li>
+                                                <li><a href="/courses/appetizer/nachos">Nachos</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/appetizer">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/snack">Snacks</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/snack/snack-mixes">Snack Mixes</a></li>
+                                                <li><a href="/courses/snack/salty-snacks">Salty Snacks</a></li>
+                                                <li><a href="/courses/snack/sweet-snacks">Sweet Snacks</a></li>
+                                                                                    </ul>
+                                </li>
+                                                    </ul>
+                </li>
+                <li class=" withChildren">
+                    <a href="/parties-and-holidays">Parties &amp; Holidays</a>
+                        <ul class="simpleNavSecondaryItems">
+                                <li>
+                                    <a href="/parties-and-holidays/holiday">Holiday</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/parties-and-holidays/holiday/cinco-de-mayo">Cinco de Mayo</a></li>
+                                                <li><a href="/parties-and-holidays/holiday/july-4th">July 4th</a></li>
+                                                <li><a href="/parties-and-holidays/holiday/halloween">Halloween</a></li>
+                                                <li><a href="/parties-and-holidays/holiday/thanksgiving">Thanksgiving</a></li>
+                                                <li><a href="/parties-and-holidays/holiday/christmas">Christmas</a></li>
+                                                                                            <li class="seeAll"><a href="/parties-and-holidays/holiday">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/parties-and-holidays/party">Parties</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/drinks/cocktail">Cocktails</a></li>
+                                                <li><a href="/courses/appetizer">Appetizers</a></li>
+                                                <li><a href="/courses/snack/snack-mixes">Snack Mixes</a></li>
+                                                <li><a href="/parties-and-holidays/sports-events">Game Day</a></li>
+                                                <li><a href="/parties-and-holidays/holiday">Holiday</a></li>
+                                                                                            <li class="seeAll"><a href="/parties-and-holidays/party">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/parties-and-holidays/showers">Showers</a>
+                                </li>
+                                <li>
+                                    <a href="/parties-and-holidays/sports-events">Game Day</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/parties-and-holidays/sports-events/football-appetizer">Football Appetizer</a></li>
+                                                <li><a href="/courses/appetizer/dips">Dips</a></li>
+                                                <li><a href="/courses/appetizer/nachos">Nachos</a></li>
+                                                <li><a href="/dishes/taco">Tacos</a></li>
+                                                <li><a href="/ingredients/meat/chicken/chicken-wings">Chicken Wings</a></li>
+                                                                                            <li class="seeAll"><a href="/parties-and-holidays/sports-events">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/parties-and-holidays/birthday">Birthday</a>
+                                </li>
+                                <li>
+                                    <a href="/parties-and-holidays/picnic">Picnic</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dinner/grilling">Grilling</a>
+                                </li>
+                                <li>
+                                    <a href="/parties-and-holidays/potluck">Potluck</a>
+                                </li>
+                                                    </ul>
+                </li>
+                <li class=" withChildren">
+                    <a href="/courses/dessert">Dessert</a>
+                        <ul class="simpleNavSecondaryItems">
+                                <li>
+                                    <a href="/courses/dessert/cake">Cakes</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/cake/vanilla-cake">Vanilla Cake</a></li>
+                                                <li><a href="/courses/dessert/cake/chocolate-cake">Chocolate Cake</a></li>
+                                                <li><a href="/courses/dessert/cake/yellow-cake">Yellow Cake</a></li>
+                                                <li><a href="/courses/dessert/cake/birthday-cake">Birthday Cake</a></li>
+                                                <li><a href="/courses/dessert/cake/bundt-cake">Bundt Cake</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/dessert/cake">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/bar">Bars</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/bar/caramel-bars">Caramel Bars</a></li>
+                                                <li><a href="/courses/dessert/bar/cereal-bars">Cereal Bars</a></li>
+                                                <li><a href="/courses/dessert/cheesecake/cheesecake-bars">Cheesecake Bars</a></li>
+                                                <li><a href="/courses/dessert/bar/chocolate-bars">Chocolate Bars</a></li>
+                                                <li><a href="/courses/dessert/bar/fruit-bars">Fruit Bars</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/dessert/bar">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/brownie">Brownies</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/brownie/caramel-brownies">Caramel Brownies</a></li>
+                                                <li><a href="/courses/dessert/brownie/chocolate-fudge-brownies">Chocolate Fudge Brownies</a></li>
+                                                <li><a href="/courses/dessert/brownie/peanut-butter-brownies">Peanut Butter Brownies</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/cheesecake">Cheesecake</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/cheesecake/caramel-cheesecake">Caramel Cheesecake</a></li>
+                                                <li><a href="/courses/dessert/cheesecake/cheesecake-bars">Cheesecake Bars</a></li>
+                                                <li><a href="/courses/dessert/cheesecake/no-bake-cheesecake">No-Bake Cheesecake</a></li>
+                                                <li><a href="/ingredients/vegetable/pumpkin/pumpkin-cheesecake">Pumpkin Cheesecake</a></li>
+                                                <li><a href="/courses/dessert/cheesecake/strawberry-cheesecake">Strawberry Cheesecake</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/cookie">Cookies</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/cookie/christmas-cookies">Christmas Cookies</a></li>
+                                                <li><a href="/courses/dessert/cookie/chocolate-chip-cookie">Chocolate Chip Cookies</a></li>
+                                                <li><a href="/courses/dessert/cookie/sugar-cookie">Sugar Cookies</a></li>
+                                                <li><a href="/courses/dessert/cookie/peanut-butter-cookie">Peanut Butter Cookie</a></li>
+                                                <li><a href="/courses/dessert/cookie/no-bake-cookie">No-Bake Cookies</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/dessert/cookie">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/cobbler-and-crisp">Cobblers &amp; Crisps</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/cobbler-and-crisp/apple-crisp">Apple Crisp</a></li>
+                                                <li><a href="/courses/dessert/cobbler-and-crisp/berry-crisp">Berry Crisp</a></li>
+                                                <li><a href="/courses/dessert/cobbler-and-crisp/peach-cobbler">Peach Cobbler</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/pie">Pies</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/pie/apple-pie">Apple Pie</a></li>
+                                                <li><a href="/courses/dessert/pie/chocolate">Chocolate Pie</a></li>
+                                                <li><a href="/courses/dessert/pie/fruit-pie">Fruit Pie</a></li>
+                                                <li><a href="/courses/dessert/pie/key-lime-pie">Key Lime Pie</a></li>
+                                                <li><a href="/courses/dessert/pie/no-bake-pie">No-Bake Pie</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/dessert/pie">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/pastry">Pastries</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/pastry/donuts">Donuts</a></li>
+                                                <li><a href="/courses/dessert/pastry/phyllo-dough">Phyllo Dough</a></li>
+                                                <li><a href="/courses/dessert/pastry/puff-pastry">Puff Pastry</a></li>
+                                                <li><a href="/courses/dessert/pastry/scones">Scones</a></li>
+                                                <li><a href="/courses/dessert/pastry/tarts">Tarts</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/cupcake">Cupcakes</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/cupcake/vanilla-cupcakes">Vanilla Cupcakes</a></li>
+                                                <li><a href="/courses/dessert/cupcake/chocolate-cupcakes">Chocolate Cupcakes</a></li>
+                                                <li><a href="/ingredients/vegetable/pumpkin/pumpkin-cupcakes">Pumpkin Cupcakes</a></li>
+                                                <li><a href="/courses/dessert/cupcake/filled-cupcakes">Filled Cupcakes</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/no-bake-dessert">No-Bake Desserts</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/cheesecake/no-bake-cheesecake">No-Bake Cheesecake</a></li>
+                                                <li><a href="/courses/dessert/cookie/no-bake-cookie">No-Bake Cookies</a></li>
+                                                <li><a href="/courses/dessert/pie/no-bake-pie">No-Bake Pie</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/frozen-dessert">Frozen Dessert</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/frozen-dessert/ice-cream">Ice Cream</a></li>
+                                                <li><a href="/courses/dessert/frozen-dessert/ice-cream-cake">Ice Cream Cake</a></li>
+                                                <li><a href="/courses/dessert/frozen-dessert/freezer-pops">Freezer Pops</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/health-and-diet/gluten-free/gluten-free-desserts">Gluten-Free Desserts</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/boozy">Boozy</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/bark">Bark</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/mini-desserts">Mini Desserts</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/refrigerated-dessert">Refrigerated Desserts</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/tiramisu">Tiramisu</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/frosting">Frosting</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/fudge">Fudge</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/trifle">Trifles</a>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert/custard">Custard &amp; Flan</a>
+                                </li>
+                                                    </ul>
+                </li>
+                <li class=" withChildren">
+                    <a href="/courses">Meals</a>
+                        <ul class="simpleNavSecondaryItems">
+                                <li>
+                                    <a href="/courses/breakfast-and-brunch">Breakfast &amp; Brunch</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/dishes/casserole/breakfast-casserole">Breakfast Casseroles &amp; Egg Bakes</a></li>
+                                                <li><a href="/courses/breakfast-and-brunch/breakfast-pastry">Breakfast Pastries</a></li>
+                                                <li><a href="/courses/breakfast-and-brunch/breakfast-skillet">Breakfast Skillets</a></li>
+                                                <li><a href="/courses/breakfast-and-brunch/brunch-beverage">Brunch Drinks</a></li>
+                                                <li><a href="/courses/breakfast-and-brunch/crepes">Crepes</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/breakfast-and-brunch">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/lunch">Lunch</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/dishes/soup">Soup</a></li>
+                                                <li><a href="/dishes/salad">Salad</a></li>
+                                                <li><a href="/dishes/sandwich">Sandwiches &amp; Wraps</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/snack">Snacks</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/snack/snack-mixes">Snack Mixes</a></li>
+                                                <li><a href="/courses/snack/salty-snacks">Salty Snacks</a></li>
+                                                <li><a href="/courses/snack/sweet-snacks">Sweet Snacks</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/appetizer">Appetizers</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/appetizer/mini-appetizer">Mini Appetizers</a></li>
+                                                <li><a href="/courses/appetizer/slow-cooker-appetizer">Slow-Cooker Appetizers</a></li>
+                                                <li><a href="/courses/appetizer/dips">Dips</a></li>
+                                                <li><a href="/ingredients/egg/deviled-egg">Deviled Eggs</a></li>
+                                                <li><a href="/courses/appetizer/nachos">Nachos</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/appetizer">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/dishes/salad">Salad</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/dishes/salad/dressing">Dressing</a></li>
+                                                <li><a href="/dishes/salad/chicken-salad">Chicken Salad</a></li>
+                                                <li><a href="/dishes/salad/pasta-salad">Pasta Salad</a></li>
+                                                <li><a href="/dishes/salad/quinoa-salad">Quinoa Salad</a></li>
+                                                <li><a href="/dishes/salad/bean-salad">Bean Salad</a></li>
+                                                                                            <li class="seeAll"><a href="/dishes/salad">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/bread">Breads</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/bread/biscuit">Biscuits</a></li>
+                                                <li><a href="/courses/bread/bread-machine">Bread Machine</a></li>
+                                                <li><a href="/courses/bread/gluten-free-bread">Gluten-Free Bread</a></li>
+                                                <li><a href="/courses/bread/quick-bread">Quick Bread</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dinner">Dinner</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dinner/chicken-dinner">Chicken Dinner</a></li>
+                                                <li><a href="/courses/dinner/beef-dinner">Beef</a></li>
+                                                <li><a href="/courses/dinner/pork-dinner">Pork</a></li>
+                                                <li><a href="/courses/dinner/seafood-dinner">Seafood</a></li>
+                                                <li><a href="/courses/dinner/vegetarian-dinner">Vegetarian</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/dinner">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/drinks">Drinks</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/drinks/cocktail">Cocktails</a></li>
+                                                <li><a href="/courses/drinks/non-alcoholic">Non-Alcoholic Drinks</a></li>
+                                                <li><a href="/courses/drinks/holiday-drinks">Holiday Drinks</a></li>
+                                                <li><a href="/courses/drinks/jello-shots">Jello Shots</a></li>
+                                                <li><a href="/courses/drinks/punch">Punch</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/drinks">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/courses/dessert">Dessert</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/dessert/cake">Cakes</a></li>
+                                                <li><a href="/courses/dessert/bar">Bars</a></li>
+                                                <li><a href="/courses/dessert/brownie">Brownies</a></li>
+                                                <li><a href="/courses/dessert/cheesecake">Cheesecake</a></li>
+                                                <li><a href="/courses/dessert/cookie">Cookies</a></li>
+                                                                                            <li class="seeAll"><a href="/courses/dessert">See All</a></li>
+                                        </ul>
+                                </li>
+                                                    </ul>
+                </li>
+                <li class="">
+                    <a href="/how-to">How-To</a>
+                </li>
+                <li class=" withChildren">
+                    <a href="/browse-all-recipes">Recipes</a>
+                        <ul class="simpleNavSecondaryItems">
+                                <li>
+                                    <a href="/courses">Meals</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/courses/breakfast-and-brunch">Breakfast &amp; Brunch</a></li>
+                                                <li><a href="/courses/lunch">Lunch</a></li>
+                                                <li><a href="/courses/snack">Snacks</a></li>
+                                                <li><a href="/courses/appetizer">Appetizers</a></li>
+                                                <li><a href="/dishes/salad">Salad</a></li>
+                                                                                            <li class="seeAll"><a href="/courses">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/dishes">Dishes</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/dishes/casserole">Casseroles</a></li>
+                                                <li><a href="/dishes/chili">Chili</a></li>
+                                                <li><a href="/dishes/curry">Curry</a></li>
+                                                <li><a href="/dishes/enchilada">Enchiladas</a></li>
+                                                <li><a href="/dishes/fondue">Fondue</a></li>
+                                                                                            <li class="seeAll"><a href="/dishes">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/health-and-diet">Health &amp; Diet</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/health-and-diet/gluten-free">Gluten-Free</a></li>
+                                                <li><a href="/health-and-diet/paleo">Paleo</a></li>
+                                                <li><a href="/health-and-diet/vegan">Vegan</a></li>
+                                                <li><a href="/health-and-diet/vegetarian">Vegetarian</a></li>
+                                                                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="/how-to">How-To</a>
+                                </li>
+                                <li>
+                                    <a href="/ingredients">Ingredients</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/ingredients/bean-legumes">Beans &amp; Legumes</a></li>
+                                                <li><a href="/ingredients/chocolate">Chocolate</a></li>
+                                                <li><a href="/ingredients/dairy">Dairy</a></li>
+                                                <li><a href="/ingredients/egg">Eggs</a></li>
+                                                <li><a href="/ingredients/fruit">Fruit</a></li>
+                                                                                            <li class="seeAll"><a href="/ingredients">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/parties-and-holidays">Parties &amp; Holidays</a>
+                                        <ul class="simpleNavTertiaryItems">
+                                                <li><a href="/parties-and-holidays/holiday">Holiday</a></li>
+                                                <li><a href="/parties-and-holidays/party">Parties</a></li>
+                                                <li><a href="/parties-and-holidays/showers">Showers</a></li>
+                                                <li><a href="/parties-and-holidays/sports-events">Game Day</a></li>
+                                                <li><a href="/parties-and-holidays/birthday">Birthday</a></li>
+                                                                                            <li class="seeAll"><a href="/parties-and-holidays">See All</a></li>
+                                        </ul>
+                                </li>
+                                <li>
+                                    <a href="/rainbow">Rainbow</a>
+                                </li>
+                                                    </ul>
+                </li>
+        </ul>
+    </nav>    
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22SimpleNavigation_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3afalse,\x22deferType\x22\x3a\x22None\x22,\x22deferId\x22\x3a\x22r8aefd695e8244858bb9cd497efff371f\x22,\x22deferredContainerId\x22\x3anull,\x22deferredContainerView\x22\x3anull\x7d,\x22viewName\x22\x3a\x22SimpleNavigation\x22\x7d');
+		 var configuration = {};
+		 var moduleName = 'simpleNav';
+		 var isVueModule = false;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+</header>
+<div class="pageContainer">
+    
+    <section class="mainContainer">
+        <div id=r613455fe01d74e08a027abde75db7e54 data-deferId=r613455fe01d74e08a027abde75db7e54>
+    <div class="floatingBox">
+            <div class="actionToolbar actionToolbarVertical actionToolbarAnchoredTop recipeDetailActionToolbar">
+                <ul class="atButtons atButtonsPrimary">
+                        <li :is="buttonTypes['58ba9650-477b-4abe-bb46-1a60912cc27c']"
+                            class="atButton atButtonPinterest bm-seq0 bt-seq0 bd-seq1"
+                            :class="buttonClasses['58ba9650-477b-4abe-bb46-1a60912cc27c']"
+                            role="button"
+                            tabindex="0"
+                            :button="buttons['58ba9650-477b-4abe-bb46-1a60912cc27c']"
+                            toolbar-name="RDPToolbarRAIL"
+                            :page-attributes="{'title':'Homemade Apple Juice','description':'Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.','image':'https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg','url':'http%3a%2f%2fwww.tablespoon.com%2frecipes%2fhomemade-apple-juice%2fbcf44468-1eed-479a-88d6-2bd4c3cfacd3','contentType':'Recipe','contentId':'bcf44468-1eed-479a-88d6-2bd4c3cfacd3'}"
+                            @load-button="loadButton"
+                            @set-modal="setModalComponent"
+                            @set-button-class="setButtonClass">
+
+                                <div class="atbName">Pinterest</div>
+                                                            <div class="atbCount" aria-hidden="true">204</div>
+                        </li>
+                        <li :is="buttonTypes['9440f541-1622-407b-a529-9cb1f48ddf3a']"
+                            class="atButton atButtonPrint bm-seq1 bt-seq1 bd-seq0"
+                            :class="buttonClasses['9440f541-1622-407b-a529-9cb1f48ddf3a']"
+                            role="button"
+                            tabindex="0"
+                            :button="buttons['9440f541-1622-407b-a529-9cb1f48ddf3a']"
+                            toolbar-name="RDPToolbarRAIL"
+                            :page-attributes="{'title':'Homemade Apple Juice','description':'Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.','image':'https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg','url':'http%3a%2f%2fwww.tablespoon.com%2frecipes%2fhomemade-apple-juice%2fbcf44468-1eed-479a-88d6-2bd4c3cfacd3','contentType':'Recipe','contentId':'bcf44468-1eed-479a-88d6-2bd4c3cfacd3'}"
+                            @load-button="loadButton"
+                            @set-modal="setModalComponent"
+                            @set-button-class="setButtonClass">
+
+                                <div class="atbName">Print</div>
+                                                            <div class="atbCount" aria-hidden="true">311</div>
+                        </li>
+                        <li :is="buttonTypes['a4fff957-6f0a-4e2f-820f-3f2cfbceef64']"
+                            class="atButton atButtonFavorite bm-seq2 bt-seq2 bd-seq2"
+                            :class="buttonClasses['a4fff957-6f0a-4e2f-820f-3f2cfbceef64']"
+                            role="button"
+                            tabindex="0"
+                            :button="buttons['a4fff957-6f0a-4e2f-820f-3f2cfbceef64']"
+                            toolbar-name="RDPToolbarRAIL"
+                            :page-attributes="{'title':'Homemade Apple Juice','description':'Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.','image':'https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg','url':'http%3a%2f%2fwww.tablespoon.com%2frecipes%2fhomemade-apple-juice%2fbcf44468-1eed-479a-88d6-2bd4c3cfacd3','contentType':'Recipe','contentId':'bcf44468-1eed-479a-88d6-2bd4c3cfacd3'}"
+                            @load-button="loadButton"
+                            @set-modal="setModalComponent"
+                            @set-button-class="setButtonClass">
+
+                                <div class="atbName">Save</div>
+                                                            <div class="atbCount" aria-hidden="true">29</div>
+                        </li>
+                        <li :is="buttonTypes['9e7892b7-5ea2-441b-ab66-55a566402b31']"
+                            class="atButton atButtonFacebook bm-seq3 bt-seq3 bd-seq4"
+                            :class="buttonClasses['9e7892b7-5ea2-441b-ab66-55a566402b31']"
+                            role="button"
+                            tabindex="0"
+                            :button="buttons['9e7892b7-5ea2-441b-ab66-55a566402b31']"
+                            toolbar-name="RDPToolbarRAIL"
+                            :page-attributes="{'title':'Homemade Apple Juice','description':'Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.','image':'https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg','url':'http%3a%2f%2fwww.tablespoon.com%2frecipes%2fhomemade-apple-juice%2fbcf44468-1eed-479a-88d6-2bd4c3cfacd3','contentType':'Recipe','contentId':'bcf44468-1eed-479a-88d6-2bd4c3cfacd3'}"
+                            @load-button="loadButton"
+                            @set-modal="setModalComponent"
+                            @set-button-class="setButtonClass">
+
+                                <div class="atbName">Facebook</div>
+                                                            <div class="atbCount" aria-hidden="true">130</div>
+                        </li>
+                        <li :is="buttonTypes['c9d11c79-b5b2-4bf4-be97-50bf9b3a44dc']"
+                            class="atButton atButtonEmail bm-seq4 bt-seq4 bd-seq3"
+                            :class="buttonClasses['c9d11c79-b5b2-4bf4-be97-50bf9b3a44dc']"
+                            role="button"
+                            tabindex="0"
+                            :button="buttons['c9d11c79-b5b2-4bf4-be97-50bf9b3a44dc']"
+                            toolbar-name="RDPToolbarRAIL"
+                            :page-attributes="{'title':'Homemade Apple Juice','description':'Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.','image':'https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg','url':'http%3a%2f%2fwww.tablespoon.com%2frecipes%2fhomemade-apple-juice%2fbcf44468-1eed-479a-88d6-2bd4c3cfacd3','contentType':'Recipe','contentId':'bcf44468-1eed-479a-88d6-2bd4c3cfacd3'}"
+                            @load-button="loadButton"
+                            @set-modal="setModalComponent"
+                            @set-button-class="setButtonClass">
+
+                                <div class="atbName">Email</div>
+                                                            <div class="atbCount" aria-hidden="true">27</div>
+                        </li>
+                </ul>
+            </div>
+    </div>
+    <component v-bind:is="modalComponent"
+               v-bind:settings="modalSettings"
+               v-bind:is-visible="isModalVisible"
+               v-on:close="hideModal"
+               @set-modal="setModalComponent">
+    </component>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22ActionToolbar_0062db4d-452e-4eba-af2d-b8dce44acc50\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3afalse,\x22deferType\x22\x3a\x22None\x22,\x22deferId\x22\x3a\x22r613455fe01d74e08a027abde75db7e54\x22,\x22deferredContainerId\x22\x3a\x22\x2factionToolbar\x22,\x22deferredContainerView\x22\x3anull\x7d,\x22viewName\x22\x3a\x22ActionToolbar\x22\x7d');
+		 var configuration = {"toolbarSettings":{"id":"0062db4d-452e-4eba-af2d-b8dce44acc50","moreButtonText":"More","lessButtonText":"Less","regAction":"FAVORITE","eSourceCode":16797,"useModalRegistration":true,"namePassedToEvents":"RDPToolbarRAIL","buttons":[{"providerName":"pinterest","providerNamePassedToEvents":"Pinterest","privacyOptOut":false,"privacyOptOutMessage":"\u003cdiv class=\u0027privacyMessage\u0027\u003e\n\u003ch3\u003eThis feature is not available with your current cookie settings.\u003c/h3\u003e\n\u003cp\u003eYou can \u003ca href=\u0027#\u0027 data-show-preference-center=\u00271\u0027\u003eupdate your privacy settings\u003c/a\u003e to enable this content.  Please enable “Functional Cookies” to use this feature.\u003c/p\u003e\n\u003c/div\u003e","shareUrlFormat":"//pinterest.com/pin/create/link/?url={0}","id":"58ba9650-477b-4abe-bb46-1a60912cc27c","allowedForAnonymousUsers":true,"type":"Social","displayName":"Pinterest","namePassedToEvents":"Pinterest"},{"layoutParameter":"p%3d1","id":"9440f541-1622-407b-a529-9cb1f48ddf3a","allowedForAnonymousUsers":true,"type":"Print","displayName":"Print","namePassedToEvents":"Print"},{"addFavoriteErrorMessage":"Sorry, something went wrong. Please save again.","removeFavoriteErrorMessage":"Error occurred while removing from favorites","regAction":"FAVORITE","eSourceCode":16797,"isCurrentUserAnonymous":true,"isFavoriteItem":false,"id":"a4fff957-6f0a-4e2f-820f-3f2cfbceef64","allowedForAnonymousUsers":false,"type":"Favorite","displayName":"Save","namePassedToEvents":"Favorite"},{"providerName":"facebook","providerNamePassedToEvents":"Facebook","privacyOptOut":false,"privacyOptOutMessage":"\u003cdiv class=\u0027privacyMessage\u0027\u003e\n\u003ch3\u003eThis feature is not available with your current cookie settings.\u003c/h3\u003e\n\u003cp\u003eYou can \u003ca href=\u0027#\u0027 data-show-preference-center=\u00271\u0027\u003eupdate your privacy settings\u003c/a\u003e to enable this content.  Please enable “Functional Cookies” to use this feature.\u003c/p\u003e\n\u003c/div\u003e","shareUrlFormat":"//facebook.com/sharer/sharer.php?u={0}","id":"9e7892b7-5ea2-441b-ab66-55a566402b31","allowedForAnonymousUsers":true,"type":"Social","displayName":"Facebook","namePassedToEvents":"Facebook"},{"templateId":"49ea4ab1-767d-497f-8521-8956bf53ee30","dialogHeading":"Email Recipe","emailCode":"TBSP_ContentEmail","dialogSettings":{"cancelButtonText":"Cancel","copyToSenderLabel":"Send a Copy to Myself","emailAddressesLabel":"* Email Address(es)","emailInstructionText":"Separate email addresses with commas","fromText":"From:","privacyPolicyText":"\u003cp\u003e\u0026copy;2020 General Mills, Inc. All Rights Reserved. This information will only be used to send an email to your friend(s) and will not be saved. Please read our \u003ca rel=\u0022noopener noreferrer\u0022 rel=\u0022noopener noreferrer\u0022 href=\u0022http://www.generalmills.com/company/privacy-policies/privacy-policy-us\u0022 target=\u0022_blank\u0022 shape=\u0022rect\u0022\u003ePrivacy Policy\u003c/a\u003e.\u003c/p\u003e","requiredFieldText":"* Required","sendButtonText":"Send","senderEmailAddressLabel":"* Your Email Address","senderFirstNameLabel":"* Your First Name","sendToText":"Send To:"},"recaptchaPublicKey":"6LfW_icUAAAAAL_CG700pddUxLNYIxgRJe3vOg2Z","id":"c9d11c79-b5b2-4bf4-be97-50bf9b3a44dc","allowedForAnonymousUsers":true,"type":"Email","displayName":"Email","namePassedToEvents":"Email"}],"dialogSettings":{"cancelButtonText":"Cancel","copyToSenderLabel":"Send a Copy to Myself","emailAddressesLabel":"* Email Address(es)","emailInstructionText":"Separate email addresses with commas","fromText":"From:","privacyPolicyText":"\u003cp\u003e\u0026copy;2020 General Mills, Inc. All Rights Reserved. This information will only be used to send an email to your friend(s) and will not be saved. Please read our \u003ca rel=\u0022noopener noreferrer\u0022 rel=\u0022noopener noreferrer\u0022 href=\u0022http://www.generalmills.com/company/privacy-policies/privacy-policy-us\u0022 target=\u0022_blank\u0022 shape=\u0022rect\u0022\u003ePrivacy Policy\u003c/a\u003e.\u003c/p\u003e","requiredFieldText":"* Required","sendButtonText":"Send","senderEmailAddressLabel":"* Your Email Address","senderFirstNameLabel":"* Your First Name","sendToText":"Send To:"},"controlIds":{"toolbarId":"gmi_actionToolbar_0062db4d-452e-4eba-af2d-b8dce44acc50","moreButtonId":"gmi_actionToolbar_0062db4d-452e-4eba-af2d-b8dce44acc50_moreButton","moreButtonTextId":"gmi_actionToolbar_0062db4d-452e-4eba-af2d-b8dce44acc50_moreButtonText","collapsedButtonsId":"gmi_actionToolbar_0062db4d-452e-4eba-af2d-b8dce44acc50_collapsedButtons","secondaryButtonsId":"gmi_actionToolbar_0062db4d-452e-4eba-af2d-b8dce44acc50_secondaryButtons"}},"contentId":"bcf44468-1eed-479a-88d6-2bd4c3cfacd3","isCurrentUserAnonymous":true,"isFavoriteItem":false,"privacyOptOut":false,"shareCounts":{"social.pinterest":"204","print":"311","favorite":"29","social.facebook":"130","email":"27"},"pageAttributes":{"title":"Homemade Apple Juice","description":"Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.","image":"https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg","url":"http%3a%2f%2fwww.tablespoon.com%2frecipes%2fhomemade-apple-juice%2fbcf44468-1eed-479a-88d6-2bd4c3cfacd3","contentType":"Recipe","contentId":"bcf44468-1eed-479a-88d6-2bd4c3cfacd3"}};
+		 var moduleName = 'actionToolbar';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+
+
+        <div class="poc recipeDetail">
+    <div class="preColumns">
+        <div class="topLeft">
+            <h1 class="rdpTitle">Homemade Apple Juice</h1>
+            <div class="reviewSummary">
+                <div id=r8ba8ace9f0e44858b545c110c4817e7e data-deferId=r8ba8ace9f0e44858b545c110c4817e7e class="ratingAndReviewCounts">
+    <div class="ratingCountContainer">
+        <a href="#consumerGeneratedContent">
+            <span class="stars star-90"></span>
+            <span class="aggregateCount">6&nbsp;Ratings</span>
+        </a>
+    </div>
+    <div class="reviewCountContainer">
+        <a href="#consumerGeneratedContent">
+            <span class="aggregateCount">6&nbsp;Reviews</span>
+        </a>
+    </div>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22RatingAndReviewCounts_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3afalse,\x22deferType\x22\x3a\x22None\x22,\x22deferId\x22\x3a\x22r8ba8ace9f0e44858b545c110c4817e7e\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpRatingAndReview\x22,\x22deferredContainerView\x22\x3anull\x7d,\x22viewName\x22\x3a\x22RatingAndReviewCounts\x22\x7d');
+		 var configuration = {};
+		 var moduleName = 'ratingAndReviewCounts';
+		 var isVueModule = false;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+            </div>
+        </div>
+
+        <div class="rdpImageContainer">
+            <picture class="rdpImage">
+    <source media="(min-width: 767px)" srcset="https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg">
+    <source media="(min-width: 500px)" srcset="https://images-gmi-pmc.edge-generalmills.com/28cff3ea-709b-4ac8-97a4-585df8419901.jpg">
+    <source media="(min-width: 0px)" srcset="https://images-gmi-pmc.edge-generalmills.com/7b1508ef-06e3-45fa-97b5-43f2bb7752e3.jpg">
+    <img src="https://images-gmi-pmc.edge-generalmills.com/1eb60545-cc16-4c22-a4fc-a184887e4e8d.jpg" alt="Homemade Apple Juice" />
+</picture>
+        </div>
+        
+        <div class="rdpAttributes">
+    <ul>
+            <li class="attribute">
+                <span class="attributeLabel">Prep </span>
+                
+                    <span class="attributeValue">
+                        <span class="attributeValueText">20</span>
+                            <span class="attributeValueLabel">min</span>
+                    </span>
+            </li>
+            <li class="attribute">
+                <span class="attributeLabel">Total</span>
+                
+                    <span class="attributeValue">
+                        <span class="attributeValueText">60</span>
+                            <span class="attributeValueLabel">min</span>
+                    </span>
+            </li>
+            <li class="attribute">
+                <span class="attributeLabel">Servings</span>
+                
+                    <span class="attributeValue">
+                        <span class="attributeValueText">8</span>
+                    </span>
+            </li>
+    </ul>
+</div>
+    </div>
+    <div class="columns">
+        <div class="recipeDescription primary">
+            
+            <div id=r2334d1d7416e4e599ac983ee8bebf766 data-deferId=r2334d1d7416e4e599ac983ee8bebf766 class="rdpIntro">
+    <expandable-text :max-text-length="300"
+                     :cutoff-length="270"
+                     expand-text="MORE+"
+                     collapse-text="LESS-">
+        <span>Instead of spending big bucks for fresh, healthy apple juice, learn how easy it is to make your own.</span>
+    </expandable-text>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22RecipeIntro_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3afalse,\x22deferType\x22\x3a\x22None\x22,\x22deferId\x22\x3a\x22r2334d1d7416e4e599ac983ee8bebf766\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpIntro\x22,\x22deferredContainerView\x22\x3anull\x7d,\x22viewName\x22\x3a\x22RecipeIntro\x22\x7d');
+		 var configuration = {};
+		 var moduleName = 'expandableTextContainer';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeContributor primary">
+            
+            <div class="rdpContributor">
+    <span class="label">By</span>
+    <span class="name">
+TBSP Kitchens    </span>
+</div>
+
+<div class="rdpDate">
+    Updated October 10, 2016
+</div>
+
+        </div>
+
+        <div class="recipeSavingsByIngredient primary">
+            
+            
+        </div>
+
+        <div class="recipeIngredients primary">
+            
+            <h2>Ingredients</h2>
+<div class="rdpIngredients">
+        <h3></h3>
+        <ul>
+            <li class="ingredient">
+                <span class="quantity">18</span>
+                <span class="unitOfMeasure"></span>
+                <span class="description">Apples</span>
+            </li> 
+            <li class="ingredient">
+                <span class="quantity"></span>
+                <span class="unitOfMeasure"></span>
+                <span class="description">Cinnamon (optional)</span>
+            </li> 
+            <li class="ingredient">
+                <span class="quantity"></span>
+                <span class="unitOfMeasure"></span>
+                <span class="description">Sugar (optional)</span>
+            </li> 
+        </ul>
+</div>
+        </div>
+        
+        <div class="recipeBuyNow primary">
+            
+            
+        </div>
+
+        <div class="recipeSteps primary">
+            
+            <div class="rdpSteps">
+    <h2>Steps</h2>
+    <div id=ra8184072dc5f4a3fac36f643f4a8fb89 data-deferId=ra8184072dc5f4a3fac36f643f4a8fb89>
+    <component v-bind:is="wakeLockComponent" :settings="config"></component>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22WakeLock_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22ra8184072dc5f4a3fac36f643f4a8fb89\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpSteps\x2frdpWakeLock\x22,\x22deferredContainerView\x22\x3a\x22RecipeSteps\x22\x7d,\x22viewName\x22\x3a\x22WakeLock\x22\x7d');
+		 var configuration = {"textAbove":"Prevent your screen from going dark while you cook.","timeoutDurationMs":3600000};
+		 var moduleName = 'wakeLock';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+    <div id=r757fdc0184434e4fb3affc6208dc8fd4 data-deferId=r757fdc0184434e4fb3affc6208dc8fd4 v-lazyloadimages="300">
+        <div v-bind:class="toggleImagesClass">
+            <ul class="recipeSteps">
+                    <li class="recipeStep">
+                        <div class="stepIndex">1</div>
+                        <div class="stepDescription">
+                            Start by washing and then coring the apple to remove seeds. Cut the apples into slices. There is no need to peel the apples.
+                        </div>
+                    </li>
+                    <li class="recipeStep">
+                        <div class="stepIndex">2</div>
+                        <div class="stepDescription">
+                            Add the apples to the pot and add enough water to just cover them. Too much water and you’ll have pretty diluted juice. This juice may come out a bit strong, but it’s a lot easier to dilute the juice with extra water rather than trying to make the flavor stronger.
+                        </div>
+                    </li>
+                    <li class="recipeStep">
+                        <div class="stepIndex">3</div>
+                        <div class="stepDescription">
+                            Slowly boil the apples for about 20-25 minutes or until the apples are quite soft. Place a coffee filter or piece of cheesecloth in your fine mesh strainer and place over a bowl.
+                        </div>
+                    </li>
+                    <li class="recipeStep">
+                        <div class="stepIndex">4</div>
+                        <div class="stepDescription">
+                            Slowly ladle the hot juice/apple mixture into a fine mesh strainer and gently mash the apples. The juice will be filtered through the bottom into your bowl while the apple mush will be left behind. Place the mush in a separate bowl for later. Repeat this process until all of your juice is in the bowl.
+                        </div>
+                    </li>
+                    <li class="recipeStep">
+                        <div class="stepIndex">5</div>
+                        <div class="stepDescription">
+                            Taste the juice after it’s cooled for a bit. You can add additional sugar or cinnamon depending on your preferences. Again, if the flavor is too strong, you can add water a little bit at a time to weaken the flavor.
+                        </div>
+                    </li>
+                    <li class="recipeStep">
+                        <div class="stepIndex">6</div>
+                        <div class="stepDescription">
+                            The apple mush you collected can easily be turned into applesauce by pureeing and adding a smidgen of sugar and cinnamon to taste.
+                        </div>
+                    </li>
+                    <li class="recipeStep">
+                        <div class="stepIndex">7</div>
+                        <div class="stepDescription">
+                            Keep in mind your homemade apple juice doesn’t have any preservatives so be sure to keep it refrigerated and to use it within a week!
+                        </div>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22RecipeSteps_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r757fdc0184434e4fb3affc6208dc8fd4\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpSteps\x2frdpWakeLock\x22,\x22deferredContainerView\x22\x3a\x22RecipeSteps\x22\x7d,\x22viewName\x22\x3a\x22RecipeSteps\x22\x7d');
+		 var configuration = {"initAreImagesHidden":false,"hideImagesEventName":"HideStepShots","showImagesEventName":"ShowStepShots","hideImagesButtonText":"Hide Images","showImagesButtonText":"Show Images","hideImagesClass":"rdpHideStepImages"};
+		 var moduleName = 'recipeStepShots';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeMethodNote primary">
+            
+            
+            
+            
+        </div>
+
+        <div class="recipeTips primary">
+            
+            
+        </div>
+
+        <div class="recipeNutrition primary">
+            
+            
+<div class="recipeDrawer rdpNutrition" :class="{expanded: isExpanded}" id=r14a698a2d77f41108c1252d73d4beb1a data-deferId=r14a698a2d77f41108c1252d73d4beb1a>
+    <a class="showHideToggleButton"
+       v-on:click="toggleIsExpanded"
+       :title="isExpanded ? config.hideDrawerText : config.showDrawerText">
+        <span ref="toggleLabel"></span>
+    </a>
+    <h2 class="recipeDrawerTitle">Nutrition Information</h2>
+    <div class="recipeDrawerContent">
+                <div class="noNutrition">
+            No nutrition information available for this recipe
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22RecipeNutrition_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22Simple\x22,\x22deferId\x22\x3a\x22r14a698a2d77f41108c1252d73d4beb1a\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpNutrition\x22,\x22deferredContainerView\x22\x3a\x22RecipeDetail\x22\x7d,\x22viewName\x22\x3a\x22RecipeNutrition\x22\x7d');
+		 var configuration = {"initIsExpanded":false,"showDrawerText":"Show","hideDrawerText":"Hide","expandEventName":"NutritionExpand","collapseEventName":"NutritionCollapse"};
+		 var moduleName = 'recipeDrawer';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeStory primary">
+            
+            
+<div class="recipeDrawer recipePartStory" :class="{expanded: isExpanded}" id=r5e2fb2188b1a4515bdff311c54673d40 data-deferId=r5e2fb2188b1a4515bdff311c54673d40>
+    <a class="showHideToggleButton"
+       v-on:click="toggleIsExpanded"
+       :title="isExpanded ? config.hideDrawerText : config.showDrawerText">
+        <span ref="toggleLabel"></span>
+    </a>
+    <h2 class="recipeDrawerTitle">More About This Recipe</h2>
+    <div class="recipeDrawerContent">
+            <ul class="tipCategories">
+            <li class="tip">
+                <span class="description">Ever wanted to make fresh, homemade apple juice at home? Surprise! It’s totally easy and the perfect way to toast the fall season.<br /><br />If you love fresh apple juice but don’t have time to trek out to an orchard this fall then have we got a trick for you; homemade apple juice is incredibly easy, tastes amazing, and only takes a few simple steps. <br /><br />Start with a 5-6 lb. bag of apples; you’ll need about 18 apples to make 2 quarts (about 8 cups) of juice. Scale up or down as you wish. Now, here’s a crucial tip: the apples you pick will greatly affect the taste of your juice. So, we recommend starting with a naturally sweet apple like Fuji, Gala or Red Delicious. Better yet, mix a few varieties of apples to get a more complex flavor. <br /><br />Other items you’ll need: <br /><br />Large stew pot Large bowl Fine mesh strainer Bowl strainer fits over (helpful if it has a handle) Clean jar or container and lid for storing the juice Filter (coffee filter or cheesecloth) Ladle Large wooden spoon <br /><br />First, wash and core the apples to remove the seeds (we’re huge fans of using an inexpensive apple slicer to save time on this step). Then cut the apples into slices; you can even leave the peels on. Note: leaving your peels on will affect the color of your juice and may give it a pink tint, depending on your apple variety. <br /><br />Add the apples to your pot and add enough water to just cover them. Adding too much water will result in diluted juice. Tip: it’s a lot easier to add water later if your final juice is too strong tasting. <br /><br />Slowly boil the apples for 20-25 minutes or until the apples are very soft. Place a coffee filter or cheesecloth in your fine mesh strainer and place over a bowl. It helps if your bowl has a handle when it comes time to pour into your storing container, but it’s not necessary.  <br /><br />Slowly ladle the apple-water mixture into the fine mesh strainer and gently mash the apples. The juice will filter through into your jar leaving the apple mush in the sieve. But don’t throw away the mush! Save it for later in a separate bowl. Keep repeating this process until all of your juice is in the jar. <br /><br />Once the juice has cooled, go ahead and taste it. Here is where you can adjust the sweetness to your taste by adding additional sugar (or the sweetener of your choice). Feel free to add in a little cinnamon as well if you want to spice it up a bit. If the juice tastes too strong you can add a bit of water to dilute it slightly. <br /><br />That leftover apple mush you saved? Turn it into applesauce by adding sugar and cinnamon to taste, pureeing to the consistency you like, and presto: homemade applesauce<br /><br />All that’s left to do is to enjoy the fruits (get it? sorry!) of your labor. Remember, homemade apple juice doesn’t contain any preservatives, so keep it refrigerated and use within a week. (Although, this stuff is so good we doubt that’ll it last that long.)</span>
+            </li>
+    </ul>
+
+    </div>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22RecipeTipCategory_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22Simple\x22,\x22deferId\x22\x3a\x22r5e2fb2188b1a4515bdff311c54673d40\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpStories\x22,\x22deferredContainerView\x22\x3a\x22RecipeDetail\x22\x7d,\x22viewName\x22\x3a\x22RecipeTipCategory\x22\x7d');
+		 var configuration = {"initIsExpanded":false,"showDrawerText":"Show","hideDrawerText":"Hide","expandEventName":"","collapseEventName":""};
+		 var moduleName = 'recipeDrawer';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeTrademark primary">
+            
+            
+        </div>
+
+        <div class="recipeCopyright primary">
+            
+            <span class="rdpCopyright">&#169; 2020 &#174;/TM General Mills All Rights Reserved</span>
+        </div>
+
+        <div class="recipeFeatureAd recipeAd secondary">
+            
+            <div id=r42a78b837a234d0b84083962a6025622 data-deferId=r42a78b837a234d0b84083962a6025622 class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_13a90c34-3b35-4860-9527-914a5e0ff91f\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r42a78b837a234d0b84083962a6025622\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpFeatureAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/tablespoon/recipes/300x250_AutoRefresh_top","minPageWidth":"1000","maxPageWidth":"9999","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[300, 250]","refreshWhenViewed":true,"adContainerId":"03285adc-54dc-4947-949a-2b615b2cf441","doubleClickAdContainerId":"fba9962a-2aeb-41ff-bba8-a84f02b69e65","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script><div id=r863aa86c9dc348769377f6162cec3895 data-deferId=r863aa86c9dc348769377f6162cec3895 class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_0cfeeadf-8841-41d0-bcd1-f69250cf0ac4\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r863aa86c9dc348769377f6162cec3895\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpFeatureAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/tablespoon/recipes/728x90_top","minPageWidth":"768","maxPageWidth":"999","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[728, 90]","refreshWhenViewed":false,"adContainerId":"beecae9b-8281-4739-973e-f71bb3e545fa","doubleClickAdContainerId":"86a1fe98-d9b7-42d7-b850-a88329d507f1","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script><div id=r6d51c65be9604cf995810650a176d6ef data-deferId=r6d51c65be9604cf995810650a176d6ef class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_3b053ad7-affc-4295-9966-00f47602a6b3\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r6d51c65be9604cf995810650a176d6ef\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpFeatureAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/m_tablespoon/recipes/300x250_top","minPageWidth":"299","maxPageWidth":"767","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[[300,250], [300,600]]","refreshWhenViewed":false,"adContainerId":"550310a7-efca-4b10-a9ce-440da81dcf70","doubleClickAdContainerId":"82651059-c655-4ca9-983c-69e4a1979498","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeDiscoveryUnit2 primary">
+            
+            <div class="relatedContent" id=r6bdabbf1ecf7423ab2fb357c0956178b data-deferId=r6bdabbf1ecf7423ab2fb357c0956178b v-lazyloadimages="300">
+    <h2>We Also Love</h2>
+    <ul>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="83983388-aa82-49af-b2c1-e2dea8a50957"
+                data-contenttype="Recipe"
+                data-title="Wassail Punch">
+                <a href="/recipes/wassail-punch/83983388-aa82-49af-b2c1-e2dea8a50957">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Wassail Punch" data-src="//images-gmi-pmc.edge-generalmills.com/cb4631a0-9f6f-4af3-9f34-65ff20063bde.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Wassail Punch</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="e3903a42-9343-4d35-a727-faea0005f96e"
+                data-contenttype="Recipe"
+                data-title="Holiday Sangria">
+                <a href="/recipes/holiday-sangria/e3903a42-9343-4d35-a727-faea0005f96e">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Holiday Sangria" data-src="//images-gmi-pmc.edge-generalmills.com/66103b2a-4d6d-42d2-ac3f-61d22972f95b.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Holiday Sangria</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="795898d8-116d-4b7f-b0ba-c11ceb243945"
+                data-contenttype="Recipe"
+                data-title="Apple Cider Mocktail Mule">
+                <a href="/recipes/apple-cider-mocktail-mule/795898d8-116d-4b7f-b0ba-c11ceb243945">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Apple Cider Mocktail Mule" data-src="//images-gmi-pmc.edge-generalmills.com/ed21623a-606c-4671-be0a-58ed48dc532a.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Apple Cider Mocktail Mule</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="ad79e036-2c6c-4647-a3f2-80a6cfe1ba73"
+                data-contenttype="Recipe"
+                data-title="Boozy Apple Pie Smoothie">
+                <a href="/recipes/boozy-apple-pie-smoothie/ad79e036-2c6c-4647-a3f2-80a6cfe1ba73">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Boozy Apple Pie Smoothie" data-src="//images-gmi-pmc.edge-generalmills.com/5b42a1eb-8263-4447-a4c7-4f6e6e957e17.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Boozy Apple Pie Smoothie</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="7f235207-d2b9-4d69-adc2-37f560b696db"
+                data-contenttype="Recipe"
+                data-title="Hot Spiked Apple Cider with Ginger">
+                <a href="/recipes/hot-spiked-apple-cider-with-ginger/7f235207-d2b9-4d69-adc2-37f560b696db">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Hot Spiked Apple Cider with Ginger" data-src="//images-gmi-pmc.edge-generalmills.com/3c07e9f4-ea78-4c28-b4e9-c2ea0e05b9bd.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Hot Spiked Apple Cider with Ginger</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="2caba45d-0120-4818-86b5-4b6197693795"
+                data-contenttype="Recipe"
+                data-title="Hot Caramel Apple Spiked Cider">
+                <a href="/recipes/hot-caramel-apple-spiked-cider/2caba45d-0120-4818-86b5-4b6197693795">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Hot Caramel Apple Spiked Cider" data-src="//images-gmi-pmc.edge-generalmills.com/050f7236-b233-45de-9ab1-b47578f5d0c9.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Hot Caramel Apple Spiked Cider</span>
+                </a>
+            </li>
+    </ul>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22RelatedContent_830a2de7-a19e-4fec-b276-74469a451a3f\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r6bdabbf1ecf7423ab2fb357c0956178b\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpRelatedContent2\x22,\x22deferredContainerView\x22\x3a\x22RecipeDetail\x22\x7d,\x22viewName\x22\x3a\x22RelatedContent\x22\x7d');
+		 var configuration = {};
+		 var moduleName = 'relatedContent';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeDiscoveryUnit1 secondary">
+            
+            <div class="relatedContent" id=re4e782b6aaaa4b678f55ee506d0748b6 data-deferId=re4e782b6aaaa4b678f55ee506d0748b6 v-lazyloadimages="300">
+    <h2>Try These Next</h2>
+    <ul>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="73ceeb4f-3bd4-4eb3-b14b-6c048b0ded22"
+                data-contenttype="Recipe"
+                data-title="Apple Pie Sangria">
+                <a href="/recipes/apple-pie-sangria/73ceeb4f-3bd4-4eb3-b14b-6c048b0ded22">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Apple Pie Sangria" data-src="//images-gmi-pmc.edge-generalmills.com/b4ffa00f-0149-45fa-8868-6cc87fac5b6f.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Apple Pie Sangria</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="9622147f-0783-4b9e-982d-0e26e2d1cb16"
+                data-contenttype="Recipe"
+                data-title="Jingle Juice">
+                <a href="/recipes/jingle-juice/9622147f-0783-4b9e-982d-0e26e2d1cb16">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Jingle Juice" data-src="//images-gmi-pmc.edge-generalmills.com/83089448-591e-4167-a75f-6204e40e6e5d.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Jingle Juice</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="b9a7495c-000f-4e25-b1cb-d299252dfc3f"
+                data-contenttype="Recipe"
+                data-title="How to Make Apple Pie Moonshine">
+                <a href="/recipes/how-to-make-apple-pie-moonshine/b9a7495c-000f-4e25-b1cb-d299252dfc3f">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="How to Make Apple Pie Moonshine" data-src="//images-gmi-pmc.edge-generalmills.com/64d59be9-f6bc-4ef3-88ba-25841f09ac98.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">How to Make Apple Pie Moonshine</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="877c1ac8-0177-4459-9f1e-6141f3c9c5dc"
+                data-contenttype="Recipe"
+                data-title="Apple Cinnamon Water">
+                <a href="/recipes/apple-cinnamon-water/877c1ac8-0177-4459-9f1e-6141f3c9c5dc">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Apple Cinnamon Water" data-src="//images-gmi-pmc.edge-generalmills.com/c49b642d-94bb-416b-9e2f-1a7fa1011772.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Apple Cinnamon Water</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="f0316e0a-ce64-4152-af34-bc4ed7eead08"
+                data-contenttype="Recipe"
+                data-title="Swamp Juice">
+                <a href="/recipes/swamp-juice/f0316e0a-ce64-4152-af34-bc4ed7eead08">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Swamp Juice" data-src="//images-gmi-pmc.edge-generalmills.com/982d3f2a-b874-492e-9205-37a5c42d50df.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Swamp Juice</span>
+                </a>
+            </li>
+            <li class="relatedContentItem" v-on:click="itemClick"
+                data-contentid="014213de-794b-4d49-a92d-64a07ffb2894"
+                data-contenttype="Recipe"
+                data-title="Harry Potter&#39;s Butterbeer">
+                <a href="/recipes/harry-potters-butterbeer/014213de-794b-4d49-a92d-64a07ffb2894">
+                    <div class="relatedContentImage">
+                        <div class="lazyImageContainer">
+                            <img alt="Harry Potter&#39;s Butterbeer" data-src="//images-gmi-pmc.edge-generalmills.com/af9c035a-1378-40a6-979a-4e448ab5cea2.jpg" class="lazyImage" />
+                        </div>
+                    </div>
+                    <span class="title">Harry Potter&#39;s Butterbeer</span>
+                </a>
+            </li>
+    </ul>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22RelatedContent_6baa3312-5bf3-4b63-aa78-22158dc96112\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22re4e782b6aaaa4b678f55ee506d0748b6\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpRelatedContent1\x22,\x22deferredContainerView\x22\x3a\x22RecipeDetail\x22\x7d,\x22viewName\x22\x3a\x22RelatedContent\x22\x7d');
+		 var configuration = {};
+		 var moduleName = 'relatedContent';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeRatingAndReview primary">
+            
+            <div id=r9fa3ee5e93774c3abebf6aa7415a5704 data-deferId=r9fa3ee5e93774c3abebf6aa7415a5704>
+    <div id="consumerGeneratedContent">
+        <h2 class="cgcTitle" v-html="title"></h2>
+        <component :is="contentFormComponent"
+                   :config="settings"
+                   :parent-id="contentId"
+                   :is-reply="false"
+                   :is-user-registered="isUserRegistered"
+                   @set-user-registered="setUserRegistered">
+        </component>
+        <component :is="contentListComponent"
+                   :config="settings"
+                   :parent-id="contentId"
+                   :is-user-registered="isUserRegistered"
+                   @set-user-registered="setUserRegistered">
+        </component>
+    </div>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22ConsumerGeneratedContent_3f096167-8a59-43c4-961a-84f57d84be42\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r9fa3ee5e93774c3abebf6aa7415a5704\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpCgc\x22,\x22deferredContainerView\x22\x3a\x22RecipeDetail\x22\x7d,\x22viewName\x22\x3a\x22ConsumerGeneratedContent\x22\x7d');
+		 var configuration = {"loaderScript":"https://apps.bazaarvoice.com/deployments/tablespoon/main_site/production/en_US/bv.js","type":"RatingAndReview","language":"en","isEmailRequired":true,"isScreenNameRequired":true,"includeRatings":true};
+		 var moduleName = 'consumerGeneratedContent';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeZergnet1 primary">
+            
+            <div id=rfe2c2e841be9470ca0c7188ee82206dc data-deferId=rfe2c2e841be9470ca0c7188ee82206dc class="rdpZergnet1">
+    <div v-html="config.domContent"></div>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22ThirdPartyScript_df19a63c-4926-4b53-b250-0ff85ad38ea5\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22rfe2c2e841be9470ca0c7188ee82206dc\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpZergnet1\x22,\x22deferredContainerView\x22\x3a\x22ThirdPartyScript\x22\x7d,\x22viewName\x22\x3a\x22ThirdPartyScript\x22\x7d');
+		 var configuration = {"placeholderName":"rdpZergnet1","domContent":"\u003cdiv id=\u0022external-content-container-49056\u0022\u003e\u003cdiv id=\u0022zergnet-widget-49056\u0022\u003e\u003c/div\u003e\u003c/div\u003e","scriptContent":"//www.zergnet.com/zerg.js?id=49056"};
+		 var moduleName = 'thirdPartyScript';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeNewsletterCTA secondary">
+            
+            
+        </div>
+
+        <div class="recipeSecondaryAd recipeAd secondary">
+            
+            <div id=r64f2615017a8484a995f8e2644f5512b data-deferId=r64f2615017a8484a995f8e2644f5512b class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_17402628-f426-4216-8cb2-527bbb85a1a4\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r64f2615017a8484a995f8e2644f5512b\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpSecondaryAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/tablespoon/recipes/300x250_bottom","minPageWidth":"1000","maxPageWidth":"9999","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[[300,600],[300,250]]","refreshWhenViewed":false,"adContainerId":"731ad4a0-9282-412b-a23d-276eaa80f345","doubleClickAdContainerId":"34dceac9-616b-47a5-ba7f-b2e30f952eeb","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script><div id=r3bdc14d8aa0c4084961a782b6aca1d98 data-deferId=r3bdc14d8aa0c4084961a782b6aca1d98 class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_08734287-0e98-4513-a9ae-d4ed8fcc090d\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r3bdc14d8aa0c4084961a782b6aca1d98\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpSecondaryAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/tablespoon/recipes/728x90_bottom","minPageWidth":"768","maxPageWidth":"999","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[728, 90]","refreshWhenViewed":false,"adContainerId":"e49f7429-37e0-4c80-863c-6d1293705dce","doubleClickAdContainerId":"810492c7-496b-4362-9ec7-e977500e9281","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script><div id=r05d27e4496024fe4a960804c54b7c9fd data-deferId=r05d27e4496024fe4a960804c54b7c9fd class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_147e3d6b-a87a-4ebe-b45b-4661cb73be28\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r05d27e4496024fe4a960804c54b7c9fd\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpSecondaryAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/m_tablespoon/recipes/300x250_bottom","minPageWidth":"299","maxPageWidth":"767","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[[300,250], [300,600]]","refreshWhenViewed":false,"adContainerId":"ed5d3fde-cacb-4782-885c-ddde88dc7b15","doubleClickAdContainerId":"3fecad4b-ffeb-43cf-a980-67d0cd98b61b","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script><div id=r5c979c1a031841348886d9cbebeec189 data-deferId=r5c979c1a031841348886d9cbebeec189 class="rdpSecondaryAd">
+    <div v-html="config.domContent"></div>
+</div>
+
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22ThirdPartyScript_5705100e-e2a8-4487-9eeb-b94536d45d71\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r5c979c1a031841348886d9cbebeec189\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpSecondaryAd\x22,\x22deferredContainerView\x22\x3a\x22ThirdPartyScript\x22\x7d,\x22viewName\x22\x3a\x22ThirdPartyScript\x22\x7d');
+		 var configuration = {"placeholderName":"rdpSecondaryAd","domContent":"\u003cdiv id=\u0022ntvoAdSpot\u0022 style=\u0022height:20px;margin-bottom:-20px;\u0022\u003e   \u003c/div\u003e","scriptContent":"//s.ntv.io/serve/load.js"};
+		 var moduleName = 'thirdPartyScript';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeTernaryAd recipeAd secondary">
+            
+            <div id=r9787e81a388d4f4389190db1d98f0bc3 data-deferId=r9787e81a388d4f4389190db1d98f0bc3 class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_a64e89d5-b3d5-45ea-8f7e-3efb4a0c90ce\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r9787e81a388d4f4389190db1d98f0bc3\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpTernaryAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/tablespoon/recipes/300x250_bottom2","minPageWidth":"1000","maxPageWidth":"9999","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[[300,600],[300,250]]","refreshWhenViewed":false,"adContainerId":"03a307df-8524-495c-b061-fbf5b2cdcf22","doubleClickAdContainerId":"15864ad5-0775-4460-9424-4c8f8f12d25e","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script><div id=r40dc9f7d1a50443b84d28e7593a30504 data-deferId=r40dc9f7d1a50443b84d28e7593a30504 class="adChrome">
+    <div class="advertisement" v-show="showAd">
+        <span class="closeAdButton" @click="closeAd" aria-label="close"></span>
+        <div :id="settings.adContainerId" class="doubleClickAd"></div>
+        <div class="adCaptionText" v-html="settings.adCaptionText"></div>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22DoubleClick_a64e89d5-b3d5-45ea-8f7e-3efb4a0c90ce\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22r40dc9f7d1a50443b84d28e7593a30504\x22,\x22deferredContainerId\x22\x3a\x22\x2fmain\x2frdpTernaryAd\x22,\x22deferredContainerView\x22\x3a\x22DoubleClick\x22\x7d,\x22viewName\x22\x3a\x22DoubleClick\x22\x7d');
+		 var configuration = {"adId":"OMP/tablespoon/recipes/300x250_bottom2","minPageWidth":"1000","maxPageWidth":"9999","defaultMinPageWidth":"1000","defaultMaxPageWidth":"9999","enableLyticsIntegration":true,"lyticsWaitTimeThreshold":5000,"size":"[[300,600],[300,250]]","refreshWhenViewed":false,"adContainerId":"ee8d17a5-d75d-414a-888c-4cef684941ef","doubleClickAdContainerId":"a5286f7c-3ee4-4eea-bf17-0f3e3d810295","adCaptionText":"Advertisement","networkCode":"/15704463/","relevantMetadata":["Apple"],"privacyOptOut":false};
+		 var moduleName = 'doubleClick';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </div>
+
+        <div class="recipeZergnet2 secondary">
+            
+            
+        </div>
+    </div>
+    <div class="postColumns">
+        <div class="bottomAd">
+            <hr class="linedDivider" />
+            
+            <hr class="linedDivider" />
+        </div>
+    </div>
+</div>
+    </section>
+</div>
+
+<footer>
+    <div class="footerContainer">
+        <section class="footerSocial">
+            <div class="channelLinks" id=rdabb1d5b8be94f3cb2396135ba9128c6 data-deferId=rdabb1d5b8be94f3cb2396135ba9128c6 style="background-color: ">
+    <div class="channelLinksInner">
+            <h3>
+                Follow Tablespoon
+            </h3>
+
+            <ul>
+
+                    <li class="">
+                        <a href="https://www.facebook.com/Tablespoon" title="Facebook" target="_blank" class="iconFacebook" v-on:click="itemClick"
+                           data-position="1"></a>
+                    </li>
+                    <li class="">
+                        <a href="https://instagram.com/tablespoon" title="Instagram" target="_blank" class="iconInstagram" v-on:click="itemClick"
+                           data-position="2"></a>
+                    </li>
+                    <li class="">
+                        <a href="http://www.pinterest.com/tablespoon" title="Pinterest" target="_blank" class="iconPinterest" v-on:click="itemClick"
+                           data-position="3"></a>
+                    </li>
+                    <li class="">
+                        <a href="http://www.youtube.com/user/tablespoonrecipes" title="YouTube" target="_blank" class="iconYouTube" v-on:click="itemClick"
+                           data-position="4"></a>
+                    </li>
+            </ul>
+    </div>
+</div>
+<script type="text/javascript"/>
+(function() {
+	 document.addEventListener('DOMContentLoaded', function() {
+	 var componentMetadata = JSON.parse('\x7b\x22componentName\x22\x3a\x22ChannelLinks_00aecfee-2ebd-4708-9064-6488f2a5773c\x22,\x22deferOptions\x22\x3a\x7b\x22deferComponent\x22\x3atrue,\x22deferType\x22\x3a\x22OnDemand\x22,\x22deferId\x22\x3a\x22rdabb1d5b8be94f3cb2396135ba9128c6\x22,\x22deferredContainerId\x22\x3a\x22\x2ffooterNewsLetterCTA\x22,\x22deferredContainerView\x22\x3a\x22Default\x22\x7d,\x22viewName\x22\x3a\x22ChannelLinks\x22\x7d');
+		 var configuration = {};
+		 var moduleName = 'channelLinks';
+		 var isVueModule = true;
+		 GeneralMills.PandoSites.RegisterControlInstance(moduleName, configuration, componentMetadata, isVueModule)
+});
+})();
+</script>
+        </section>
+        <section class="footerBetty" id="BettyFooterLinks">
+            <ul>
+                <li class="linkAskBetty"><a class="iconAskBetty" href="/how-to/ask-betty"><span>Ask Betty</span></a></li>
+                <li class="linkCookbook"><a class="iconCookbook" href="/cookbooks"><span>Cookbooks</span></a></li>
+            </ul>
+        </section>
+        <div class="footerLinksContainer">
+            <div class="clearfix">
+    <div class="footer" id="footer">
+            <div class="footer items featured">
+                <h3>More Inspiration</h3>
+                <ul>
+<li><span><a href='https://www.pillsbury.com/' target='_blank'>Pillsbury</a></span></li><li><span><a href='http://www.bettycrocker.com/' target='_blank'>Betty Crocker</a></span></li><li><span><a href='http://www.boxtops4education.com/' target='_blank'>Box Tops for Education</a></span></li>                </ul>
+            </div>
+                    <div class="footer items brands">
+                <h3>General Mills Brands</h3>
+                <ul>
+                        <li>
+                            <a href="http://www.bettycrocker.com/products/bisquick"
+                               target="_blank"
+                               class="">
+                                Bisquick
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.chex.com/"
+                               target="_blank"
+                               class="">
+                                Chex
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.muirglen.com/"
+                               target="_blank"
+                               class="">
+                                Muir Glen
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.progresso.com/"
+                               target="_blank"
+                               class="">
+                                Progresso Soup
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.yoplait.com/"
+                               target="_blank"
+                               class="">
+                                Yoplait
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.honeynutcheerios.com/"
+                               target="_blank"
+                               class="">
+                                Honey Nut Cheerios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.fiberone.com/"
+                               target="_blank"
+                               class="">
+                                Fiber One
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.naturevalley.com/"
+                               target="_blank"
+                               class="">
+                                Nature Valley
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.totalcereal.com/"
+                               target="_blank"
+                               class="">
+                                Total
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.cheerios.com/"
+                               target="_blank"
+                               class="">
+                                Cheerios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.cascadianfarm.com/"
+                               target="_blank"
+                               class="">
+                                Cascadian Farm
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.oldelpaso.com/"
+                               target="_blank"
+                               class="">
+                                Old El Paso
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.wheaties.com/"
+                               target="_blank"
+                               class="">
+                                Wheaties
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.totinos.com/"
+                               target="_blank"
+                               class="">
+                                Totino&#39;s
+                            </a>
+                        </li>
+                </ul>
+            </div>
+                    <div class="footer items corporate">
+                <h3>Corporate Sites</h3>
+                <ul>
+                        <li>
+                            <a href="http://www.generalmills.com/"
+                               target="_blank"
+                               class="">
+                                General Mills (USA)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.generalmills.ca/Gmi/Default.aspx?country=33"
+                               target="_blank"
+                               class="">
+                                General Mills (Canada)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.generalmillscf.com/"
+                               target="_blank"
+                               class="">
+                                General Mills Food Service
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://careers.generalmills.com/"
+                               target="_blank"
+                               class="">
+                                General Mills Careers
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        <div class="copyright">&#169;2020 General Mills</div>
+            <div class="footer bottom-navs">
+                <ul>
+                        <li>
+                            <a href="https://contactus.generalmills.com/?page=http://www.tablespoon.com&amp;amp;language=en"
+                               target="_blank"
+                               class="">
+                                Contact Tablespoon
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about"
+                               target="_self"
+                               class="">
+                                About Tablespoon
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.generalmills.com/en/Company/privacy-policies/privacy-policy-adult-US-core-063020"
+                               target="_blank"
+                               class="">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.generalmills.com/en/Company/privacy-policies/privacy-policy-adult-US-core-063020#CookieNotice"
+                               target="_blank"
+                               class="">
+                                Cookie Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/privacy-policy"
+                               target="_self"
+                               class="showPreferenceCenter">
+                                Customize Cookie Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://privacyportal-cdn.onetrust.com/dsarwebform/3fab4271-6836-4aa0-8642-6dfa1fba8014/88638aff-75bd-41ee-bcee-7bceee6aebef.html"
+                               target="_blank"
+                               class="">
+                                Data Privacy Requests
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tablespoon.com/privacy-policy#do-not-sell"
+                               target="_blank"
+                               class="showPreferenceCenter">
+                                Do Not Sell My Personal Information
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.generalmills.com/en/Company/legal-terms/legal-terms-EN"
+                               target="_blank"
+                               class="">
+                                Legal Terms
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/community-guidelines"
+                               target="_self"
+                               class="">
+                                Community Guidelines
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        <div class="truste">
+<a style="cursor: pointer;" onclick="TRUSTeWidget.Tab.link()"><img alt="" src="https://choices.truste.com/get?name=admarker2.png" width="77" height="16" style="border-width: 0px; border-style: solid;" /></a>
+</div>
+<script src="https://preferences.trustarc.com/webservices/js?domain=generalmillscore.com&type=generalmills_pop&js=responsive" type="text/javascript"></script>
+
+    </div>
+</div>
+        </div>
+    </div>
+</footer>
+
+    <!-- DCI 6b3056c2-76bd-45ed-bc15-aac104a5218a -->
+<script src="//www.googletagservices.com/tag/js/gpt.js" async></script>
+
+<script></script><script type="text/javascript" src="/dist/TBSP/main.187c35a4ed62ef03debc4315436f63bf.bundle.js"></script><script type="text/javascript" src="/dist/TBSP/global.8c7231cdf78e91b719b8b02bef6d978b.bundle.js"></script><script type="text/javascript" src="/dist/TBSP/rdp.1f2263b9ed7058c1c9feccef82415d90.bundle.js"></script></body>
+</html>

@@ -15,9 +15,7 @@ import subprocess
 import en_core_web_sm
 import os
 from mymodule.mongo import checkWord
-from spellchecker import SpellChecker
-spell = SpellChecker()
-
+from django.conf import settings
 from celery.contrib import rdb
 nlp = en_core_web_sm.load()
 from hunspell import Hunspell
@@ -61,6 +59,8 @@ def get_all_web_domain(domain,r,user,n,url):
     global server_dict
     pattern = re.compile("^(/)")
     soup = BeautifulSoup(r.text, 'lxml')
+
+ 
     list_url = []
     for link in soup.find_all("a", href=pattern):
        if "href" in link.attrs:
@@ -102,6 +102,22 @@ def getdomainname(url):
 def getobject(text):
    NNP_name=[]
    list_name=[]
+   n_text = text.split('\n')
+   list_m=[]
+   for n in n_text:
+     m_text = n.split(' ')
+     for i,m in enumerate(m_text):
+       if('-' in m):
+         m_text[i]=''
+       if('_' in m):
+         m_text[i]=''
+       if('.' in m):
+         m_text[i]=''
+       if("'" in m):
+         m_text[i]=''
+     list_m.append(' '.join(m_text))
+   text='\n'.join(list_m)
+
    newString = (text.replace(u'\u200b', ' '))
    doc = nlp(newString)  
    for x in doc:
@@ -135,20 +151,34 @@ def dataAnalysist(r,name_array_tag):
     texts=[]
     n_arrays=[]
     w_arrays=[]
-    soup = BeautifulSoup(r.text, 'lxml')
+    new = r.text.replace('/>','>')
+    soup = BeautifulSoup(new, 'lxml')
+
+    for script in soup(["script", "style"]): 
+        script.extract()
+    
     texts = soup.get_text(separator='\n')
+    
+    """
+    for i,txt in enumerate(list_txt):
+      language = guess.language_name(txt)
+      if(language=='JavaScript'):
+        list_txt[i]=''  
+    texts = '\n'.join(list_txt)
+    """
     i=0
     texts = texts.replace(u'\u200b', ' ')
+    
+    """
     n=len(texts)
-
     while(i<n-1):
       if(texts[i]=='\n'):
         if(texts[i+1].isalpha()==True and texts[i+1].islower()==True):
           texts=removeatinde(texts,i)
           n=len(texts)
       i+=1
+    """
 
- 
     texts= ' '.join(getobject(texts))
     texts = texts.split(' ')
     for i,w in enumerate(texts):
@@ -195,8 +225,12 @@ def checkWebsite(url,domain_id,userid,n):
 
        r = requests.get(url, timeout=5)
        if(r.status_code==200):
+        
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=True)
          get_url.save()
+         f= open(settings.MEDIA_ROOT+"/"+str(get_url.id)+".txt","a")
+         f.write(r.text)
+         f.close()
          # lấy tát cả internal website
          get_all_web_domain(domain_object.name,r,userid,n,url)
          #phân tích từ vựng của trang web
@@ -239,7 +273,7 @@ def checkWebsite(url,domain_id,userid,n):
 
 
 
-@shared_task
+@shared_task()
 
 def do_task(url,domain_id,userid,n):
     try:

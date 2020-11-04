@@ -24,7 +24,7 @@ from pytesseract import Output
 import PIL
 from django.views.decorators.csrf import csrf_exempt
 from urllib.parse import urlparse
-from hunspell import Hunspell
+
 from urlpage.task import do_task
 from celery.result import AsyncResult
 from words_lib.models import Ignore_word_domain,Personal_words
@@ -44,120 +44,6 @@ def getdomainname(url):
     parsed_uri = urlparse(url)
     result = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return result
-<<<<<<< HEAD
-def test(word):
-    return spellchecker.spell(word)
-
-def getobject(text):
-   NNP_name=[]
-   list_name=[]
-   newString = (text.replace(u'\u200b', ' '))
-   doc = nlp(newString)
-   print(doc)
-   for x in doc:
-       if(x.ent_type_ == ''):
-        text=str(x)
-        if(text=="n't"):
-             list_name.pop()
-             continue
-        if(text.isalpha()==True):
-          if (text in list_name)==False:
-             list_name.append(text)
-       else:
-        text=str(x)
-        if(text.isalpha()==True):
-          if (text in NNP_name)==False:
-            NNP_name.append(text.lower())
-   print(NNP_name)
-   for w in list_name:
-       if w.lower() in NNP_name:  
-          list_name.remove(w)
-   return list_name
-
-data={
-}
-save=""
-server_dict={
-
-}
-server_dict_done={
-
-}
-user_domain={
-
-}
-def removeatinde(texts,index):
-    newstr = texts[:index] + texts[index+1:]
-    return newstr
-
-def dataAnalysist(r,name_array_tag):
-    texts=[]
-    n_arrays=[]
-    w_arrays=[]
-    soup = BeautifulSoup(r.text, 'lxml')
-    texts = soup.get_text(separator='\n')
-    i=0
-    n=len(texts)
-    while i < n-11:
-        if(texts[i]=='\n'):
-            if(texts[i+1].isalpha()==True and texts[i+1].islower()==True):
-                texts=removeatinde(texts,i)
-                n=len(texts)
-
-        i+=1
-    
-    print(texts)
-    texts= ' '.join(getobject(texts))
-    w_arrays=re.split(r"[^a-zA-Z']",texts)
-
-    for w in w_arrays :
-        t=str(w)
-        for ew in t:
-            if(ew.isalnum()==False):
-               if w in w_arrays:  
-                 w_arrays.remove(w)
-    
-    for text in w_arrays:
-        print(text)
-        if(test(text)==False):
-          n_arrays.append(text)
-         
-    name_array_tag=n_arrays
-
-    return soup.prettify(),name_array_tag
-
-
-
-def savedata(data,id):
-   
-  BASE = 'https://mini.s-shot.ru/1024x0/PNG/1024/Z100/?' # you can modify size, format, zoom
-  url = data
-  url = urllib.parse.quote_plus(url) #service needs link to be joined in encoded format
-
-
-  path = 'urlpage/static/website/'+str(id)+'.png'
-  response = requests.get(BASE + url, stream=True)
-
-  if response.status_code == 200:
-    with open(path, 'wb') as file:
-        for chunk in response:
-            file.write(chunk)
-
-def get_all_domain(r,user):
-    global server_dict
-    global server_dict_done
-    global user_domain
-    pattern = re.compile("^(/)")
-    soup = BeautifulSoup(r.text, 'lxml')
-
-    for link in soup.find_all("a", href=pattern):
-       if "href" in link.attrs:
-         linka=user_domain[user]+'/'+link.attrs["href"]
-         if linka not in server_dict[user] and linka not in server_dict_done[user]:
-               new_page = link.attrs["href"]
-               server_dict[user].append(user_domain[user]+'/'+new_page)
-=======
->>>>>>> master
 
 """
 def checkWebsite(urlpath,request):
@@ -193,90 +79,6 @@ def checkWebsite(urlpath,request):
       print(e)
 """
 
-<<<<<<< HEAD
-# Create your views here.  
-def emp(request):  
-    global server_dict
-    global server_dict_done
-    global user_domain
-    if request.is_ajax and request.method == "POST":
-      if('continue' not in request.POST):
-        form = UrlsForm(request.POST)  
-        if form.is_valid():
-            data= form.cleaned_data.get("name")
-            server_dict[request.user.id]=[data]
-            server_dict_done[request.user.id]=[]
-            user_domain[request.user.id]=getdomainname(data)
-            if checkers.is_url(data)==True:
-                try:             
-                 urlpath=form.save()
-                 data=checkWebsite(urlpath,request)
-                 return JsonResponse(json.dumps(data),safe=False) 
-                except Exception as e: 
-                    print(e)
-                    data={}
-                    data['error']=1
-                    if(len(server_dict)==0):
-                     data['continue']=0
-                    else:
-                     data['next']=server_dict[request.user.id][1]
-                     data['continue']=1
-                    server_dict_done[request.user.id].append(server_dict[request.user.id].pop(0))
-                    return JsonResponse(
-                     json.dumps(data),
-                     safe=False
-                    ) 
-                 
-
-            else:
-                print('Sai')
-      else:
-       try:
-        data=server_dict[request.user.id][0]
-        urlpath= Urlspage(name=data)
-        urlpath.save()
-        return JsonResponse(json.dumps(checkWebsite(urlpath,request)),safe=False) 
-       except Exception as e: 
-            print(e)
-            data={}
-            data['error']=1
-            if(len(server_dict)==0):
-                     data['continue']=0
-            else:
-                     data['next']=server_dict[request.user.id][0]
-                     data['continue']=1
-            server_dict_done[request.user.id].append(server_dict[request.user.id].pop(0))
-            return JsonResponse(
-                     json.dumps(data),
-                     safe=False
-                    ) 
-                 
-
-    else:  
-        form = UrlsForm()  
-    return render(request,'home.html',{'form':form})  
-
-=======
-#Another process
->>>>>>> master
-def analystPicture(id,word):
-    loca=[]
-    img=cv2.imread('urlpage/static/website/'+str(id)+'.png')
-    d = pytesseract.image_to_data(img, output_type=Output.DICT, lang='eng')
-    n_boxes = len(d['level'])
-    overlay = img.copy()
-    for i in range(n_boxes):
-      text = d['text'][i]
-      if word in text:
-        (x1, y1, w1, h1) = (d['left'][i], d['top'][i], d['width'][i], d['height'][i])
-        loca.append([x1, y1, w1, h1])
-        cv2.rectangle(overlay, (x1, y1), (x1 + w1, y1 + h1), (255, 0, 0), -1)
-    alpha = 0.4  # Transparency factor.
-    img_new = cv2.addWeighted(overlay, alpha, img, 1 - alpha, 0)
-    picurl=str(id)+word+'.png'
-    filename=picurl.format(os.getpid())
-    cv2.imwrite("urlpage/static/website/"+filename,img_new)
-    return loca
 
 def pictureAnalyze(request):
     data={}
@@ -294,9 +96,10 @@ def pictureAnalyze(request):
         try: 
          pic = Analyze(page,words)
          file_name = os.path.basename(pic)
-         page.piclink = file_name
-         page.save()
-        except:
+         #page.piclink = file_name
+         #page.save()
+        except Exception as e:
+         print(e)
          file_name='fail.jpeg'
     else:
         file_name=page.piclink
@@ -314,22 +117,20 @@ def checkref(request):
     url = Urlspage.objects.get(id=idurl)
     word = Words.objects.get(id=idword).name
     w_url = WordUrls.objects.get(idurl=idurl,idword=idword)  
-    r = requests.get(url.name)
-    soup = BeautifulSoup(r.text, 'lxml')
+
+    f= open(settings.MEDIA_ROOT+"/"+str(url.id)+".txt","r")
+    r = f.read()
+    f.close()
+   
+    soup = BeautifulSoup(r, 'lxml')
     list_form = w_url.form_pre.split(',')
     for w in list_form:
        findtoure = soup.find_all(text = re.compile(r'\b%s\b'%w))
     
-<<<<<<< HEAD
-    for comment in findtoure:
-       fixed_text = comment.replace(word, ' <mark>'+word+'</mark> ')
-       comment.replace_with(BeautifulSoup(fixed_text),"lxml")
-=======
        for comment in findtoure:
          fixed_text = comment.replace(w, ' <mark>'+w+'</mark> ')
          comment.replace_with(BeautifulSoup(fixed_text))
 
->>>>>>> master
     st = soup.prettify()
     return render(request,'watch.html',{'word':word,'st':st,'id':w_url.id})  
 

@@ -9,7 +9,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "I:/djangoWeb/pythonproject/manage.py",
+            "program": "manage.py",
             "args": [
                 "runserver",
                 "--noreload"
