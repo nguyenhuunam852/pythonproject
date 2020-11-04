@@ -21,14 +21,10 @@ nlp = en_core_web_sm.load()
 from hunspell import Hunspell
 
 
-
 current_dic = os.path.dirname(os.path.abspath(__file__))
 spellchecker = Hunspell('en_US',hunspell_data_dir=current_dic+'/dic/')
 server_dict={}
 server_dict_done={}
-
-
-
 
 
 
@@ -80,8 +76,9 @@ def get_all_web_domain(domain,r,user,n,url):
         if("//" in link):
            check_domain = urlparse(link).netloc
            if check_domain==urlparse(domain).netloc:
-              if link not in server_dict[user] and link not in server_dict_done[user] and link!=url:
-                server_dict[user].append(link)
+              linka = "http:"+link
+              if linka not in server_dict[user] and linka not in server_dict_done[user] and linka!=url:
+                server_dict[user].append(linka)
         else:
            linkb = Urls_check(link+"/")
            linka= domain+linkb
@@ -96,6 +93,7 @@ def getdomainname(url):
     parsed_uri = urlparse(url)
     result = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return result
+
 
 
 #chuẩn hóa văn bản và phân tích tất cả các thành phần dựa trên nlp
@@ -157,6 +155,7 @@ def dataAnalysist(r,name_array_tag):
     for script in soup(["script", "style"]): 
         script.extract()
     
+
     texts = soup.get_text(separator='\n')
     
     """
@@ -166,6 +165,7 @@ def dataAnalysist(r,name_array_tag):
         list_txt[i]=''  
     texts = '\n'.join(list_txt)
     """
+    
     i=0
     texts = texts.replace(u'\u200b', ' ')
     

@@ -51,54 +51,67 @@
 <br/>
     
 {% if user.is_authenticated %}
-<form method="Post" class="post-form" id="submit">  
+<div class="row">
+<div class="col-sm-4">
+</div>
+<div class="col-sm-8">
+<form method="Post" id="submit">  
   {% csrf_token %}
   <div>
-  <span style="margin:20px">
-   {{ form.name }}
-   <button style="background-color: limegreen;" class="btn btn-primary">Check</button>  
-  </span>
-  <span>
-    <label for="quantity">Number of Website (between 1 and 100):</label>
-    <input type="number" id="quantity" name="quantity" min="1" max="100" value="1"> 
-  </span>
- 
-  </div>
+   <div class="input-group mb-3 input-group-sm" style="width:30%">
+      <div class="input-group-prepend">
+        <span class="input-group-text" style="">Number of Pages</span>
+      </div>
+      <input type="number" id="quantity" name="quantity" class="form-control" min="1" max="100" value="1">
+    </div>  
+    <div class="input-group mb-3" style="width:50%">
+     <div class="input-group-prepend">
+      <button style="background-color: limegreen;" class="btn btn-primary">Check</button>  
+     </div>
+       {{ form.name }}
+     </div>
+    </div>
 </form>
+
 <br/>
-<div class="col">
-  <div id="showprogress">  
-        
-  </div>
-</div>
-<br/>
-<div id="table_style">
-<table class="table table-striped table-bordered table-sm">  
-    <thead class="thead-white">  
-    
-     <tr> 
-        <th style="background-color: limegreen;color: white;">#</th>  
-        <th style="background-color: limegreen;color: white;">Your Checked Domain</th>  
-        <th style="background-color: limegreen;color: white;">Button</th>  
-     </tr>  
-     
-    </thead>  
-    <tbody>  
-{% for url in urls %}  
-    <tr>  
-        <td style="width: 80%;"><a href="/view/{{ url.id }}">{{ url.name }}</a></td>  
-        <td style="width: 15%;">  
+ <h4>Your Checked Domains</h4>
+ <p>
+   Have a good Day 
+ </p>
+   
+   <table class="table table-striped table-bordered table-sm" style="width:50%"> 
+     <tbody>
+     {% for url in urls %}  
+       <tr>  
+         <td style="width:80%"> 
+           <a href="/view/{{ url.id }}">{{ url.name }}</a>
+         </td>
+         <td style="width:20%">
           <a href="/view/{{ url.id }}" class="button" style="background-color:#DF0101;"><i class="fa fa-plus-square" aria-hidden="true"></i></a>  
           <a href="/delete/{{ url.id }}" class="button" style="background-color:#0080ff;"><i class="fa fa-trash" aria-hidden="true"></i></a>  
-        </td>  
-        
-    </tr>  
-{% endfor %}  
-    </tbody>  
-</table>  
+         </td>
+       </tr>
+     {% endfor %}
+     </tbody>
+    </table>
+  <div>  
+  {% load times %}
+  <ul class="pagination pagination-sm">
+  {%  for i in page|times  %} 
+    {% if i|stringformat:"s" == current|stringformat:"s" %}
+    <li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+    {% endif %}
+    
+  {% endfor %}
+  </ul>
+  </div>
 </div>
-<br>  
-<br>  
+</div>
+<br/>
+
+
 
 {% endif %}
 {% endblock %}
@@ -109,33 +122,22 @@
   var index=0;
   var index1=0;
   var ins;
-  var willstop=1;
-  function openTab(Name) {
-  var i;
-  var size;
-  var loca1=[];
-  var x = document.getElementsByClassName("view");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  document.getElementById(Name).style.display = "block";  
-  }
-  
-  window.onload = function()
+  var willstop=0;
+ 
+  /*
+  function openTab(Name)
   {
-      var current_web= "{{state.current_web}}";
-      var percent = "{{state.process_percent}}";
-      console.log(current_web,percent)
-      if (current_web == null || current_web == undefined || current_web=="") 
-      {
-         
+    var i;
+    var size;
+    var loca1=[];
+    var x = document.getElementsByClassName("view");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
       }
-      else
-      {
-        willstop = 0;
-        $("#showprogress").append('<span style="margin:20px"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Try to Scan Website <a style="color:blue;" href="'+current_web+'">'+current_web+'</a> .... </span> <span>'+percent+'%</span>')
-      }
+    document.getElementById(Name).style.display = "block";  
   }
+  */
+  /*
   $( "#next" ).click(function() {
     if(document.getElementById("first").style.display != "none" )
     {
@@ -147,6 +149,9 @@
       PicgotoAnother();
     }
   });
+  */
+
+  /*
   function PicgotoAnother()
   {
      if(index1==loca1.length)
@@ -166,6 +171,8 @@
     console.log(x,y)
     $("#google").scrollTop(y).scrollLeft(x);
   }
+  */
+  /*
   var poll = function(){
       poll_xhr = $.ajax({
         url:'./poll_state',
@@ -174,8 +181,10 @@
             csrfmiddlewaretoken: "{{csrf_token}}",
         },
         success: function(result) {
-          
-          
+                    if(result=="Wait")
+                    {
+                      willstop=1
+                    }
                     if(typeof result.process_percent !='undefined')
                     {
                       if (result.process_percent==100 && willstop==0)
@@ -183,7 +192,6 @@
                         var current_web= result.current_web;
                         var percent = result.process_percent;
                         $("#showprogress").empty();
-                        $("#showprogress").append('<span style="margin:20px"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Try to Scan Website <a style="color:blue;" href="'+current_web+'">'+current_web+'</a> .... </span> <span>'+percent+'%</span>')
                         willstop = 1;
                         window.alert("Your Task is done, Let Checkout!!!");
                         location.reload();
@@ -205,6 +213,10 @@
                 }
       });
     };
+  
+  
+  
+  
   $("#submit").submit(function (e) {
       
       e.preventDefault();
@@ -224,6 +236,10 @@
           }
       })
   })
+  */
+
+
+  /*
   function explore(response){
             ins = JSON.parse(response);
             if(ins.error==0)
@@ -249,6 +265,8 @@
             }
             
   }
+  */
+  /*
   function ContinueAjax(){
      
      $("#showprogress").append('<span style="margin:20px"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Try to Scan Website <a style="color:blue;" href="'+ins.next+'">'+ins.next+'</a> .... </span>')
@@ -270,9 +288,13 @@
           }
       })
   }
+  */
+  /*
   function tunnel(fn) {
- fn();
-}
+    fn();
+  }
+  */
+  /*
   function tunnel1(loca) {
     loca1=loca;
     $("#google").scrollTop=0;
@@ -292,6 +314,8 @@
        PicgotoAnother()
     }
   }
+  */
+  /*
   $('#ShowModal').on('show.bs.modal', function(e) {
     openTab('first');
     var href=$(e.relatedTarget).data('url');
@@ -308,12 +332,9 @@
     setTimeout(function(){ 
        $(e.currentTarget).find(pic).attr('src', href);
     }, 2000);
-});
-  function set(text){
-      var block = document.getElementById("abc");
-      block.innerHTML=text;
-      Prism.highlightElement(block); 
-  }
+  });
+  */
+  /*
   var refreshIntervalId = setInterval(function() {
       if(willstop == 1){
         
@@ -323,7 +344,7 @@
         poll();
       }
     },5000);
-
+  */
 </script>
 {% endblock javascript %}
 </html>  

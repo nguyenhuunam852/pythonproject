@@ -11,6 +11,10 @@ class UrlsForm(forms.ModelForm):
         model = Urlspage 
         fields = ('name',) 
 
+    def __init__(self, *args, **kwargs):
+        super(UrlsForm, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs.update({'class' : 'form-control','placeholder':'Put Your URL here!'})
+
 class UrlsChangeForm(forms.ModelForm):  
     class Meta:  
         model = Urlspage 

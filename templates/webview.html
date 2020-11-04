@@ -26,6 +26,8 @@
 </style> 
 <br/>
 {% if user.is_authenticated %}
+<div id="root"></div>
+<!--
 <h1 style="padding: 2px 6px 2px 50px;">
     List URL in Your Domain 
 </h1>
@@ -34,7 +36,6 @@
 
     <thead>
       <tr>
-        <th>#</th>
         <th>URL</th>
         <th>State</th>
         <th>Button</th>
@@ -42,6 +43,7 @@
     </thead>
     
     <tbody>
+  
     {% for url in list_url %} 
       <tr>
         
@@ -65,7 +67,16 @@
     
     </table>
   </div>
-   
- 
+  
+-->
 {% endif %}
+<script type="text/babel">
+
+  const Hi = <div className="title">Hi</div>
+
+  const root = document.getElementById('root')
+
+  ReactDOM.render(Hi,root)
+</script>
+
 {% endblock %}

@@ -134,14 +134,13 @@ def checkref(request):
     st = soup.prettify()
     return render(request,'watch.html',{'word':word,'st':st,'id':w_url.id})  
 
-def checkpic(request):
-    id = request.GET.get('id', None)
-    word = request.GET.get('word', None)
-    filename=id+word+'.png'
-    if(os.path.isfile('urlpage/static/website/'+filename)==False):
-      loca= analystPicture(id,word)
-    return render(request,'picture.html',{'id':id,'word':word,'loca':loca})  
-
+def getpagi(sort_list):
+  page = float(len(sort_list)/3)
+  if(page>int(len(sort_list)/3)):
+    page=int(len(sort_list)/3+1)
+  else:
+    page=int(len(sort_list)/3)
+  return page
 #Hàm cập nhật trạng thái cho process
 def poll_state(request):
     data = 'Wait'
@@ -162,7 +161,8 @@ def poll_state(request):
 def show(request):
     global user_process
     user_domain=[]
-    json_data={}
+    pagi = request.GET.get('page', None)
+    sort_list=[]
     if request.is_ajax and request.method == "POST":
       form = UrlsForm(request.POST)  
       quantity = request.POST.get('quantity')
@@ -176,29 +176,30 @@ def show(request):
            p.save()
            job = do_task.delay(url=data,domain_id=domain_process.id,userid=request.user.id,n=quantity)
            user_process[request.user.id]=job.id
-           json_data['domain']=domain
 
-      json_data['done']=1
-      res = json.dumps(json_data)
-      return JsonResponse(res, safe=False) 
+      return redirect("/") 
 
     if(request.user.is_authenticated and request.method == "GET"):
-      if((request.user.id in user_process)==False):
+     
        form = UrlsForm()
        userurl = Domain_User.objects.filter(iduser=request.user.id).values_list('idurl', flat=True)
        listdomain=list(userurl)
+       show_list=[]
        for url in listdomain:
          url= Domain.objects.get(id=url)
          user_domain.append(url)
-       return render(request,"show.html",{'urls':user_domain,'form':form})  
-      else:
-       process_state= AsyncResult(user_process[request.user.id])
-       data = process_state.result or process_state.state
-       context={
-         'urls':user_domain,
-         'state':data,
-       }
-       return render(request,"show.html",context)
+       sort_list= sorted(user_domain,key=lambda x: x.created_at,reverse=True)
+       if(pagi==None):
+        show_list=sort_list[0:3]
+        current= 1
+       else:
+        pa = (int(pagi)-1)*3
+        show_list=sort_list[pa:pa+3]
+        current = pagi
+        print(current)
+       page=getpagi(sort_list)
+       return render(request,"show.html",{'urls':show_list,'form':form,'page':page,'current':current})  
+     
     return render(request,"show.html") 
 
 def delete(request, id):  

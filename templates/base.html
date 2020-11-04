@@ -3,6 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+  
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -14,6 +19,10 @@
   
 </head>
 <style>
+  html, 
+  body {
+    height: 100%;
+  }
   @keyframes spinner-line-fade-more {
   0%, 100% {
     opacity: 0; /* minimum opacity */
@@ -54,8 +63,7 @@
 }
     #table_style
     {
-      width: 70%;
-      padding-left: 50px;
+      width: 100%;
     }
     #button_viewpic
     {
@@ -66,11 +74,20 @@
       background-color:limegreen; 
       color: white;
     }
+    .myFooter{
+      position:fixed;
+      bottom:0;
+      width:100%;
+      background-color:black;
+      Color:white;
+
+    }
   </style>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:limegreen;">
-    <a class="navbar-brand" style="color: white;" href="/">Chính tả</a>
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4CAF50;">
+    <a class="navbar-brand" style="color: white;" href="/">Check</a>
    
    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
@@ -95,26 +112,20 @@
   </nav>
     
   <main>
-    {% block content %}
+    <div style="margin-left:20px;margin-top:30px;width:98%">
+     {% block content %}
 
-    {% endblock %}
-   
+     {% endblock %}
+    </div>
+    <br/>
     {% block javascript %}
+
     {% endblock javascript %}
   </main>
+  <div class="myFooter text-center">
+    <p style="margin-bottom:0px">Thanks for using our Service!</p>
+  </div>
 
-  <script>
-    
-    var tables = document.getElementsByTagName('table');
-    var table = tables[tables.length - 1];
-    var rows = table.rows;
-    for(var i = 1, td; i < rows.length; i++){
-        td = document.createElement('td');
-        td.appendChild(document.createTextNode(i));
-        td.width='5%';
-        rows[i].insertBefore(td, rows[i].firstChild);
-    }
 
-  </script>
-</body>
+ </body>   
 </html>
