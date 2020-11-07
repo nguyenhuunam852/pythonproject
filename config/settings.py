@@ -1,4 +1,4 @@
-
+from corsheaders.defaults import default_headers
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -31,12 +31,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_results',
+    'corsheaders',            
+    'rest_framework',         
     'users',
     'urlpage',
     'words_lib',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -63,7 +66,12 @@ TEMPLATES = [
         },
     },
 ]
-
+CORS_ALLOW_HEADERS = list(default_headers) + [
+     'X-CSRFTOKEN',
+]
+CORS_ORIGIN_WHITELIST = (
+     'http://localhost:3000',
+ )
 WSGI_APPLICATION = 'config.wsgi.application'
 
 
@@ -117,6 +125,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
 
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'users.CustomUser'

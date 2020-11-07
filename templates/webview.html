@@ -11,6 +11,16 @@
      {% load static %}  
 </head>
 <style>
+.stylebutton{
+  color: black;
+  background-color: red;
+  
+}
+.stylebutton1{
+  color: black;
+  background-color: green;
+  
+}
     .url_row{
         padding: 2px 6px 2px 50px;
     }
@@ -25,58 +35,28 @@
     }
 </style> 
 <br/>
+<body> 
 {% if user.is_authenticated %}
-<div id="root"></div>
-<!--
-<h1 style="padding: 2px 6px 2px 50px;">
-    List URL in Your Domain 
-</h1>
- <div id="table_style">
-<table class="table table-striped table-bordered table-sm">
-
-    <thead>
-      <tr>
-        <th>URL</th>
-        <th>State</th>
-        <th>Button</th>
-      </tr>
-    </thead>
-    
-    <tbody>
-  
-    {% for url in list_url %} 
-      <tr>
-        
-        <td style="width: 35%;">
-          <a href="/words/{{url.id}}">{{ url.name }}</a>
-        </td>
-        <td style="width: 10%;text-align: center;">
-            {% if url.is_valid %}
-             <i class="fa fa-check" style="color: red;" aria-hidden="true"></i>
-            {% else %}
-             <i class="fa fa-times-circle" style="color: red;" aria-hidden="true"></i>
-            {% endif %} 
-        </td>
-        <td style="width: 20%;">
-            <a href="" class="button" style="background-color:#DF0101;"><i class="fa fa-list" aria-hidden="true"></i></a>  
-            <a href="" class="button" style="background-color:#0080ff;"><i class="fa fa-trash" aria-hidden="true"></i></a>  
-        </td> 
-      </tr>
-    {% endfor %} 
-    </tbody>
-    
-    </table>
+<div class="row">
+  <div class="col-sm-4">
   </div>
-  
--->
+  <div class="col-sm-8">
+  <div style="width:75%">
+    <div id="root"></div>
+  </div>
+  </div>
+</div>
+
+
+
 {% endif %}
-<script type="text/babel">
+<script>
+    window.id = "{{id}}"
+ </script>
 
-  const Hi = <div className="title">Hi</div>
 
-  const root = document.getElementById('root')
+<script type="text/javascript" src="{% static "/reactjs/bundle.js" %}"> </script>
 
-  ReactDOM.render(Hi,root)
-</script>
 
 {% endblock %}
+</body>

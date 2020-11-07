@@ -1,0 +1,33 @@
+1604555860671	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tdxQnPUKlIJZ"
+*** You are running in headless mode.
+1604555865238	Marionette	INFO	Listening on port 33645
+1604555865334	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604555877151	Marionette	INFO	Stopped listening on port 33645
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604558326197	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6AZB8MEO4gRU"
+*** You are running in headless mode.
+1604558331957	Marionette	INFO	Listening on port 40999
+1604558332469	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604558361607	Marionette	INFO	Stopped listening on port 40999
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604634103971	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.Jj2ppeG7w1Nc"
+*** You are running in headless mode.
+1604634107957	Marionette	INFO	Listening on port 40931
+1604634108069	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604634116104	Marionette	INFO	Stopped listening on port 40931
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1604635388810	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.mkVrIK68UpmO"
+*** You are running in headless mode.
+1604635392755	Marionette	INFO	Listening on port 42463
+1604635392889	Marionette	WARN	TLS certificate errors will be ignored for this session
+1604635401008	Marionette	WARN	Limiting screen capture height to maximum allowed 32767 pixels
+1604635404895	Marionette	INFO	Stopped listening on port 42463

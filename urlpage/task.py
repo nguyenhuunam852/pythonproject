@@ -12,6 +12,7 @@ from urllib.parse import urlparse
 import re
 import PIL
 import subprocess
+import time
 import en_core_web_sm
 import os
 from mymodule.mongo import checkWord
@@ -80,7 +81,7 @@ def get_all_web_domain(domain,r,user,n,url):
               if linka not in server_dict[user] and linka not in server_dict_done[user] and linka!=url:
                 server_dict[user].append(linka)
         else:
-           linkb = Urls_check(link+"/")
+           linkb = Urls_check(link)
            linka= domain+linkb
            if linka not in server_dict[user] and linka not in server_dict_done[user] and link!=url:
                server_dict[user].append(linka)
@@ -228,7 +229,7 @@ def checkWebsite(url,domain_id,userid,n):
         
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=True)
          get_url.save()
-         f= open(settings.MEDIA_ROOT+"/"+str(get_url.id)+".txt","a")
+         f= open(settings.MEDIA_ROOT+"/doc/"+str(get_url.id)+".txt","a")
          f.write(r.text)
          f.close()
          # lấy tát cả internal website
@@ -287,6 +288,7 @@ def do_task(url,domain_id,userid,n):
           current_task.update_state(state='PROGRESS',meta={'process_percent': process_percent,'current_web':web})
           checkWebsite(web,domain_id,userid,n)
           server_dict_done[userid].append(web)
+
 
      return {'process_percent': 100}
      

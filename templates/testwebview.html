@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}View{% endblock %}
+
+{% block content %}
+{% load static  %}  
+{% static "" as baseUrl %}
+<style>
+
+
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  width: 10px;
+  height: 26.8px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 500px;
+  height: 1340px;
+  transform: rotate(90deg);
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<div class="row justify-content-md-center" style="padding:20px">
+  <div id="wordform"></div>
+</div>
+
+<script type="text/javascript" src="{% static "/reactjs/wordform.js" %}"> </script>
+
+{% endblock %}

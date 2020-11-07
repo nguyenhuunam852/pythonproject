@@ -29,6 +29,10 @@ from urlpage.task import do_task
 from celery.result import AsyncResult
 from words_lib.models import Ignore_word_domain,Personal_words
 
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from django.forms.models import model_to_dict
+from .serialize import PageSerializer
 
 index=0
 id_array_tag=[]
@@ -118,7 +122,7 @@ def checkref(request):
     word = Words.objects.get(id=idword).name
     w_url = WordUrls.objects.get(idurl=idurl,idword=idword)  
 
-    f= open(settings.MEDIA_ROOT+"/"+str(url.id)+".txt","r")
+    f= open(settings.MEDIA_ROOT+"/doc/"+str(url.id)+".txt","r")
     r = f.read()
     f.close()
    
@@ -134,29 +138,42 @@ def checkref(request):
     st = soup.prettify()
     return render(request,'watch.html',{'word':word,'st':st,'id':w_url.id})  
 
-def getpagi(sort_list):
-  page = float(len(sort_list)/3)
-  if(page>int(len(sort_list)/3)):
-    page=int(len(sort_list)/3+1)
+def getpagi(sort_list,n):
+  page = float(len(sort_list)/n)
+  if(page>int(len(sort_list)/n)):
+    page=int(len(sort_list)/n+1)
   else:
-    page=int(len(sort_list)/3)
+    page=int(len(sort_list)/n)
   return page
+
+
+
 #Hàm cập nhật trạng thái cho process
-def poll_state(request):
-    data = 'Wait'
+
+def poll_state(request):    
+    test = json.loads(request.body.decode('UTF-8'))
+    pagi = test['pagination']
+    idDomain = test['idDomain']
+    pa = (int(pagi)-1)*5
+    items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
+    sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
+    data={}
     if(request.user.id in user_process):
-      if request.is_ajax():
-          task = AsyncResult(user_process[request.user.id])
-          data = task.result or task.state
-          if(isinstance(data,dict)==True):
-             if(data['process_percent']==100):
-               user_process.pop(request.user.id)
-      else:
-        data = 'This is not an ajax request'
+        data['signal']='Work'
+        task = AsyncResult(user_process[request.user.id])
+        data = task.result or task.state
+        if(isinstance(data,dict)==True):
+          if(data['process_percent']==100):
+            user_process.pop(request.user.id)
     else:
-      data = 'Wait'
-    json_data = json.dumps(data)
-    return HttpResponse(json_data, content_type='application/json')
+      data['signal'] = 'Wait'
+    data['items']=[model_to_dict(item) for item in items]
+    data['sumofpages']=sumofpage
+    return JsonResponse(data,safe=False)
+
+def test(request):
+    return render(request,"testwebview.html",{})  
+
 
 def show(request):
     global user_process
@@ -176,11 +193,9 @@ def show(request):
            p.save()
            job = do_task.delay(url=data,domain_id=domain_process.id,userid=request.user.id,n=quantity)
            user_process[request.user.id]=job.id
-
       return redirect("/") 
 
     if(request.user.is_authenticated and request.method == "GET"):
-     
        form = UrlsForm()
        userurl = Domain_User.objects.filter(iduser=request.user.id).values_list('idurl', flat=True)
        listdomain=list(userurl)
@@ -196,8 +211,8 @@ def show(request):
         pa = (int(pagi)-1)*3
         show_list=sort_list[pa:pa+3]
         current = pagi
-        print(current)
-       page=getpagi(sort_list)
+      
+       page=getpagi(sort_list,3)
        return render(request,"show.html",{'urls':show_list,'form':form,'page':page,'current':current})  
      
     return render(request,"show.html") 
@@ -210,7 +225,7 @@ def delete(request, id):
 def get_all_web(request, id):  
     url = Urlspage.objects.filter(idDomain=id)  
     list_url = url
-    return render(request, 'webview.html', {'list_url': list_url})  
+    return render(request, 'webview.html', {'id':id })  
 
 def get_all_word(request, id):  
     url = Urlspage.objects.get(id=id)
@@ -230,3 +245,30 @@ def get_all_word(request, id):
     else:
       return render(request, 'no_word_view.html', {})  
 
+
+def test(request,id):
+    pagi = request.GET.get('page', None)
+    url = Urlspage.objects.get(id=id)
+    words = WordUrls.objects.filter(idurl=id,available=True)  
+    ignore_domain = Ignore_word_domain.objects.filter(idurl=url.idDomain.id)
+    personal_words = Personal_words.objects.filter(iduser=request.user)
+    list_ignore=[x.idword.id for x in ignore_domain]
+    list_person=[x.idword.id for x in personal_words]
+    list_word = []
+    
+    for w in words:
+      w.idword.idcommon = w.id
+      if(w.idword.id not in list_ignore):
+        if(w.idword.id not in list_person):
+          list_word.append(w.idword)
+
+    sumofpages = getpagi(list_word,7)
+    if(pagi==None):
+      pagi=1
+
+    pa = (int(pagi)-1)*7
+    list_word_pagi = list_word[pa:pa+7]
+    data['items']=[model_to_dict(item) for item in list_word_pagi]
+    data['sum']=sumofpages
+
+    return JsonResponse(data,safe=False)
