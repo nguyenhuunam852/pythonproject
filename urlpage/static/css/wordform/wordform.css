@@ -1,0 +1,40 @@
+td .Buttonstyle{
+    resize: none;
+    font-size: 0.6rem;
+    width: 25%;
+    height: 10%;
+    text-align: center;
+    padding:5px;
+}
+
+.containTable{
+    width: 100%;
+    resize: none;
+}
+.tdword{
+    width: 55%;
+    resize: none;
+}
+.tdsuggest{
+    width: 35%;
+    resize: none;
+}
+.tdbutton{
+    width: 20%;
+    resize: none;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

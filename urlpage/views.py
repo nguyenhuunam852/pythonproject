@@ -87,7 +87,8 @@ def checkWebsite(urlpath,request):
 def pictureAnalyze(request):
     data={}
     if(request.method == "POST"):
-      idpage = request.POST.get("idpage")
+      test = json.loads(request.body.decode('UTF-8'))
+      idpage = test["idpage"]
       list_word = WordUrls.objects.filter(idurl=idpage)
       words=[]
       for w in list_word:
@@ -100,18 +101,19 @@ def pictureAnalyze(request):
         try: 
          pic = Analyze(page,words)
          file_name = os.path.basename(pic)
-         #page.piclink = file_name
-         #page.save()
+         page.piclink = file_name
+         page.save()
         except Exception as e:
          print(e)
          file_name='fail.jpeg'
-    else:
+      else:
         file_name=page.piclink
     data['pic']=file_name
     size=[]
     image = PIL.Image.open(settings.MEDIA_ROOT+'/picture/'+str(file_name))
     size = [image.width, image.height] 
     data['size']=size
+    data['location']=settings.MEDIA_ROOT+'/picture/'
     json_data = json.dumps(data)
     return HttpResponse(json_data, content_type='application/json')
 
@@ -246,7 +248,7 @@ def get_all_word(request, id):
       return render(request, 'no_word_view.html', {})  
 
 
-def test(request,id):
+def words(request,id):
     pagi = request.GET.get('page', None)
     url = Urlspage.objects.get(id=id)
     words = WordUrls.objects.filter(idurl=id,available=True)  

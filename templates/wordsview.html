@@ -9,216 +9,45 @@
     <meta charset="UTF-8">  
     <title>URL List</title>  
     {% load static %} 
-    
+    <link rel="stylesheet" href="{% static "/css/wordform/myModal.css" %}">
+    <link rel="stylesheet" href="{% static "/css/wordform/picture-zoom.css" %}">
+    <link rel="stylesheet" href="{% static "/css/wordform/wordform.css" %}">
 </head>
 <style>
-  
-#body1 {
-  font-family: Verdana, sans-serif;
-  margin: 0;
+#tableForm{
+   width: 50%;
+  }
+td .Buttonstyle{
+    resize: none;
+    font-size: 0.6rem;
+    width: 15%;
+    height: 10%;
+    text-align: center;
+    padding:5px;
 }
-
-* {
-  box-sizing: border-box;
+.tdbutton{
+    width: 30%;
+    resize: none;
 }
-
-.row > .column1 {
-  padding: 0 8px;
+.tdsuggest{
+    width: 25%;
+    resize: none;
 }
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
+.tdword{
+    width: 45%;
+    resize: none;
 }
-
-.column1 {
-  float: left;
-  width: 25%;
-}
-
-/* The Modal (background) */
-.modal1 {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
-
-/* Modal Content */
-.modal-content1 {
-  position: relative;
-  background-color: black;
-  margin: auto;
-  padding: 0;
-  width: 90%;
-  max-width: 1200px;
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.mySlides {
-  display: block;
-}
-
-.cursor {
-  cursor: pointer;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -50px;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
-
-img {
-  margin-bottom: -4px;
-}
-
-.caption-container {
-  text-align: center;
-  background-color: black;
-  padding: 2px 16px;
-  color: white;
-}
-
-.demo {
-  opacity: 0.6;
-}
-
-.active,
-.demo:hover {
-  opacity: 1;
-}
-
-img.hover-shadow {
-  transition: 0.3s;
-}
-
-.hover-shadow:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-    .container{
-      padding-left:10px;
-      padding-right:10px;
-    }
- 
-    
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
 </style>
 <br/>
 {% if user.is_authenticated %}
-<div id="body1">
-<h1 style="padding: 2px 6px 2px 50px;">
-    List Domain URLs 
-</h1>
-
-<div class="container">
- <div class="row justify-content-md-center">
-  <div id="wordform"></div>
- </div>
 
 
-  <div id="button_viewpic">
-    <button class="btn btn-danger check_pic" style="float: right;">View Picture</button>
-  </div>
-  <br/>
-  <br/>
-  <div id="table_style">
-  <table class="table table-striped table-bordered table-sm">
-    <thead>
-      <tr>
-        <th>Words</th>
-        <th>Test</th>
-        <th>Button</th>
-      </tr>
-    </thead>
-    <tbody>
-    {% for word in list_word %}  
-      
-      <tr>
-        <td style="width: 38%;text-align: center;"><span class="url_row">{{ word.name }}</span></td>
-        <td style="width: 45%;text-align: center;"><span class="url_row"></span></td>  
-        <td style="width: 12%;">
-          <button type="button" style="font-size: 0.6rem;" class="btn btn-primary" data-toggle="modal" data-target="#ShowModal1" data-url="/gethref?idurl={{url.id}}&idword={{word.id}}">
-           <i class="fa fa-code" aria-hidden="true"></i>
-          </button> 
-          <button type="button" style="font-size: 0.6rem;" class="btn btn-success" data-toggle="modal" data-target="#ShowModal2" data-id="{{word.id}}"> 
-            <i class="fa fa-times" aria-hidden="true"></i>
-           </button> 
-      </tr>
-    {% endfor %} 
-    </tbody>
-    
-    </table>
-  </div>
-  <div>
-    </div>
+
+<div style="width:100%;height:100%"> 
+  <div id="wordform" style="width:100%"></div>
 </div>
 
-</div>
+
 <script>
    var index=0;
 

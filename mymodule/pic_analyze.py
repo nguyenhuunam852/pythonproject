@@ -12,7 +12,7 @@ from io import StringIO
 import os
 from django.conf import settings
 from selenium.webdriver.common.action_chains import ActionChains
-
+from mymodule.rotate import rotate_img
 
 
 def Analyze(web,words):
@@ -35,20 +35,28 @@ def Analyze(web,words):
   height = driver.execute_script("return document.body.offsetHeight;")
   
   time.sleep(2)
-  
+   
   for w in words:
     image = driver.find_elements_by_xpath('//*[text()[contains(.,"'+w+'")]]')
-    
-    for img in image:
-     if(img.tag_name!='script' and img.text!=''):
-      text = img.get_attribute('innerHTML')
-      new = "<a style='background: yellow; border: 2px solid red;'>"+w+"</a>"
-      text = text.replace(w,new)
-      driver.execute_script("arguments[0].innerHTML=arguments[1]",img,text) 
+    try:
+     for img in image:
+      try: 
+       if(img.tag_name!='script' and img.text!=''):
+        try:
+         text = img.get_attribute('innerHTML')
+         new = "<span style='background: yellow; border: 2px solid red;'>"+w+"</span>"
+         text = text.replace(w,new)
+         driver.execute_script("arguments[0].innerHTML=arguments[1]",img,text) 
+        except Exception as e:
+         print(e)
+      except Exception as e:
+       print(e)
+    except Exception as e:
+       print(e)
   file_name = settings.MEDIA_ROOT + '/picture/'+str(web.id)+'.png'
   driver.set_window_size(width,height)
   driver.save_screenshot(file_name)
- 
-  
+  img_rt_90 = rotate_img(file_name, 90)
+  img_rt_90.save(file_name)
   driver.close()
   return file_name
