@@ -35,7 +35,6 @@ INSTALLED_APPS = [
     'rest_framework',         
     'users',
     'urlpage',
-    'words_lib',
 ]
 
 MIDDLEWARE = [

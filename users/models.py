@@ -2,7 +2,7 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from urlpage.models import Domain
+from urlpage.models import Domain,Words
 
 
 class CustomUserManager(BaseUserManager):
@@ -42,6 +42,11 @@ class Domain_User(models.Model):
     idurl = models.ForeignKey(Domain,on_delete=models.CASCADE)
     iduser = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     
+
+class Personal_words(models.Model):
+    id = models.AutoField(primary_key=True)
+    iduser = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+    idword = models.ForeignKey(Words,on_delete=models.CASCADE)
 
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect  
 from urlpage.forms import UrlsForm ,UrlsChangeForm,DomainsForm
-from users.models import Domain_User 
+from users.models import Domain_User,Personal_words 
 from urlpage.models import Urlspage,WordUrls,Domain,Words
 from validator_collection import validators, checkers
 from django.http import JsonResponse,HttpResponse, HttpResponseRedirect
@@ -27,7 +27,6 @@ from urllib.parse import urlparse
 
 from urlpage.task import do_task
 from celery.result import AsyncResult
-from words_lib.models import Ignore_word_domain,Personal_words
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -49,49 +48,23 @@ def getdomainname(url):
     result = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return result
 
-"""
-def checkWebsite(urlpath,request):
-    try:
-     name_array_tag=[]   
-     global server_dict
-     global server_dict_done
-     global user_domain
-     url = urlpath.name
-     p=Url_User(idurl=urlpath,iduser=request.user)
-     p.save()
-     r = requests.get(url, timeout=5)
-     get_all_domain(r,request.user.id)
-     text,name_array_tag=dataAnalysist(r,name_array_tag)
-     savedata(url,urlpath.id)
-     image = PIL.Image.open('urlpage/static/website/'+str(urlpath.id)+'.png')
-     width, height = image.size
-     size=[width,height]
-     data={}
-     data['check']=text
-     data['tagname']=name_array_tag
-     data['id']=urlpath.id
-     data['size']=size
-     data['error']=0
-     if(len(server_dict)==0):
-        data['continue']=0
-     else:
-        data['next']=server_dict[request.user.id][1]                     
-        data['continue']=0
-        server_dict_done[request.user.id].append(server_dict[request.user.id].pop(0))
-     return data
-    except Exception as e: 
-      print(e)
-"""
-
-
 def pictureAnalyze(request):
     data={}
     if(request.method == "POST"):
       test = json.loads(request.body.decode('UTF-8'))
       idpage = test["idpage"]
       list_word = WordUrls.objects.filter(idurl=idpage)
-      words=[]
+      personal_words = Personal_words.objects.filter(iduser=request.user)
+      list_person=[x.idword.id for x in personal_words]
+
+      list_word_available = []
+    
       for w in list_word:
+        if(w.idword.id not in list_person):
+          list_word_available.append(w)
+
+      words=[]
+      for w in list_word_available:
         for w1 in w.form_pre.split(','):
           words.append(w1)
       page = Urlspage.objects.get(id=idpage)
@@ -156,6 +129,8 @@ def poll_state(request):
     test = json.loads(request.body.decode('UTF-8'))
     pagi = test['pagination']
     idDomain = test['idDomain']
+    domain = Domain.objects.get(id=(int(idDomain)))
+
     pa = (int(pagi)-1)*5
     items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
     sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
@@ -169,8 +144,13 @@ def poll_state(request):
             user_process.pop(request.user.id)
     else:
       data['signal'] = 'Wait'
-    data['items']=[model_to_dict(item) for item in items]
+    try:
+      data['items']=[model_to_dict(item) for item in items]
+    except:
+      print('wait')
     data['sumofpages']=sumofpage
+
+    data['isdone']=domain.isdone
     return JsonResponse(data,safe=False)
 
 def test(request):
@@ -188,7 +168,7 @@ def show(request):
       if form.is_valid():
            data= form.cleaned_data.get("name")
            domain = getdomainname(data)
-           domain_process=Domain.objects.create(name=domain)
+           domain_process=Domain.objects.create(name=domain,isdone=False)
            domain_process.save()
            # lưu Domain vào database
            p= Domain_User(idurl=domain_process,iduser=request.user)
@@ -225,43 +205,19 @@ def delete(request, id):
     return redirect("/")  
 
 def get_all_web(request, id):  
-    url = Urlspage.objects.filter(idDomain=id)  
-    list_url = url
     return render(request, 'webview.html', {'id':id })  
-
-def get_all_word(request, id):  
-    url = Urlspage.objects.get(id=id)
-    words = WordUrls.objects.filter(idurl=id,available=True)  
-    ignore_domain = Ignore_word_domain.objects.filter(idurl=url.idDomain.id)
-    personal_words = Personal_words.objects.filter(iduser=request.user)
-    list_ignore=[x.idword.id for x in ignore_domain]
-    list_person=[x.idword.id for x in personal_words]
-    list_word = []
-    for w in words:
-      w.idword.idcommon = w.id
-      if(w.idword.id not in list_ignore):
-        if(w.idword.id not in list_person):
-          list_word.append(w.idword)
-    if(len(list_word)>0):
-      return render(request, 'wordsview.html', {'list_word': list_word,'url':url})  
-    else:
-      return render(request, 'no_word_view.html', {})  
 
 
 def words(request,id):
     pagi = request.GET.get('page', None)
-    url = Urlspage.objects.get(id=id)
-    words = WordUrls.objects.filter(idurl=id,available=True)  
-    ignore_domain = Ignore_word_domain.objects.filter(idurl=url.idDomain.id)
+    words = WordUrls.objects.filter(idurl=id)
     personal_words = Personal_words.objects.filter(iduser=request.user)
-    list_ignore=[x.idword.id for x in ignore_domain]
     list_person=[x.idword.id for x in personal_words]
     list_word = []
     
     for w in words:
       w.idword.idcommon = w.id
-      if(w.idword.id not in list_ignore):
-        if(w.idword.id not in list_person):
+      if(w.idword.id not in list_person):
           list_word.append(w.idword)
 
     sumofpages = getpagi(list_word,7)
@@ -274,3 +230,19 @@ def words(request,id):
     data['sum']=sumofpages
 
     return JsonResponse(data,safe=False)
+
+def personal(request):
+    data={}
+    if(request.method == "POST"):
+      try: 
+        test = json.loads(request.body.decode('UTF-8'))
+        id = test['id']
+        word = Words.objects.get(id=id)
+        per_word = Personal_words.objects.create(idword=word,iduser=request.user)
+        per_word.save()
+        data='success'
+      except Exception as e:
+        print(e)
+        data='fail'
+    json_data = json.dumps(data)
+    return HttpResponse(json_data, content_type='application/json')
