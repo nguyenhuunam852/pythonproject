@@ -12,6 +12,7 @@ from io import StringIO
 import os
 from django.conf import settings
 from selenium.webdriver.common.action_chains import ActionChains
+
 from mymodule.rotate import rotate_img
 
 
@@ -29,7 +30,7 @@ def Analyze(web,words):
    )
   except Exception as e:
     print(e)
-
+  driver.set_page_load_timeout(5)
   driver.get(web.name)
   width = driver.execute_script("return document.body.offsetWidth;")
   height = driver.execute_script("return document.body.offsetHeight;")

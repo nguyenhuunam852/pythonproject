@@ -83,11 +83,14 @@ def pictureAnalyze(request):
         file_name=page.piclink
     data['pic']=file_name
     size=[]
-    image = PIL.Image.open(settings.MEDIA_ROOT+'/picture/'+str(file_name))
-    size = [image.width, image.height] 
-    data['size']=size
-    data['location']=settings.MEDIA_ROOT+'/picture/'
-    json_data = json.dumps(data)
+    try: 
+      image = PIL.Image.open(settings.MEDIA_ROOT+'/picture/'+str(file_name))
+      size = [image.width, image.height] 
+      data['size']=size
+      data['location']=settings.MEDIA_ROOT+'/picture/'
+    except Exception as e:
+      print('wrong')
+    json_data = json.dumps(data)  
     return HttpResponse(json_data, content_type='application/json')
 
 def checkref(request):
