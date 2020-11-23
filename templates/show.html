@@ -23,15 +23,6 @@
      border-left: 1px solid #CCCCCC;
     }
 
-    #showprogress
-    {
-
-      border-style: dashed;
-
-      height:100px;
-      width:100%;
-    }
-  
     #style-list{
       background-color:white; 
       width:100%; 
@@ -51,10 +42,9 @@
 <br/>
     
 {% if user.is_authenticated %}
-<div class="row">
-  <div class="col-sm-4">
-  </div>
-<div class="col-sm-8">
+
+<div class="row justify-content-md-center">
+ <div style="width:100%;padding-left:40%">
   <form method="Post" id="submit">  
   {% csrf_token %}
   <div>
@@ -70,7 +60,7 @@
      </div>
        {{ form.name }}
      </div>
-    </div>
+
 </form>
 
 <br/>
@@ -107,6 +97,7 @@
   {% endfor %}
   </ul>
   </div>
+</div>
 </div>
 </div>
 <br/>

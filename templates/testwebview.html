@@ -1,33 +1,13 @@
 {% extends 'base.html' %}
-{% block title %}View{% endblock %}
+{% block title %}History{% endblock %}
 
 {% block content %}
 {% load static  %}  
 {% static "" as baseUrl %}
 <style>
 
-
-* {box-sizing: border-box;}
-
-.img-zoom-container {
-  position: relative;
-}
-
-.img-zoom-lens {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  width: 10px;
-  height: 26.8px;
-}
-
-.img-zoom-result {
-  border: 1px solid #d4d4d4;
-  /*set the size of the result div:*/
-  width: 500px;
-  height: 1340px;
-  transform: rotate(90deg);
-}
 table {
+  margin-top:100px;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -43,10 +23,35 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
-<div class="row justify-content-md-center" style="padding:20px">
-  <div id="wordform"></div>
+
+<div class="row justify-content-md-center">
+  <div style="width:50%;padding-left:10%">
+    <table>
+      <tr>
+       <th>Word</th>
+       <th>Date Ignore</th>
+       <th>Button</th>
+     </tr>
+     {% for igword in word_list %}
+         <tr>
+           <td>{{igword.idword.name}}</td>
+           <td>{{igword.created_at}}</td>
+           <td></td>
+        </tr>
+     {% endfor %}
+    </table>
+    <br/>
+    {% load times %}
+     <ul class="pagination pagination-sm">
+     {%  for i in page|times  %} 
+      {% if i|stringformat:"s" == current|stringformat:"s" %}
+      <li class="page-item active"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+      {% else %}
+      <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+     {% endif %}
+    {% endfor %}
+  </div>
+
+  
 </div>
-
-<script type="text/javascript" src="{% static "/reactjs/wordform.js" %}"> </script>
-
 {% endblock %}

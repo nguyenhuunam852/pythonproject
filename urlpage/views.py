@@ -2,36 +2,20 @@ from django.shortcuts import render, redirect
 from urlpage.forms import UrlsForm ,UrlsChangeForm,DomainsForm
 from users.models import Domain_User,Personal_words 
 from urlpage.models import Urlspage,WordUrls,Domain,Words
-from validator_collection import validators, checkers
-from django.http import JsonResponse,HttpResponse, HttpResponseRedirect
-from django.core import serializers
+from django.http import JsonResponse,HttpResponse
 from bs4 import BeautifulSoup
 import json
-import requests
-import hunspell
 import re
-import spacy
-from spacy import displacy
 from mymodule.pic_analyze import Analyze
-from html import unescape
 from django.conf import settings
-import asyncio
-from pyppeteer import launch
-import pytesseract
-import cv2
 import os
-from pytesseract import Output
-import PIL
-from django.views.decorators.csrf import csrf_exempt
+import PIL #the image library analyze
 from urllib.parse import urlparse
-
 from urlpage.task import do_task
 from celery.result import AsyncResult
-
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
 from django.forms.models import model_to_dict
-from .serialize import PageSerializer
+from mymodule.pagi import getpagi
 
 index=0
 id_array_tag=[]
@@ -50,15 +34,14 @@ def getdomainname(url):
 
 def pictureAnalyze(request):
     data={}
+
     if(request.method == "POST"):
       test = json.loads(request.body.decode('UTF-8'))
       idpage = test["idpage"]
       list_word = WordUrls.objects.filter(idurl=idpage)
       personal_words = Personal_words.objects.filter(iduser=request.user)
       list_person=[x.idword.id for x in personal_words]
-
       list_word_available = []
-    
       for w in list_word:
         if(w.idword.id not in list_person):
           list_word_available.append(w)
@@ -96,10 +79,11 @@ def pictureAnalyze(request):
 def checkref(request):
     idurl = request.GET.get('idurl', None)
     idword = request.GET.get('idword', None)
+    print(1)
     url = Urlspage.objects.get(id=idurl)
     word = Words.objects.get(id=idword).name
     w_url = WordUrls.objects.get(idurl=idurl,idword=idword)  
-
+    print(2)
     f= open(settings.MEDIA_ROOT+"/doc/"+str(url.id)+".txt","r")
     r = f.read()
     f.close()
@@ -115,15 +99,6 @@ def checkref(request):
 
     st = soup.prettify()
     return render(request,'watch.html',{'word':word,'st':st,'id':w_url.id})  
-
-def getpagi(sort_list,n):
-  page = float(len(sort_list)/n)
-  if(page>int(len(sort_list)/n)):
-    page=int(len(sort_list)/n+1)
-  else:
-    page=int(len(sort_list)/n)
-  return page
-
 
 
 #Hàm cập nhật trạng thái cho process

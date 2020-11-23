@@ -30,7 +30,7 @@ def Analyze(web,words):
    )
   except Exception as e:
     print(e)
-  driver.set_page_load_timeout(5)
+  driver.set_page_load_timeout(10)
   driver.get(web.name)
   width = driver.execute_script("return document.body.offsetWidth;")
   height = driver.execute_script("return document.body.offsetHeight;")

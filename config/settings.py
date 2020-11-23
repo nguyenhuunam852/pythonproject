@@ -14,7 +14,12 @@ SECRET_KEY = 'hrbwqw)*b@3oemy73@z57g6fn9k_!vl35at(81$90z1c!1yb0#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.5.2']
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+STATICFILES_DIRS = (
+  os.path.join(SITE_ROOT, 'static/'),
+)
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
@@ -125,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-
+SECURE_CONTENT_TYPE_NOSNIFF=False
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'users.CustomUser'
 
