@@ -76,18 +76,18 @@ def pictureAnalyze(request):
     json_data = json.dumps(data)  
     return HttpResponse(json_data, content_type='application/json')
 
+user_source = {}
 def checkref(request):
+  global user_source
+  if(request.method == "GET"):  
     idurl = request.GET.get('idurl', None)
     idword = request.GET.get('idword', None)
-    print(1)
     url = Urlspage.objects.get(id=idurl)
     word = Words.objects.get(id=idword).name
     w_url = WordUrls.objects.get(idurl=idurl,idword=idword)  
-    print(2)
     f= open(settings.MEDIA_ROOT+"/doc/"+str(url.id)+".txt","r")
     r = f.read()
     f.close()
-   
     soup = BeautifulSoup(r, 'lxml')
     list_form = w_url.form_pre.split(',')
     for w in list_form:
@@ -98,7 +98,32 @@ def checkref(request):
          comment.replace_with(BeautifulSoup(fixed_text))
 
     st = soup.prettify()
-    return render(request,'watch.html',{'word':word,'st':st,'id':w_url.id})  
+    if(len(st)>100000):
+      user_source[request.user.id]= [url.id,int(len(st)/100000),st]
+    else:
+      user_source[request.user.id]= [url.id,1,st]
+    st = st[0:100000]
+    return render(request,'watch.html',{'word':word,'st':st,'id':w_url.id,'sum':user_source[request.user.id][1]})  
+
+  if(request.method == "POST"):  
+    index = request.POST.get('index')
+    getsum = user_source[request.user.id][1]
+    id = user_source[request.user.id][0]
+    st = user_source[request.user.id][2]
+    lgth = int(index)-1
+    plgth = lgth*100000
+    if(int(index)<getsum):
+        st = st[plgth:plgth+100000]
+    if(int(index)==getsum):
+        st = st[plgth:]
+    data['text'] = st
+    json_data = json.dumps(data)
+    return HttpResponse(json_data, content_type='application/json')
+    
+    
+  
+
+    
 
 
 #Hàm cập nhật trạng thái cho process
@@ -107,27 +132,31 @@ def poll_state(request):
     test = json.loads(request.body.decode('UTF-8'))
     pagi = test['pagination']
     idDomain = test['idDomain']
+    print(idDomain)
     domain = Domain.objects.get(id=(int(idDomain)))
 
     pa = (int(pagi)-1)*5
     items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
     sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
     data={}
-    if(request.user.id in user_process):
+    if(str(request.user.id)+"_"+str(idDomain) in user_process):
         data['signal']='Work'
-        task = AsyncResult(user_process[request.user.id])
+        task = AsyncResult(user_process[str(request.user.id)+"_"+str(idDomain)])
         data = task.result or task.state
         if(isinstance(data,dict)==True):
           if(data['process_percent']==100):
-            user_process.pop(request.user.id)
+            user_process.pop(str(request.user.id)+"_"+str(idDomain))
     else:
       data['signal'] = 'Wait'
     try:
       data['items']=[model_to_dict(item) for item in items]
     except:
       print('wait')
+    if(str(request.user.id)+'_'+str(idDomain) in user_process):
+      data['state']='active'
+    else:
+      data['state']='n-active'
     data['sumofpages']=sumofpage
-
     data['isdone']=domain.isdone
     return JsonResponse(data,safe=False)
 
@@ -152,7 +181,8 @@ def show(request):
            p= Domain_User(idurl=domain_process,iduser=request.user)
            p.save()
            job = do_task.delay(url=data,domain_id=domain_process.id,userid=request.user.id,n=quantity)
-           user_process[request.user.id]=job.id
+           user_process[str(request.user.id)+"_"+str(domain_process.id)]=job.id
+
       return redirect("/") 
 
     if(request.user.is_authenticated and request.method == "GET"):
@@ -183,7 +213,33 @@ def delete(request, id):
     return redirect("/")  
 
 def get_all_web(request, id):  
-    return render(request, 'webview.html', {'id':id })  
+    global user_process
+    idDomain = id
+    domain = Domain.objects.get(id=int(id))
+    pa = 0
+    items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
+    sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
+    data={}
+    if(request.user.id in user_process):
+        data['signal']='Work'
+        task = AsyncResult(user_process[request.user.id])
+        data = task.result or task.state
+        if(isinstance(data,dict)==True):
+          if(data['process_percent']==100):
+            user_process.pop(str(request.user.id)+'_'+str(idDomain))
+    else:
+      data['signal'] = 'Wait'
+    try:
+      data['items']=[model_to_dict(item) for item in items]
+    except:
+      print('wait')
+    if(str(request.user.id)+'_'+str(idDomain)  in user_process):
+      data['state']='active'
+    else:
+      data['state']='n-active'
+    data['sumofpages']=sumofpage
+    data['isdone']=domain.isdone
+    return JsonResponse(data,safe=False)
 
 
 def words(request,id):
@@ -192,21 +248,17 @@ def words(request,id):
     personal_words = Personal_words.objects.filter(iduser=request.user)
     list_person=[x.idword.id for x in personal_words]
     list_word = []
-    
     for w in words:
       w.idword.idcommon = w.id
       if(w.idword.id not in list_person):
           list_word.append(w.idword)
-
     sumofpages = getpagi(list_word,7)
     if(pagi==None):
       pagi=1
-
     pa = (int(pagi)-1)*7
     list_word_pagi = list_word[pa:pa+7]
     data['items']=[model_to_dict(item) for item in list_word_pagi]
     data['sum']=sumofpages
-
     return JsonResponse(data,safe=False)
 
 def personal(request):

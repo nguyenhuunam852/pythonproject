@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from urlpage.models import Urlspage
 from urlpage.models import Words
 from urlpage.models import WordUrls,Domain
-import requests
+import cloudscraper
 import urllib
 from urllib.parse import urlparse
 import re
@@ -137,8 +137,7 @@ def dataAnalysist(r,name_array_tag):
     w_arrays=[]
     new = r.text.replace('/>','>')
     soup = BeautifulSoup(new, 'lxml')
-    for script in soup(["script", "style"]): 
-        script.extract()
+  
     texts = soup.get_text(separator='\n')
     i=0
     texts = texts.replace(u'\u200b', ' ')
@@ -164,20 +163,16 @@ def dataAnalysist(r,name_array_tag):
        ck = checkWord(w)
        if(ck>0):
           result_array.append(w)
-    result_array_owlDic=[]
-    for w in result_array:
-       ck = checkwordowl(w)
-       if(ck==False):
-          result_array_owlDic.append(w)
     #soup.prettify()
-    return result_array_owlDic
+    return result_array
 
 def checkWebsite(url,domain_id,userid,n):
      name_array_tag=[]  
      domain_object = Domain.objects.get(id=domain_id)
      # lấy văn bảng từ trang web
      try:
-       r = requests.get(url, timeout=5)
+       scraper = cloudscraper.create_scraper()
+       r = scraper.get(url)
        if(r.status_code==200):
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=True)
          get_url.save()
@@ -230,7 +225,7 @@ def do_task(url,domain_id,userid,n):
      server_dict[userid]=[]
      server_dict_done[userid]=[]
      server_dict[userid].append(url)
-    
+     
      while(len(server_dict_done[userid])<int(n)):
           web = server_dict[userid].pop(0)
           process_percent = int(100 * float(len(server_dict_done[userid])) / float(int(n)))

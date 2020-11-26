@@ -320,3 +320,527 @@ Exiting due to channel error.
 *** You are running in headless mode.
 1606120126551	Marionette	INFO	Listening on port 36311
 1606120126683	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606123994190	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.n1c7lPlY68pv"
+*** You are running in headless mode.
+1606123996529	Marionette	INFO	Listening on port 42809
+1606123996628	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124000795	Marionette	INFO	Stopped listening on port 42809
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606124044642	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.RgwdcySm1GlM"
+*** You are running in headless mode.
+1606124047111	Marionette	INFO	Listening on port 34661
+1606124047175	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124056891	Marionette	INFO	Stopped listening on port 34661
+1606124330512	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.nCcmo22SBoRH"
+*** You are running in headless mode.
+1606124331969	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.3GVSJDtRFfJh"
+*** You are running in headless mode.
+1606124332826	Marionette	INFO	Listening on port 41827
+1606124332947	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124333554	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.OJ6JcpQPVbOH"
+*** You are running in headless mode.
+1606124335152	Marionette	INFO	Listening on port 32823
+1606124335243	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124336548	Marionette	INFO	Listening on port 44559
+1606124336653	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124371904	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.xK7RxKqJTA5c"
+*** You are running in headless mode.
+1606124374202	Marionette	INFO	Listening on port 34461
+1606124374260	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124383726	Marionette	INFO	Stopped listening on port 34461
+1606124671995	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.cngz09nbqcan"
+*** You are running in headless mode.
+1606124674272	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.kcgKVCyV7yKv"
+*** You are running in headless mode.
+1606124674370	Marionette	INFO	Listening on port 37917
+1606124674471	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124676723	Marionette	INFO	Stopped listening on port 37917
+1606124677187	Marionette	INFO	Listening on port 45463
+1606124677308	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124681000	Marionette	INFO	Stopped listening on port 45463
+1606124713418	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.x3NR3QHGLBoJ"
+*** You are running in headless mode.
+1606124715481	Marionette	INFO	Listening on port 43707
+1606124715547	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124717593	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vwcH75KgMdof"
+*** You are running in headless mode.
+1606124720301	Marionette	INFO	Listening on port 41811
+1606124720431	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124721809	Marionette	INFO	Stopped listening on port 43707
+1606124722365	Marionette	INFO	Stopped listening on port 41811
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+console.warn: services.settings: main/whats-new-panel sync interrupted by shutdown
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606124825081	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.EpJcXJ4A2JLD"
+*** You are running in headless mode.
+1606124827171	Marionette	INFO	Listening on port 46359
+1606124827211	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124827767	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.gnVRrfKZir2W"
+*** You are running in headless mode.
+1606124829973	Marionette	INFO	Stopped listening on port 46359
+1606124830607	Marionette	INFO	Listening on port 37501
+1606124830707	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124846605	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.soErJHC8N80l"
+*** You are running in headless mode.
+1606124848777	Marionette	INFO	Listening on port 43163
+1606124848851	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606124861386	Marionette	INFO	Stopped listening on port 43163
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606129425625	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.oo0D9VHoslEJ"
+*** You are running in headless mode.
+1606129427680	Marionette	INFO	Listening on port 33893
+1606129427761	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606129428732	Marionette	INFO	Stopped listening on port 33893
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606129449919	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.OJyuTvEkVhGm"
+*** You are running in headless mode.
+1606129451920	Marionette	INFO	Listening on port 42927
+1606129451948	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606129454385	Marionette	INFO	Stopped listening on port 42927
+1606130132866	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.0WEC3UhVCjXs"
+*** You are running in headless mode.
+1606130135070	Marionette	INFO	Listening on port 44907
+1606130135108	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606130137457	Marionette	INFO	Stopped listening on port 44907
+1606135038718	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.UYW0UeIIxGXZ"
+*** You are running in headless mode.
+1606135040904	Marionette	INFO	Listening on port 36227
+1606135040956	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606135043534	Marionette	INFO	Stopped listening on port 36227
+1606149653340	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.alCXunk4p6kT"
+*** You are running in headless mode.
+1606149656731	Marionette	INFO	Listening on port 39893
+1606149656796	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606149706734	Marionette	INFO	Stopped listening on port 39893
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606149731747	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.h2T7zRBKBzHU"
+*** You are running in headless mode.
+1606149734044	Marionette	INFO	Listening on port 40831
+1606149734082	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606149736315	Marionette	INFO	Stopped listening on port 40831
+1606227288758	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.S9INBGpR44TY"
+*** You are running in headless mode.
+1606227291093	Marionette	INFO	Listening on port 36259
+1606227291201	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606227294284	Marionette	INFO	Stopped listening on port 36259
+1606227519882	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.psQBN26fvpNC"
+*** You are running in headless mode.
+1606227522040	Marionette	INFO	Listening on port 40295
+1606227522116	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606227566220	Marionette	WARN	Limiting screen capture height to maximum allowed 32767 pixels
+1606227575365	Marionette	INFO	Stopped listening on port 40295
+1606227626616	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.n8kOFwyvSNP1"
+*** You are running in headless mode.
+1606227628963	Marionette	INFO	Listening on port 38377
+1606227629057	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606227673091	Marionette	WARN	Limiting screen capture height to maximum allowed 32767 pixels
+1606227682443	Marionette	INFO	Stopped listening on port 38377
+1606227977163	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.OCRBRzHJSfA9"
+*** You are running in headless mode.
+1606227979403	Marionette	INFO	Listening on port 44665
+1606227979502	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606227982357	Marionette	INFO	Stopped listening on port 44665
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606228001603	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.qx01WZE0Xxsz"
+*** You are running in headless mode.
+1606228003803	Marionette	INFO	Listening on port 35869
+1606228003837	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606228006154	Marionette	INFO	Stopped listening on port 35869
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606228019633	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.y2GMQGsUOTIi"
+*** You are running in headless mode.
+1606228021952	Marionette	INFO	Listening on port 33653
+1606228022073	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606228033247	Marionette	INFO	Stopped listening on port 33653
+1606237294171	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.x6kQqh3F7ipC"
+*** You are running in headless mode.
+1606237296719	Marionette	INFO	Listening on port 36329
+1606237296826	Marionette	WARN	TLS certificate errors will be ignored for this session
+[Child 28529, MediaDecoderStateMachine #1] WARNING: 7f605bd03090 OpenCubeb() failed to init cubeb: file /build/firefox-m6W5sP/firefox-83.0+build2/dom/media/AudioStream.cpp:330
+[Child 28529, MediaDecoderStateMachine #1] WARNING: Decoder=7f60586d9800 [OnMediaSinkAudioError]: file /build/firefox-m6W5sP/firefox-83.0+build2/dom/media/MediaDecoderStateMachine.cpp:3892
+1606237305020	Marionette	INFO	Stopped listening on port 36329
+1606237348964	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.FUjD9RLo5qvX"
+*** You are running in headless mode.
+1606237351090	Marionette	INFO	Listening on port 38173
+1606237351200	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606237358893	Marionette	INFO	Stopped listening on port 38173
+1606237385552	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.is3p4BNLbgOR"
+*** You are running in headless mode.
+1606237387750	Marionette	INFO	Listening on port 38615
+1606237387799	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606237392946	Marionette	INFO	Stopped listening on port 38615
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 697: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606237426305	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.I2cuDJwNdEuV"
+*** You are running in headless mode.
+1606237428574	Marionette	INFO	Listening on port 38829
+1606237428641	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606237435894	Marionette	INFO	Stopped listening on port 38829
+1606237473035	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.bDy6e5THai5u"
+*** You are running in headless mode.
+1606237475322	Marionette	INFO	Listening on port 46263
+1606237475368	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606237480102	Marionette	INFO	Stopped listening on port 46263
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1031: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofile.bDy6e5THai5u/protections.sqlite
+1606237527048	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.iq47rXFVgmgF"
+*** You are running in headless mode.
+1606237529720	Marionette	INFO	Listening on port 36325
+1606237529822	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606237534292	Marionette	INFO	Stopped listening on port 36325
+1606237572275	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.TBjHANObVB91"
+*** You are running in headless mode.
+1606237574625	Marionette	INFO	Listening on port 43823
+1606237574703	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606237579885	Marionette	INFO	Stopped listening on port 43823
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1031: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofile.TBjHANObVB91/protections.sqlite
+1606238407126	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.3YmPzNIlBJTr"
+*** You are running in headless mode.
+1606238409467	Marionette	INFO	Listening on port 34241
+1606238409557	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606238413240	Marionette	INFO	Stopped listening on port 34241
+1606238415813	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.6sgYx67gh3SB"
+*** You are running in headless mode.
+1606238418398	Marionette	INFO	Listening on port 35169
+1606238418465	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606238420949	Marionette	INFO	Stopped listening on port 35169
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606239395203	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.0pF7HQUtIXhW"
+*** You are running in headless mode.
+1606239397593	Marionette	INFO	Listening on port 44321
+1606239397649	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606239400619	Marionette	INFO	Stopped listening on port 44321
+1606239418955	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.vVVZB04kgchn"
+*** You are running in headless mode.
+1606239420789	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5YTiMZjqUcFZ"
+*** You are running in headless mode.
+1606239422208	Marionette	INFO	Listening on port 41643
+1606239422316	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606239424126	Marionette	INFO	Listening on port 38051
+1606239424249	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606239428562	Marionette	INFO	Stopped listening on port 41643
+1606239431137	Marionette	INFO	Stopped listening on port 38051
+
+###!!! [Parent][MessageChannel] Error: (msgtype=0x1F0011,name=PBackgroundStorage::Msg_Observe) Channel error: cannot send/recv
+
+1606318094572	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile29sL0K"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318096958	Marionette	INFO	Listening on port 37549
+1606318097034	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318097711	Marionette	INFO	Stopped listening on port 37549
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606318122974	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilepZOv1S"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318125075	Marionette	INFO	Listening on port 44063
+1606318125116	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318125615	Marionette	INFO	Stopped listening on port 44063
+1606318286134	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilezbIxet"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318288205	Marionette	INFO	Listening on port 38041
+1606318288266	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 726))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 376))
+1606318298338	Marionette	INFO	Stopped listening on port 38041
+1606318331816	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileu23MfV"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318333922	Marionette	INFO	Listening on port 39859
+1606318333961	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 726))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 376))
+1606318344020	Marionette	INFO	Stopped listening on port 39859
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606318383022	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilecaAXT5"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318385007	Marionette	INFO	Listening on port 33359
+1606318385053	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318405861	Marionette	INFO	Stopped listening on port 33359
+1606318421941	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilevapbxA"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318424063	Marionette	INFO	Listening on port 40443
+1606318424172	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318457584	Marionette	INFO	Stopped listening on port 40443
+1606318492609	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQ3VPop"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318494657	Marionette	INFO	Listening on port 39427
+1606318494764	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318511233	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile57s5O7"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318515207	Marionette	INFO	Listening on port 43595
+1606318515319	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318523810	Marionette	INFO	Stopped listening on port 39427
+1606318535396	Marionette	INFO	Stopped listening on port 43595
+1606318688182	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZXTU1d"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318690178	Marionette	INFO	Listening on port 38351
+1606318690215	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318710209	Marionette	INFO	Stopped listening on port 38351
+1606318735110	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile8QopCG"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318737128	Marionette	INFO	Listening on port 42841
+1606318737239	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318747466	Marionette	INFO	Stopped listening on port 42841
+1606318779029	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileXYbSqy"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318781205	Marionette	INFO	Listening on port 44793
+1606318781263	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318816057	Marionette	INFO	Stopped listening on port 44793
+1606318845303	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile58yxYn"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318847497	Marionette	INFO	Listening on port 38977
+1606318847531	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318859307	Marionette	INFO	Stopped listening on port 38977
+1606318988535	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileNvmZj9"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606318990512	Marionette	INFO	Listening on port 34045
+1606318990571	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606318993379	Marionette	INFO	Stopped listening on port 34045
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606319014321	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileO7eGQS"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606319016332	Marionette	INFO	Listening on port 38549
+1606319016451	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606319021491	Marionette	INFO	Stopped listening on port 38549
+1606319111863	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0EaxZM"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606319113905	Marionette	INFO	Listening on port 40079
+1606319113997	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606319118308	Marionette	INFO	Stopped listening on port 40079
+1606319175857	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWoGbWt"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606319177871	Marionette	INFO	Listening on port 46051
+1606319177985	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606319184391	Marionette	INFO	Stopped listening on port 46051
+1606372731815	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileVuNSuI"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606372734376	Marionette	INFO	Listening on port 33987
+1606372734474	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606372744709	Marionette	INFO	Stopped listening on port 33987
+1606372836616	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileGyDmbE"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606372838829	Marionette	INFO	Listening on port 42233
+1606372838959	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606372842806	Marionette	INFO	Stopped listening on port 42233
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606372854398	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileZIGI0V"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606372856749	Marionette	INFO	Listening on port 39453
+1606372856833	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606372860079	Marionette	INFO	Stopped listening on port 39453
+1606374787054	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilep1Z89X"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606374789368	Marionette	INFO	Listening on port 44999
+1606374789489	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606374792891	Marionette	INFO	Stopped listening on port 44999
+1606374936954	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQPoBgh"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606374939463	Marionette	INFO	Listening on port 37831
+1606374939592	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606374943029	Marionette	INFO	Stopped listening on port 37831
+1606375070270	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile7AZThs"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606375072712	Marionette	INFO	Listening on port 34895
+1606375072809	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606375076869	Marionette	INFO	Stopped listening on port 34895
+1606375173889	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileYWPOYB"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606375176234	Marionette	INFO	Listening on port 46575
+1606375176327	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606375180572	Marionette	INFO	Stopped listening on port 46575
+1606375418095	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileJCVRbi"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606375420361	Marionette	INFO	Listening on port 33635
+1606375420470	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606375424508	Marionette	INFO	Stopped listening on port 33635
+1606375601205	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFN6M7s"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606375603472	Marionette	INFO	Listening on port 38067
+1606375603546	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606375626916	Marionette	INFO	Stopped listening on port 38067
+1606377325582	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQg0i5d"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606377327978	Marionette	INFO	Listening on port 32769
+1606377328042	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606377349684	Marionette	INFO	Stopped listening on port 32769
+1606378531031	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileOGdKhc"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606378533415	Marionette	INFO	Listening on port 44853
+1606378533473	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606378559149	Marionette	INFO	Stopped listening on port 44853
+1606378774024	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilepAGjm8"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606378777176	Marionette	INFO	Listening on port 33559
+1606378777267	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606378778309	Marionette	INFO	Stopped listening on port 33559
+1606379035565	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletfNb6V"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606379038320	Marionette	INFO	Listening on port 37399
+1606379038438	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606379062863	Marionette	INFO	Stopped listening on port 37399
+1606379458258	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile91Yy4w"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606379460876	Marionette	INFO	Listening on port 39897
+1606379461000	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606379481568	Marionette	INFO	Stopped listening on port 39897
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606379632977	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekQTkFq"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606379636243	Marionette	INFO	Listening on port 37483
+1606379636334	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606379644672	Marionette	INFO	Stopped listening on port 37483
+1606379887409	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiled1mod0"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606379890077	Marionette	INFO	Listening on port 33563
+1606379890156	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606379893646	Marionette	INFO	Stopped listening on port 33563
+1606380084316	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileQocnhH"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606380086741	Marionette	INFO	Listening on port 34641
+1606380086870	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606380090436	Marionette	INFO	Stopped listening on port 34641
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606380650506	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilemcAMJX"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606380653199	Marionette	INFO	Listening on port 33413
+1606380653242	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606380659932	Marionette	INFO	Stopped listening on port 33413
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1031: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /tmp/rust_mozprofilemcAMJX/protections.sqlite
+1606380782022	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileb4i2So"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606380784637	Marionette	INFO	Listening on port 44355
+1606380784754	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606380788630	Marionette	INFO	Stopped listening on port 44355
+1606381093200	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile7dZLpt"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606381095710	Marionette	INFO	Listening on port 40723
+1606381095833	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606381103478	Marionette	INFO	Stopped listening on port 40723
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1606381187586	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile616m9Y"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606381190793	Marionette	INFO	Listening on port 38959
+1606381190863	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606381193597	Marionette	INFO	Stopped listening on port 38959
+1606381297309	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileHMS3Se"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606381299938	Marionette	INFO	Listening on port 38257
+1606381300103	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606381322300	Marionette	INFO	Stopped listening on port 38257
+1606384391803	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileuTdELV"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606384394488	Marionette	INFO	Listening on port 35089
+1606384394550	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606384398015	Marionette	INFO	Stopped listening on port 35089
+1606384428959	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileDuEhi4"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606384431483	Marionette	INFO	Listening on port 39809
+1606384431597	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606384451680	Marionette	INFO	Stopped listening on port 39809
+1606384465340	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilefRoBKb"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606384468401	Marionette	INFO	Listening on port 41595
+1606384468495	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606384488618	Marionette	INFO	Stopped listening on port 41595
+1606384546913	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileyaFh3l"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606384549171	Marionette	INFO	Listening on port 37337
+1606384549275	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606384569356	Marionette	INFO	Stopped listening on port 37337
+1606384583371	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilelq1WQn"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1606384585730	Marionette	INFO	Listening on port 36787
+1606384585825	Marionette	WARN	TLS certificate errors will be ignored for this session
+1606384592863	Marionette	INFO	Stopped listening on port 36787

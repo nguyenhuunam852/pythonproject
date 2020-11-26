@@ -74,10 +74,10 @@
      {% for url in urls %}  
        <tr>  
          <td style="width:80%"> 
-           <a href="/view/{{ url.id }}">{{ url.name }}</a>
+           <a href="/view?id={{ url.id }}">{{ url.name }}</a>
          </td>
          <td style="width:20%">
-          <a href="/view/{{ url.id }}" class="button" style="background-color:#DF0101;"><i class="fa fa-plus-square" aria-hidden="true"></i></a>  
+          <a href="/view?id={{ url.id }}" class="button" style="background-color:#DF0101;"><i class="fa fa-plus-square" aria-hidden="true"></i></a>  
           <a href="/delete/{{ url.id }}" class="button" style="background-color:#0080ff;"><i class="fa fa-trash" aria-hidden="true"></i></a>  
          </td>
        </tr>

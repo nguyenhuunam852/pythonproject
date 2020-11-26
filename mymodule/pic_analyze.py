@@ -4,9 +4,7 @@ import time
 import cv2
 import base64
 import numpy as np
-import pytesseract
 import io
-from pytesseract import Output
 from PIL import Image
 from io import StringIO
 import os
@@ -29,15 +27,14 @@ def Analyze(web,words):
     options=options
    )
   except Exception as e:
+    driver.close()
     print(e)
-  driver.set_page_load_timeout(10)
-  driver.get(web.name)
-  width = driver.execute_script("return document.body.offsetWidth;")
-  height = driver.execute_script("return document.body.offsetHeight;")
-  
-  time.sleep(2)
-   
-  for w in words:
+  try:
+   driver.set_page_load_timeout(20)
+   driver.get(web.name)
+   width = driver.execute_script("return document.documentElement.offsetWidth;")
+   height = driver.execute_script("return document.documentElement.scrollHeight;")
+   for w in words:
     image = driver.find_elements_by_xpath('//*[text()[contains(.,"'+w+'")]]')
     try:
      for img in image:
@@ -54,10 +51,13 @@ def Analyze(web,words):
        print(e)
     except Exception as e:
        print(e)
-  file_name = settings.MEDIA_ROOT + '/picture/'+str(web.id)+'.png'
-  driver.set_window_size(width,height)
-  driver.save_screenshot(file_name)
-  img_rt_90 = rotate_img(file_name, 90)
-  img_rt_90.save(file_name)
-  driver.close()
-  return file_name
+   file_name = settings.MEDIA_ROOT + '/picture/'+str(web.id)+'.png'
+   driver.set_window_size(width,height)
+   driver.save_screenshot(file_name)
+   img_rt_90 = rotate_img(file_name, 90)
+   img_rt_90.save(file_name)
+   driver.close()
+   return file_name
+  except Exception as e:
+     driver.close()
+     print(e)
