@@ -43,6 +43,9 @@ def user_login(request):
         form_class=CustomUserLoginForm
         return render(request, 'registration/login.html', {'form':form_class})
 
+
+
+
 def ignore_list_history(request):
     pagi = request.GET.get('page', None)
     pa = (int(pagi)-1)*11

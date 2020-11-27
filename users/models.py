@@ -3,8 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from urlpage.models import Domain,Words
-
-
+import django.contrib.auth.password_validation as validators
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password, **extra_fields):
         if not email:
@@ -32,6 +31,19 @@ class CustomUser(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
+    def create_user_admin(self,email,password):
+        if not email:
+            raise ValueError(_('The Email must be set'))
+        self.email = email
+        try:
+          validators.validate_password(password=password)
+        except Exception as e:
+          print(e)
+          return (1999,'PasswordFail')
+        self.set_password(password)
+        self.is_staff = True
+        self.save()
+        return self
     def __str__(self):
         return self.email
 

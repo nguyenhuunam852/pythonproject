@@ -131,7 +131,7 @@ def removeatinde(texts,index):
 def removeduplicate(x):
   return list(dict.fromkeys(x))
 
-def dataAnalysist(r,name_array_tag):
+def dataAnalysist(r,website_id,name_array_tag):
     texts=[]
     n_arrays=[]
     w_arrays=[]
@@ -160,7 +160,7 @@ def dataAnalysist(r,name_array_tag):
     name_array_tag=n_arrays
     result_array=[]
     for w in name_array_tag:
-       ck = checkWord(w)
+       ck = checkWord(w,website_id)
        if(ck>0):
           result_array.append(w)
     #soup.prettify()
@@ -182,7 +182,7 @@ def checkWebsite(url,domain_id,userid,n):
          # lấy tát cả internal website
          get_all_web_domain(domain_object.name,r,userid,n,url)
          #phân tích từ vựng của trang web
-         name_array_tag=dataAnalysist(r,name_array_tag)
+         name_array_tag=dataAnalysist(r,get_url.id,name_array_tag)
          lower_array={}
          for word in name_array_tag:
             if(word.lower() not in lower_array):

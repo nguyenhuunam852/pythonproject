@@ -14,42 +14,7 @@
     <link rel="stylesheet" href="{% static "/css/wordform/wordform.css" %}">
 </head>
 <style>
-li {
-    color: #fff;
-    display: flex;
-}
-li a{
-  background-color: #444B6E;
-  padding: 5px 10px;
-  border: 2px solid #3D315B;
-  border-right: 0;
-}
-a:hover {
-  cursor: pointer;
-}
-#pagination {
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-li.active a {
-    background-color: green;
-}
- li:first-child a {
-    border-radius: 5px 0 0 5px;
-  }
-  li:last-child a {
-    border-radius: 0 5px 5px 0;
-    border-right: 2px solid #3D315B;
-  }
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
+
 .App{
   width:100%;
   height:100%;
@@ -97,6 +62,7 @@ td .Buttonstyle{
     padding-left: 0px;
     width:50%;
 }
+
 .button {
     display: block;
     width: 115px;
@@ -129,54 +95,6 @@ td .Buttonstyle{
   <div id="wordform" style="width:100%"></div>
 </div>
 
-
-<script>
-   var index=0;
-
-  
-  $('#ShowModal2').on('show.bs.modal', function(e) {
-    var id=$(e.relatedTarget).data('id');
-    $('#ignore_page').val(id)
-    $('#ignore_domain').val(id)
-    $('#person').val(id)
-   });
-
-  
-  var personal = function(id)
-  {
-        poll_xhr = $.ajax(
-        {
-        url:'/ignore/personal',
-        type: 'POST',
-        data: {
-            id:id,
-            csrfmiddlewaretoken: "{{csrf_token}}",
-        },
-        success: function(result) {
-            if(result=='success')
-            {
-              window.alert("Your Task is done, Let Checkout!!!");
-            }
-            else
-            {
-              window.alert("Something Went Wrong!!!");
-            }
-            location.reload();
-        }
-        }
-      )
-  }
-
-  $("#person").click(function() {
-    var id = $(this).val();
-    setTimeout(() => {    
-      personal(id);
-    }, 500);
-  });
-
-
-  
-  </script>
 <script>
     window.items =  "{{list_word}}"
     
