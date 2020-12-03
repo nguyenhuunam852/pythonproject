@@ -153,7 +153,13 @@ def poll_state(request):
     except:
       print('wait')
     if(str(request.user.id)+'_'+str(idDomain) in user_process):
-      data['state']='active'
+      if(isinstance(data,dict)):
+         data['state']='active'
+      else:
+         print('not dict')
+         data = {}
+         data['items']=[model_to_dict(item) for item in items]
+         data['state']='n-active'
     else:
       data['state']='n-active'
     data['sumofpages']=sumofpage

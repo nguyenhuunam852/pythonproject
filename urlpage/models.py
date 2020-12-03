@@ -15,12 +15,14 @@ class Urlspage(models.Model):
     is_valid=models.BooleanField(default=True)
     idDomain=models.ForeignKey(Domain,default="",on_delete=models.CASCADE)
     piclink = models.CharField(default="",max_length=2000)
+    is_done=models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 class Words(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField("urls",max_length=2000)
+    suggestion = models.CharField("suggest",default="",max_length=10000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

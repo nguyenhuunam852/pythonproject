@@ -3,13 +3,14 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth import authenticate,login, logout
 from .forms import CustomUserCreationForm,CustomUserLoginForm
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse,JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from users.models import Personal_words
 from mymodule.pagi import getpagi
-
-    
+from django.shortcuts import render, redirect  
+import json
+from users.models import CustomUser
 @login_required
 def special(request):
     return HttpResponse("You are logged in !")
@@ -24,24 +25,47 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('userinfo:login')
     template_name = 'signup.html'
 
+def signup(request):
+    data={}
+    jsonpost = json.loads(request.body.decode('UTF-8'))
+    user = jsonpost['user']
+    try:
+      User = CustomUser()
+      user = User.create_user(user['gmail'],user['password'])
+      if(type(user) is tuple):
+        if(user[0]==1999):
+          data['signal']='password'
+      else:
+        data['signal']='success'
+
+    except Exception as e:
+      print(e)
+      if(e.args[0]==1062):
+        data['signal']='duplicate'
+    print(data)
+    return JsonResponse(data,safe=False)
+
 def user_login(request):
+    data={}
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
+        jsonpost = json.loads(request.body.decode('UTF-8'))
+        user = jsonpost['user']
+
+        user = authenticate(username=user['gmail'], password=user['password'])
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect('/')
+                data['signal']='success'
+                return JsonResponse(data,safe=False)
             else:
-                return HttpResponse("Your account was inactive.")
+                data['signal']='n-active'
+                return JsonResponse(data,safe=False)
         else:
-            print("Someone tried to login and failed.")
-            print("They used username: {} and password: {}".format(username,password))
-            return HttpResponse("Invalid login details given")
+            data['signal']='fail'
+            return JsonResponse(data,safe=False)
     else:
         form_class=CustomUserLoginForm
-        return render(request, 'registration/login.html', {'form':form_class})
+        return render(request, 'login.html', {'form':form_class})
 
 
 

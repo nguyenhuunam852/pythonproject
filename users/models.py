@@ -44,6 +44,21 @@ class CustomUser(AbstractUser):
         self.is_staff = True
         self.save()
         return self
+
+    def create_user(self,email,password):
+        if not email:
+            raise ValueError(_('The Email must be set'))
+        self.email = email
+        try:
+          validators.validate_password(password=password)
+        except Exception as e:
+          print(e)
+          return (1999,'PasswordFail')
+        self.set_password(password)
+        self.is_staff = False
+        self.save()
+        return self
+        
     def __str__(self):
         return self.email
 

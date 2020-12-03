@@ -28,14 +28,6 @@ server_dict_done={}
 def test(word):
     return spellchecker.spell(word)
 
-def checkwordowl(word):
-    headers = {
-    'Authorization': 'Token 7797d0ab6586ff0a131921d4f85c5db8958e8d86',
-    }
-    response = requests.get('https://owlbot.info/api/v4/dictionary/'+word, headers=headers)
-    if(response.status_code==404):
-      return False
-    return True
 
 #chuẩn hóa link
 def Urls_check(url):
@@ -78,7 +70,7 @@ def get_all_web_domain(domain,r,user,n,url):
         else:
            linkb = Urls_check(link)
            linka= domain+linkb
-           if linka not in server_dict[user] and linka not in server_dict_done[user] and link!=url:
+           if linka not in server_dict[user] and linka not in server_dict_done[user] and linka!=url:
                server_dict[user].append(linka)
 
 
@@ -172,7 +164,7 @@ def checkWebsite(url,domain_id,userid,n):
      # lấy văn bảng từ trang web
      try:
        scraper = cloudscraper.create_scraper()
-       r = scraper.get(url)
+       r = scraper.get(url,timeout=5)
        if(r.status_code==200):
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=True)
          get_url.save()
@@ -196,7 +188,9 @@ def checkWebsite(url,domain_id,userid,n):
            if(check==True):
              save_word = Words.objects.get(name=word)
            else:
-             save_word = Words.objects.create(name=word)
+             suggest = spellchecker.suggest(word)
+             print(suggest)
+             save_word = Words.objects.create(name=word,suggestion=",".join(list(suggest)))
              save_word.save()
              #,form_pre=lower_array[word].join(',')
            save_word_url= WordUrls.objects.create(idurl=get_url,idword=save_word,form_pre=','.join(lower_array[word]))
@@ -204,15 +198,29 @@ def checkWebsite(url,domain_id,userid,n):
          #image = PIL.Image.open('urlpage/static/website/'+str(get_url.id)+'.png')
          #width, height = image.size
          #size=[width,height]
+         
        else:
-
+        print(1)
+        if(Urlspage.objects.filter(name=url,idDomain=domain_object).exists()==False):
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=False)
          get_url.save()
+        else:
+         print(2) 
+         page = Urlspage.objects.get(name=url,idDomain=domain_object)
+         page.is_valid=False
+         page.save()
 
      except Exception as e:
-         print(e)
-         get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=False)
-         get_url.save()
+         print(3)
+         if(Urlspage.objects.filter(name=url,idDomain=domain_object).exists()==False):
+          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=False)
+          get_url.save()
+         else:
+          print(4)
+          page = Urlspage.objects.get(name=url,idDomain=domain_object)
+          page.is_valid=False
+          page.save()
+
 
 
      
@@ -227,11 +235,19 @@ def do_task(url,domain_id,userid,n):
      server_dict[userid].append(url)
      
      while(len(server_dict_done[userid])<int(n)):
+       if(len(server_dict)>0):
           web = server_dict[userid].pop(0)
           process_percent = int(100 * float(len(server_dict_done[userid])) / float(int(n)))
           current_task.update_state(state='PROGRESS',meta={'process_percent': process_percent,'current_web':web})
           checkWebsite(web,domain_id,userid,n)
-          server_dict_done[userid].append(web)      
+          print(5)
+          domain = Domain.objects.get(id=domain_id)
+          page = Urlspage.objects.get(name=web,idDomain=domain)
+          page.is_done=True
+          page.save()
+          server_dict_done[userid].append(web)
+       else:
+          break    
      domain=Domain.objects.get(id=domain_id)
      domain.isdone=True
      domain.save()
