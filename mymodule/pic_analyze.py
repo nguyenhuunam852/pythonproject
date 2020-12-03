@@ -34,6 +34,7 @@ def Analyze(web,words):
    driver.get(web.name)
    width = driver.execute_script("return document.documentElement.offsetWidth;")
    height = driver.execute_script("return document.documentElement.scrollHeight;")
+  
    for w in words:
     image = driver.find_elements_by_xpath('//*[text()[contains(.,"'+w+'")]]')
     try:
@@ -52,6 +53,7 @@ def Analyze(web,words):
     except Exception as e:
        print(e)
    file_name = settings.MEDIA_ROOT + '/picture/'+str(web.id)+'.png'
+   driver.execute_script("window.scrollTo(0, "+str(height/2)+"); ")
    driver.set_window_size(width,height)
    driver.save_screenshot(file_name)
    img_rt_90 = rotate_img(file_name, 90)

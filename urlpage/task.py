@@ -240,7 +240,6 @@ def do_task(url,domain_id,userid,n):
           process_percent = int(100 * float(len(server_dict_done[userid])) / float(int(n)))
           current_task.update_state(state='PROGRESS',meta={'process_percent': process_percent,'current_web':web})
           checkWebsite(web,domain_id,userid,n)
-          print(5)
           domain = Domain.objects.get(id=domain_id)
           page = Urlspage.objects.get(name=web,idDomain=domain)
           page.is_done=True

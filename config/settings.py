@@ -140,3 +140,11 @@ XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
 BASE_DIR1 = os.path.dirname(os.path.dirname(__file__))
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR1, 'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'evannguyen12399@gmail.com'
+EMAIL_HOST_PASSWORD = 'nnhbgbukuhjyhjfl'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'default from email'

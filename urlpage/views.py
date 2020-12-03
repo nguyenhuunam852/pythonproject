@@ -16,6 +16,9 @@ from celery.result import AsyncResult
 from rest_framework.response import Response
 from django.forms.models import model_to_dict
 from mymodule.pagi import getpagi
+from django.core import mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 index=0
 id_array_tag=[]
@@ -169,6 +172,68 @@ def poll_state(request):
 def test(request):
     return render(request,"testwebview.html",{})  
 
+def emailtest(request):
+
+    idDomain = 80
+
+    domain = Urlspage.objects.filter(idDomain=idDomain)
+    sumofWebsite = domain.count()
+    sumofsuccessWebsite = domain.filter(is_valid=True).count()
+    sumoffailWebsite = sumofWebsite-sumofsuccessWebsite
+
+    perfect_web = [x for x in domain.filter(is_valid=True) if WordUrls.objects.filter(idurl=x.id).count()==0]
+    not_perfect_web = sumofsuccessWebsite-len(perfect_web)
+
+    subject = 'Subject'
+    st = 'test'
+    html_message = """
+    <!DOCTYPE html>
+     <html>
+     <head>
+     <style>
+       table {
+         font-family: arial, sans-serif;
+         border-collapse: collapse;
+         width: 100%;
+       }
+
+       td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+       }
+
+       tr:nth-child(even) {
+        background-color: #dddddd;
+       }
+    </style>
+    </head>
+    <body>
+    <h1>Check</h1>
+       <table>
+         <tr>
+           <td>Number of Scanned Website:</td>
+           <td>"""+str(sumofWebsite)+"""</td>
+         </tr>
+         <tr>
+           <td>Success Scanned Website:</td>
+           <td>"""+str(sumofsuccessWebsite)+"""</td>
+         </tr>
+         <tr>
+           <td>Website have wrong word:</td>
+           <td>"""+str(not_perfect_web)+"""</td>
+         </tr>
+       </table> 
+    </body>
+    </html>
+    """
+    plain_message = strip_tags(html_message)
+    from_email = 'From evannguyen12399@gmail.com'
+    to = ['nct.10a4.18.1415@gmail.com']
+    mail.send_mail(subject, plain_message, from_email, to, html_message=html_message)
+
+    data={}
+    return JsonResponse(data,safe=False)
 
 def show(request):
     global user_process
