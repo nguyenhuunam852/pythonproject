@@ -1287,3 +1287,27 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1607743638031	Marionette	INFO	Listening on port 41137
 1607743638144	Marionette	WARN	TLS certificate errors will be ignored for this session
 1607743652199	Marionette	INFO	Stopped listening on port 41137
+1607766805188	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6Xlo5O"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607766808770	Marionette	INFO	Listening on port 37935
+1607766808840	Marionette	WARN	TLS certificate errors will be ignored for this session
+1607766812225	Marionette	INFO	Stopped listening on port 37935
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+1607768411479	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileTZWgjz"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607768414985	Marionette	INFO	Listening on port 46749
+1607768415101	Marionette	WARN	TLS certificate errors will be ignored for this session
+1607768418827	Marionette	INFO	Stopped listening on port 46749
+1607768440874	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilevHGygx"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607768443777	Marionette	INFO	Listening on port 36915
+1607768443839	Marionette	WARN	TLS certificate errors will be ignored for this session
+1607768447996	Marionette	INFO	Stopped listening on port 36915
