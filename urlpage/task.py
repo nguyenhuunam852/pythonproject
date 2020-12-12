@@ -189,7 +189,6 @@ def checkWebsite(url,domain_id,userid,n):
              save_word = Words.objects.get(name=word)
            else:
              suggest = spellchecker.suggest(word)
-             print(suggest)
              save_word = Words.objects.create(name=word,suggestion=",".join(list(suggest)))
              save_word.save()
              #,form_pre=lower_array[word].join(',')
@@ -200,23 +199,19 @@ def checkWebsite(url,domain_id,userid,n):
          #size=[width,height]
          
        else:
-        print(1)
         if(Urlspage.objects.filter(name=url,idDomain=domain_object).exists()==False):
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=False)
          get_url.save()
         else:
-         print(2) 
          page = Urlspage.objects.get(name=url,idDomain=domain_object)
          page.is_valid=False
          page.save()
 
      except Exception as e:
-         print(3)
          if(Urlspage.objects.filter(name=url,idDomain=domain_object).exists()==False):
           get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=False)
           get_url.save()
          else:
-          print(4)
           page = Urlspage.objects.get(name=url,idDomain=domain_object)
           page.is_valid=False
           page.save()

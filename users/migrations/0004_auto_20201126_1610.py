@@ -5,8 +5,6 @@ from users.models import CustomUser
 def create_firstuser(apps, schema_editor):
     # We can't import the Person model directly as it may be a newer
     # version than this migration expects. We use the historical version.
-    user = CustomUser.objects.get(email="admin@gmail.com")
-    user.delete()
     User = CustomUser()
     User.create_user_admin("admin@gmail.com","Abc123456@")
 

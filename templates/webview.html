@@ -39,7 +39,7 @@
 {% if user.is_authenticated %}
  <div class="row justify-content-md-center">
   <div style="width:40%">
-  <div id="root"></div>
+  <div id="webview"></div>
   </div>
  </div>
 
@@ -50,6 +50,6 @@
 <script>
     window.id = "{{id}}"
  </script>
-  <script type="text/javascript" src="{% static "/reactjs/bundle.js" %}"> </script>
+  <script type="text/javascript" src="{% static "/reactjs/webview.bundle.js" %}"> </script>
 {% endblock %}
 </body>

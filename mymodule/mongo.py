@@ -2,6 +2,7 @@ import json
 from manager.models import Library_Words
 from manager.models import Library_Words_Web
 from urlpage.models import Urlspage
+
 def checkWord(word,website):
     if(Library_Words.objects.filter(name=word.upper()).exists()):
          print('xoa '+word)
