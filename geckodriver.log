@@ -1311,3 +1311,17 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 1607768443777	Marionette	INFO	Listening on port 36915
 1607768443839	Marionette	WARN	TLS certificate errors will be ignored for this session
 1607768447996	Marionette	INFO	Stopped listening on port 36915
+1607933397285	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileHlb6T3"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1607933400135	Marionette	INFO	Listening on port 37989
+1607933400234	Marionette	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.jsm: "Error fetching region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 726))
+console.error: Region.jsm: "Failed to fetch region" (new Error("TIMEOUT", "resource://gre/modules/Region.jsm", 376))
+1607933409499	Marionette	INFO	Stopped listening on port 37989
+console.error: services.settings: 
+  main/partitioning-exempt-urls Signature failed  TypeError: NetworkError when attempting to fetch resource.
+console.error: services.settings: 
+  main/message-groups Signature failed  TypeError: NetworkError when attempting to fetch resource.
+console.error: services.settings: 
+  main/nimbus-desktop-experiments Signature failed  TypeError: NetworkError when attempting to fetch resource.
