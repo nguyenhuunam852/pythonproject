@@ -167,6 +167,7 @@ ul {
     </div>
   </nav>
  
+  
 
 
    {% if user.is_staff%}
@@ -204,9 +205,11 @@ ul {
 
 
     {% else %}
+   
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#4CAF50;">
-      <a class="navbar-brand" style="color: white;" href="/">Check</a>
-     
+      
+      <h1 class="logo mr-auto"><a class="navbar-brand" style="color: white;" href="/">Spell Checker Tool</a></h1>
+      <!-- <h1 class="logo mr-auto"> <a class="nav-link"  style="color: white;" href="/account/login/">Login</a></h1> -->
      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
           <ul class="navbar-nav ml-auto">
               <li class="nav-item">
@@ -217,7 +220,13 @@ ul {
               </li> 
           </ul>
       </div>
+
     </nav>
+  
+
+
+    
+
     {% endif %}
     {% block content %}
 

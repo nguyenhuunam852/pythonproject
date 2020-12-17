@@ -168,7 +168,7 @@ def checkWebsite(url,domain_id,userid,n):
        if(r.status_code==200):
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=True)
          get_url.save()
-         f= open(settings.MEDIA_ROOT+"/doc/"+str(get_url.id)+".txt","a")
+         f= open(settings.MEDIA_ROOT+"/doc/"+str(get_url.id)+".txt","a",encoding='utf8')
          f.write(r.text)
          f.close()
          # lấy tát cả internal website

@@ -5,53 +5,58 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>BizPage Bootstrap Template</title>
+  <title>Spell Checker Tool</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <link href="/asserts/images/favicon.png" rel="icon">
-  <link href="/asserts/images/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/urlpage/static/asserts/images/favicon.png" rel="icon">
+  <link href="/urlpage/static/asserts/images/apple-touch-icon.png" rel="apple-touch-icon">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
-  <link href="/asserts/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/asserts/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="/asserts/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/asserts/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="/asserts/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="/asserts/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="/asserts/vendor/owl.carousel//asserts/owl.carousel.min.css" rel="stylesheet">
-  <link href="/asserts/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/asserts/css/style.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/vendor/owl.carousel//asserts/owl.carousel.min.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/urlpage/static/asserts/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
 
+<style>
+  /*---- Custom CSS ----*/
+  .search-box {
+      margin: 100px auto;
+  }
+  .search-box .btn-light {
+      border: 1px solid #ced4da;
+  }
+  </style>
+
 <body>
-  <header id="header" class="fixed-top header-transparent">
+  <header id="header" class="fixed-top header-transparent" style="background-color:#18d26e;">
     <div class="container-fluid">
 
       <div class="row justify-content-center">
         <div class="col-xl-11 d-flex align-items-center">
-          <h1 class="logo mr-auto"><a href="index.html">BizPage</a></h1>
+          <h1 class="logo mr-auto"><a href="/">Spell Checker Tool</a></h1>
           <nav class="nav-menu d-none d-lg-block">
-            <ul>
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#team">Team</a></li>
-              <li class="drop-down"><a href="">Drop Down</a>
-                <ul>
-                  <li><a href="#">Drop Down 1</a></li>
-                  <li><a href="#">Drop Down 3</a></li>
-                  <li><a href="#">Drop Down 4</a></li>
-                  <li><a href="#">Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#contact">Contact Us</a></li>
+            <ul >
+              <li class="nav-item" ><a  href="/">Home</a></li>
+              <li class="nav-item"><a  href="/account/login/">Login</a></li>
+              <li class="nav-item"><a  href="/account/signup/">Register</a></li>
 
             </ul>
         </div>
       </div>
-
     </div>
   </header>
+     
+
+  
   <section id="intro">
     <div class="intro-container">
       <div id="introCarousel" class="carousel  slide carousel-fade" data-ride="carousel">
@@ -60,55 +65,106 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url(/asserts/images/intro-carousel/1.jpg)">
+          <div class="carousel-item active" style="background-image: url(/urlpage/static/asserts/images/intro-carousel/2.jpg)">
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are professional</h2>
-                <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <p class="animate__animated animate__fadeInUp">Spell Checker Tool has been designed with one goal in mind: to make it extremely simple to keep websites free from spelling errors.We have developed to help identify genuine spelling errors and minimise false positives.Our aim was to build a system that would provide immediate value without complex configuration of custom dictionaries.</p>
+               
+                <div class="search-box col-md-5">               
+                  <form action="">
+                      <div class="input-group mb-3">                          
+                          <input type="text" class="form-control" aria-label="Search input with dropdown button" placeholder="Enter your website" >                                        
+                            <div class="input-field second-wrap" >
+                              <div class="form-control ">
+                                <select data-trigger="" name="choices-single-defaul">                                  
+                                  <option  placeholder="">Pages</option>
+                                  <option>1</option>
+                                  <option>5</option>
+                                  <option>10</option>
+                                  <option>20</option>
+                                  <option>50</option>
+                                  <option>100</option>
+                                </select>
+                              </div>
+                            </div>                        
+                          <div class="input-group-append">                          
+                              <button class="btn btn-success" type="button">Check</button>                             
+                          </div>
+                      </div>
+                  </form>
+              </div>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url(/asserts/images/intro-carousel/2.jpg)">
+          <div class="carousel-item" style="background-image: url(/urlpage/static/asserts/images/intro-carousel/2.jpg)">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">At vero eos et accusamus</h2>
-                <p class="animate__animated animate__fadeInUp">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <h2 class="animate__animated animate__fadeInDown">Highlight misspelling</h2>
+                <p class="animate__animated animate__fadeInUp">You can see highlight words on picture and sourcecode clearly</p>
+                <div class="search-box col-md-5">               
+                  <form action="">
+                      <div class="input-group mb-3">                          
+                          <input type="text" class="form-control" aria-label="Search input with dropdown button" placeholder="Enter your website" >                                        
+                            <div class="input-field second-wrap" >
+                              <div class="form-control ">
+                                <select data-trigger="" name="choices-single-defaul">                                  
+                                  <option  placeholder="">Pages</option>
+                                  <option>1</option>
+                                  <option>5</option>
+                                  <option>10</option>
+                                  <option>20</option>
+                                  <option>50</option>
+                                  <option>100</option>
+                                </select>
+                              </div>
+                            </div>                        
+                          <div class="input-group-append">                          
+                              <button class="btn btn-success" type="button">Check</button>                             
+                          </div>
+                      </div>
+                  </form>
+              </div>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url(/asserts/images/intro-carousel/3.jpg)">
+          <div class="carousel-item" style="background-image: url(/urlpage/static/asserts/images/intro-carousel/3.jpg)">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">Temporibus autem quibusdam</h2>
-                <p class="animate__animated animate__fadeInUp">Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
+                <h2 class="animate__animated animate__fadeInDown">Save report</h2>
+                <p class="animate__animated animate__fadeInUp">You can save report via email </p>
+                <div class="search-box col-md-5">               
+                  <form action="">
+                      <div class="input-group mb-3">                          
+                          <input type="text" class="form-control" aria-label="Search input with dropdown button" placeholder="Enter your website" >                                        
+                            <div class="input-field second-wrap" >
+                              <div class="form-control ">
+                                <select data-trigger="" name="choices-single-defaul">                                  
+                                  <option  placeholder="">Pages</option>
+                                  <option>1</option>
+                                  <option>5</option>
+                                  <option>10</option>
+                                  <option>20</option>
+                                  <option>50</option>
+                                  <option>100</option>
+                                </select>
+                              </div>
+                            </div>                        
+                          <div class="input-group-append">                          
+                              <button class="btn btn-success" type="button">Check</button>                             
+                          </div>
+                      </div>
+                  </form>
+              </div>
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url(/asserts/images/intro-carousel/4.jpg)">
-            <div class="carousel-container">
-              <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">Nam libero tempore</h2>
-                <p class="animate__animated animate__fadeInUp">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
-              </div>
-            </div>
-          </div>
+         
 
-          <div class="carousel-item" style="background-image: url(/asserts/images/intro-carousel/5.jpg)">
-            <div class="carousel-container">
-              <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">Magnam aliquam quaerat</h2>
-                <p class="animate__animated animate__fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto animate__animated animate__fadeInUp">Get Started</a>
-              </div>
-            </div>
-          </div>
+        
 
         </div>
 
@@ -144,39 +200,33 @@
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div class="about-col">
               <div class="img">
-                <img src="/asserts/images/about-mission.jpg" alt="" class="img-fluid">
+                <img src="/urlpage/static/asserts/images/about-mission.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">Our Mission</a></h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
+              <h2 class="title"><a href="#">Hint word</a></h2>
+              
             </div>
           </div>
 
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="about-col">
               <div class="img">
-                <img src="/asserts/images/about-plan.jpg" alt="" class="img-fluid">
+                <img src="/urlpage/static/asserts/images/about-plan.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">Our Plan</a></h2>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-              </p>
+              <h2 class="title"><a href="#">Highlight misspelling words</a></h2>
+              
             </div>
           </div>
 
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="about-col">
               <div class="img">
-                <img src="/asserts/images/about-vision.jpg" alt="" class="img-fluid">
+                <img src="/urlpage/static/asserts/images/about-vision.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-eye-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">Our Vision</a></h2>
-              <p>
-                Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
-              </p>
+              <h2 class="title"><a href="#">Save report</a></h2>
+             
             </div>
           </div>
 
@@ -191,40 +241,42 @@
 
         <header class="section-header wow fadeInUp">
           <h3>Services</h3>
-          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.</p>
+          <p>Let try it with special features. You will have great experience.</p>
         </header>
 
         <div class="row">
-
+         
+          
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+            <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+            <h4 class="title"><a href="">Optimal time</a></h4>
+            <p class="description">You do not need to wait a long time to get a result. When the process is running, you can close the browser. Then you go back and get the result later </p>
           </div>
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="200">
             <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
-            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            <h4 class="title"><a href="">Highlight misspelling </a></h4>
+            <p class="description">You can view all highlight misspelling words of pages on picture and sourcecode </p>
           </div>
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
             <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <h4 class="title"><a href="">History</a></h4>
+            <p class="description">You can view all history websites with speed quickly</p>
           </div>
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
+            <h4 class="title"><a href="">Save report</a></h4>
+            <p class="description">After the process is done user can send this report via email</p>
+            
           </div>
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="300">
             <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+            <h4 class="title"><a href="">Delete right word</a></h4>
+            <p class="description">If the misspelling is right, user can delete this word</p>
           </div>
           <div class="col-lg-4 col-md-6 box" data-aos="fade-up" data-aos-delay="400">
             <div class="icon"><i class="ion-ios-people-outline"></i></div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+            <h4 class="title"><a href="">Choose number of pages</a></h4>
+            <p class="description">You can choose number of pages to check misspelling</p>
           </div>
 
         </div>
@@ -232,195 +284,25 @@
       </div>
     </section>
 
-    <section id="portfolio" class="section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <header class="section-header">
-          <h3 class="section-title">Our Portfolio</h3>
-        </header>
-
-        <div class="row" data-aos="fade-up" data-aos-delay="100"">
-      <div class=" col-lg-12">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/app1.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">App 1</a></h4>
-              <p>App</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/web3.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/web3.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 3"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">Web 3</a></h4>
-              <p>Web</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/app2.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/app2.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="App 2"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">App 2</a></h4>
-              <p>App</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/card2.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/card2.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Card 2"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">Card 2</a></h4>
-              <p>Card</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/web2.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/web2.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 2"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">Web 2</a></h4>
-              <p>Web</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/app3.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/app3.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="App 3"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">App 3</a></h4>
-              <p>App</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/card1.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/card1.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Card 1"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">Card 1</a></h4>
-              <p>Card</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/card3.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/card3.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Card 3"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">Card 3</a></h4>
-              <p>Card</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <figure>
-              <img src="/asserts/images/portfolio/web1.jpg" class="img-fluid" alt="">
-              <a href="/asserts/images/portfolio/web1.jpg" class="link-preview venobox" data-gall="portfolioGallery" title="Web 1"><i class="ion ion-eye"></i></a>
-              <a href="portfolio-details.html" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-            </figure>
-
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html">Web 1</a></h4>
-              <p>Web</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      </div>
-    </section>
+    
     <section id="team">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h3>Team</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p>The team is quality and professional.</p>
         </div>
 
         <div class="row">
 
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
-              <img src="/asserts/images/team-1.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
-              <img src="/asserts/images/nam.png" class="img-fluid" alt="">
+              <img src="/urlpage/static/asserts/images/nam.png" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Evan Nguyen</h4>
@@ -438,7 +320,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <img src="/asserts/images/hang.png" class="img-fluid" alt="">
+              <img src="/urlpage/static/asserts/images/hang.png" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>HanXu</h4>
@@ -456,19 +338,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="400">
-              <img src="/asserts/images/team-4.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
-                  <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
-                    <a href=""><i class="fa fa-facebook"></i></a>
-                    <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
 
@@ -481,7 +351,7 @@
 
         <div class="section-header">
           <h3>Contact Us</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <p>Spell Checker tool is proudly brought to you by the awesome experience. You can find more information about us .</p>
         </div>
 
         <div class="row contact-info">
@@ -490,7 +360,7 @@
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
               <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <address>1 Vo Van Ngan, HCM city, Vietnam</address>
             </div>
           </div>
 
@@ -498,7 +368,7 @@
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
               <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+              <p><a href="tel:+155895548855">0388404061</a></p>
             </div>
           </div>
 
@@ -506,7 +376,7 @@
             <div class="contact-email">
               <i class="ion-ios-email-outline"></i>
               <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <p><a href="mailto:info@example.com">admin@gmail.com</a></p>
             </div>
           </div>
 
@@ -521,71 +391,12 @@
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-info">
-            <h3>BizPage</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-
-            <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-            </div>
-
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
+   
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>BizPage</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-        All the links in the footer should remain intact.
-        You can delete the links only if you purchased the pro version.
-        Licensing information: https://bootstrapmade.com/license/
-        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-      -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
+        &copy; Thanks for using our service <3      </div>
+    
     </div>
   </footer><!-- End Footer -->
 
@@ -594,19 +405,19 @@
   <!-- <div id="preloader"></div> -->
 
   <!-- Vendor JS Files -->
-  <script src="/asserts/vendor/jquery/jquery.min.js"></script>
-  <script src="/asserts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/asserts/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="/asserts/vendor/php-email-form/validate.js"></script>
-  <script src="/asserts/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="/asserts/vendor/counterup/counterup.min.js"></script>
-  <script src="/asserts/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/asserts/vendor/venobox/venobox.min.js"></script>
-  <script src="/asserts/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="/asserts/vendor/aos/aos.js"></script>
+  <script src="/urlpage/static/asserts/vendor/jquery/jquery.min.js"></script>
+  <script src="/urlpage/static/asserts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/urlpage/static/asserts/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="/urlpage/static/asserts/vendor/php-email-form/validate.js"></script>
+  <script src="/urlpage/static/asserts/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="/urlpage/static/asserts/vendor/counterup/counterup.min.js"></script>
+  <script src="/urlpage/static/asserts/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/urlpage/static/asserts/vendor/venobox/venobox.min.js"></script>
+  <script src="/urlpage/static/asserts/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="/urlpage/static/asserts/vendor/aos/aos.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="/asserts/js/main.js"></script>
+  <script src="/urlpage/static/asserts/js/main.js"></script>
 
 </body>
 
