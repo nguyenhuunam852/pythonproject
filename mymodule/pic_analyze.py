@@ -36,16 +36,20 @@ def Analyze(web,words):
    height = driver.execute_script("return document.documentElement.scrollHeight;")
   
    for w in words:
-    image = driver.find_elements_by_xpath('//*[text()[contains(.," '+w+' ")]]')
+    image = driver.find_elements_by_xpath('//*[text()[contains(.,"'+w+'")]]')
     try:
      for img in image:
       try: 
        if(img.tag_name!='script' and img.text!=''):
         try:
          text = img.get_attribute('innerHTML')
-         new = "<span style='background: yellow; border: 2px solid red;'>"+w+"</span>"
-         text = text.replace(w,new)
-         driver.execute_script("arguments[0].innerHTML=arguments[1]",img,text) 
+         import re
+         verify = re.findall('\W'+w+'\W',text)
+         for vword in verify: 
+            new = "<span style='background: yellow; border: 2px solid red;'>"+w+"</span>"
+            nword = vword.replace(w,new)
+            text = text.replace(vword,nword)
+            driver.execute_script("arguments[0].innerHTML=arguments[1]",img,text) 
         except Exception as e:
          print(e)
       except Exception as e:

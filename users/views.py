@@ -67,14 +67,12 @@ def user_login(request):
         form_class=CustomUserLoginForm
         return render(request, 'login.html', {'form':form_class})
 
-
-
-
-def ignore_list_history(request):
+def getinfor(request):
+    data={}
     pagi = request.GET.get('page', None)
     pa = (int(pagi)-1)*11
-    list_words = Personal_words.objects.filter(iduser=request.user.id)
-    page = getpagi(list_words,11)
-    list_words = list_words.order_by('-created_at')[pa:pa+11]
-    current = pagi
-    return render(request,'testwebview.html',{'word_list':list_words,'current':current,'page':page})
+    list_words = Personal_words.objects.filter(iduser=request.user.id).order_by('-created_at')[pa:pa+11]
+    data['items'] = [model_to_dict(item) for item in items]
+    data['sumofpages'] = getpagi(list_words,11)
+    return JsonResponse(data,safe=False)
+ 

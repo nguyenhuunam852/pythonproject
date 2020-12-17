@@ -40,9 +40,7 @@ def getdomainname(url):
     result = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
     return result
 
-def pictureAnalyze(request):
-    data={}
-
+def checkpicagain(request):
     if(request.method == "POST"):
       test = json.loads(request.body.decode('UTF-8'))
       idpage = test["idpage"]
@@ -53,7 +51,39 @@ def pictureAnalyze(request):
       for w in list_word:
         if(w.idword.id not in list_person):
           list_word_available.append(w)
+      words=[]
+      for w in list_word_available:
+        for w1 in w.form_pre.split(','):
+          words.append(w1)
+      page=Urlspage.objects.get(id=idpage)
+      pic = Analyze(page,words)
+      file_name = os.path.basename(pic)
+      page.piclink = file_name
+      page.save()
+      data['pic']=file_name
+      size=[]
+      try: 
+       image = PIL.Image.open(settings.MEDIA_ROOT+'/picture/'+str(file_name))
+       size = [image.width, image.height] 
+       data['size']=size
+       data['location']=settings.MEDIA_ROOT+'/picture/'
+      except Exception as e:
+       print('wrong')
+      json_data = json.dumps(data)  
+      return HttpResponse(json_data, content_type='application/json')
 
+def pictureAnalyze(request):
+    data={}
+    if(request.method == "POST"):
+      test = json.loads(request.body.decode('UTF-8'))
+      idpage = test["idpage"]
+      list_word = WordUrls.objects.filter(idurl=idpage)
+      personal_words = Personal_words.objects.filter(iduser=request.user)
+      list_person=[x.idword.id for x in personal_words]
+      list_word_available = []
+      for w in list_word:
+        if(w.idword.id not in list_person):
+          list_word_available.append(w)
       words=[]
       for w in list_word_available:
         for w1 in w.form_pre.split(','):
