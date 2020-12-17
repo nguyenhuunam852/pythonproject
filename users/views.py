@@ -6,7 +6,7 @@ from .forms import CustomUserCreationForm,CustomUserLoginForm
 from django.http import HttpResponseRedirect, HttpResponse,JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from users.models import Personal_words
+from urlpage.models import Personal_words
 from mymodule.pagi import getpagi
 from django.shortcuts import render, redirect  
 import json

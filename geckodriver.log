@@ -1380,3 +1380,9 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1608117356138	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileDhFaUX"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1608117358727	Marionette	INFO	Listening on port 37747
+1608117358803	Marionette	WARN	TLS certificate errors will be ignored for this session
+1608117362801	Marionette	INFO	Stopped listening on port 37747

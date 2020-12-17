@@ -16,5 +16,6 @@ urlpatterns = [
     path('view',TemplateView.as_view(template_name='webview.html')),
     path('get_view/<int:id>',views.get_all_web),
     path('personal', views.personal, name='domain'),
-    path('email', views.emailtest, name='email')
+    path('email', views.emailtest, name='email'),
+    path('reloadweb',views.loadagain,name='loadagain')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

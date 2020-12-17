@@ -36,7 +36,7 @@ def Analyze(web,words):
    height = driver.execute_script("return document.documentElement.scrollHeight;")
   
    for w in words:
-    image = driver.find_elements_by_xpath('//*[text()[contains(.,"'+w+'")]]')
+    image = driver.find_elements_by_xpath('//*[text()[contains(.," '+w+' ")]]')
     try:
      for img in image:
       try: 

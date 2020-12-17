@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect  
 from urlpage.forms import UrlsForm ,UrlsChangeForm,DomainsForm
-from users.models import Domain_User,Personal_words 
-from urlpage.models import Urlspage,WordUrls,Domain,Words
+from urlpage.models import Urlspage,WordUrls,Domain,Words,Personal_words 
 from django.http import JsonResponse,HttpResponse
 from bs4 import BeautifulSoup
 import json
@@ -20,6 +19,11 @@ from django.core import mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from mymodule.webAnalyze import dataAnalysist
+import cloudscraper
+from hunspell import Hunspell
+current_dic = os.path.dirname(os.path.abspath(__file__))
+spellchecker = Hunspell('en_US',hunspell_data_dir=current_dic+'/dic/')
+
 
 index=0
 id_array_tag=[]
@@ -80,6 +84,7 @@ def pictureAnalyze(request):
     json_data = json.dumps(data)  
     return HttpResponse(json_data, content_type='application/json')
 
+
 user_source = {}
 def checkref(request):
   global user_source
@@ -125,9 +130,47 @@ def checkref(request):
     return HttpResponse(json_data, content_type='application/json')
     
     
-  
-
-    
+def loadagain(request):
+    jpost = json.loads(request.body.decode('UTF-8'))
+    idweb = jpost['idweb']
+    web = Urlspage.objects.get(id=idweb)
+    scraper = cloudscraper.create_scraper()
+    r = scraper.get(web.name,timeout=5)
+    if(r.status_code==200):
+      list_word = []
+      list_word = dataAnalysist(r=r,website_id=idweb,name_array_tag=list_word)
+      lower_array={}
+      data={}
+      try:
+        for word in list_word:
+            if(word.lower() not in lower_array):
+              lower_array[word.lower()]=[word]
+            else:
+              lower_array[word.lower()].append(word)
+         
+         #lưu từng từ vào database
+        for word in lower_array:
+           check= Words.objects.filter(name=word).exists()
+           if(check==True):
+             save_word = Words.objects.get(name=word)
+           else:
+             suggest = spellchecker.suggest(word)
+             save_word = Words.objects.create(name=word,suggestion=",".join(list(suggest)))
+             save_word.save()
+           save_word_url= WordUrls.objects.create(idurl=web,idword=save_word,form_pre=','.join(lower_array[word]))
+           save_word_url.save() 
+        page = Urlspage.objects.get(id=web.id)
+        page.is_valid=True
+        page.save()
+        data['signal']='done'   
+      except Exception as e:
+        print(e)
+        data['signal']='fail'
+    else:
+      print(e)
+      data['signal']='fail'
+    print(data)
+    return JsonResponse(data,safe=False)
 
 
 #Hàm cập nhật trạng thái cho process
@@ -136,9 +179,7 @@ def poll_state(request):
     test = json.loads(request.body.decode('UTF-8'))
     pagi = test['pagination']
     idDomain = test['idDomain']
-    print(idDomain)
     domain = Domain.objects.get(id=(int(idDomain)))
-
     pa = (int(pagi)-1)*5
     items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
     sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
@@ -146,10 +187,20 @@ def poll_state(request):
     if(str(request.user.id)+"_"+str(idDomain) in user_process):
         data['signal']='Work'
         task = AsyncResult(user_process[str(request.user.id)+"_"+str(idDomain)])
-        data = task.result or task.state
-        if(isinstance(data,dict)==True):
+        data1 = task.result or task.state
+        print(data1)
+        if(isinstance(data1,dict)==True):
+         print(data1)
+         try:
+          data['process_percent']=data1['process_percent']
+          data['current_web']=data1['current_web']
           if(data['process_percent']==100):
             user_process.pop(str(request.user.id)+"_"+str(idDomain))
+         except Exception as e:
+            user_process.pop(str(request.user.id)+"_"+str(idDomain))
+
+        else:
+          data['signal']='Pending'
     else:
       data['signal'] = 'Wait'
     try:
@@ -157,17 +208,19 @@ def poll_state(request):
     except:
       print('wait')
     if(str(request.user.id)+'_'+str(idDomain) in user_process):
-      if(isinstance(data,dict)):
+      if(data['signal']=='Work'):
          data['state']='active'
       else:
          print('not dict')
          data = {}
          data['items']=[model_to_dict(item) for item in items]
          data['state']='n-active'
+         data['signal'] = 'Pending'
     else:
       data['state']='n-active'
     data['sumofpages']=sumofpage
     data['isdone']=domain.isdone
+    print(data)
     return JsonResponse(data,safe=False)
 
 def test(request):
@@ -247,11 +300,9 @@ def show(request):
       if form.is_valid():
            data= form.cleaned_data.get("name")
            domain = getdomainname(data)
-           domain_process=Domain.objects.create(name=domain,isdone=False)
+           domain_process=Domain.objects.create(name=domain,isdone=False,iduser=request.user)
            domain_process.save()
            # lưu Domain vào database
-           p= Domain_User(idurl=domain_process,iduser=request.user)
-           p.save()
            job = do_task.delay(url=data,domain_id=domain_process.id,userid=request.user.id,n=quantity)
            user_process[str(request.user.id)+"_"+str(domain_process.id)]=job.id
 
@@ -259,7 +310,7 @@ def show(request):
 
     if(request.user.is_authenticated and request.method == "GET"):
        form = UrlsForm()
-       userurl = Domain_User.objects.filter(iduser=request.user.id).values_list('idurl', flat=True)
+       userurl = Domain.objects.filter(iduser=request.user.id).values_list('id', flat=True)
        listdomain=list(userurl)
        show_list=[]
        for url in listdomain:
@@ -287,8 +338,10 @@ def delete(request, id):
 def get_all_web(request, id):  
     global user_process
     idDomain = id
+    pagi = request.GET.get('pagi', None)
+    print(pagi)
     domain = Domain.objects.get(id=int(id))
-    pa = 0
+    pa = (int(pagi)-1)*5
     items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
     sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
     data={}
@@ -309,6 +362,7 @@ def get_all_web(request, id):
       data['state']='active'
     else:
       data['state']='n-active'
+    
     data['sumofpages']=sumofpage
     data['isdone']=domain.isdone
     return JsonResponse(data,safe=False)

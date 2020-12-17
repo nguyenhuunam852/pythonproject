@@ -2,8 +2,8 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from urlpage.models import Domain,Words
 import django.contrib.auth.password_validation as validators
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password, **extra_fields):
         if not email:
@@ -62,17 +62,11 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.email
 
-class Domain_User(models.Model):
-    idurl = models.ForeignKey(Domain,on_delete=models.CASCADE)
-    iduser = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+# class Domain_User(models.Model):
+#     idurl = models.ForeignKey(Domain,on_delete=models.CASCADE)
+#     iduser = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     
 
-class Personal_words(models.Model):
-    id = models.AutoField(primary_key=True)
-    iduser = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
-    idword = models.ForeignKey(Words,on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
 
 
