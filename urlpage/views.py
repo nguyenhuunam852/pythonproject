@@ -260,6 +260,8 @@ def poll_state(request):
          data['signal'] = 'Pending'
     else:
       data['state']='n-active'
+    for item in data['items']:
+      item['amountofwords']=WordUrls.objects.filter(idurl=int(item["id"])).count()
     data['sumofpages']=sumofpage
     data['isdone']=domain.isdone
     return JsonResponse(data,safe=False)
@@ -379,13 +381,16 @@ def get_all_web(request, id):
     idDomain = id
     pagi = request.GET.get('pagi', None)
     task = request.GET.get('task', None)
+    sumofitem=0
     domain = Domain.objects.get(id=int(id))
     sumofpage=0
     pa = (int(pagi)-1)*5
     data={}
     if task=='0':
-     items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
-     sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
+     get_items = Urlspage.objects.filter(idDomain=int(idDomain))
+     sumofitem = len(get_items)
+     items = get_items.order_by('-created_at')[pa:pa+5]
+     sumofpage= getpagi(get_items,5)
      data={}
      if(request.user.id in user_process):
         data['signal']='Work'
@@ -401,21 +406,46 @@ def get_all_web(request, id):
      except:
       print('wait')
     if(task=='1'):
-      items = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True).order_by('-created_at')[pa:pa+5]
-      sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True),5)
+      get_items = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True)
+      sumofitem = len(get_items)
+      items = get_items.order_by('-created_at')[pa:pa+5]
+      sumofpage= getpagi(get_items,5)
       data['items']=[model_to_dict(item) for item in items]
     if(task=='2'):
-      items = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=False).order_by('-created_at')[pa:pa+5]
-      sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain),is_valid=False),5)
+      get_items = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=False)
+      sumofitem = len(get_items)
+      items = get_items.order_by('-created_at')[pa:pa+5]
+      sumofpage= getpagi(get_items,5)
       data['items']=[model_to_dict(item) for item in items]
-
+    if(task=='3'):
+      get_domain = Urlspage.objects.filter(idDomain=int(idDomain))
+      get_items = [x for x in get_domain.filter(is_valid=True) if WordUrls.objects.filter(idurl=x.id).count()>0]
+      sumofitem = len(get_items)
+      def myFunc(e):
+        return e.created_at
+      get_items.sort(reverse=True,key=myFunc)
+      items = get_items[pa:pa+5]
+      sumofpage= getpagi(get_items,5)
+      data['items']=[model_to_dict(item) for item in items]
+    if(task=='4'):
+      get_domain = Urlspage.objects.filter(idDomain=int(idDomain))
+      get_items = [x for x in get_domain.filter(is_valid=True) if WordUrls.objects.filter(idurl=x.id).count()==0 ]
+      sumofitem = len(get_items)
+      def myFunc(e):
+        return e.created_at
+      get_items.sort(reverse=True,key=myFunc)
+      items = get_items[pa:pa+5]
+      sumofpage= getpagi(get_items,5)
+      data['items']=[model_to_dict(item) for item in items]
 
 
     if(str(request.user.id)+'_'+str(idDomain)  in user_process):
       data['state']='active'
     else:
       data['state']='n-active'
-    
+    for item in data['items']:
+      item['amountofwords']=WordUrls.objects.filter(idurl=int(item["id"])).count()
+    data['sumofitems']=sumofitem
     data['sumofpages']=sumofpage
     data['isdone']=domain.isdone
     return JsonResponse(data,safe=False)
