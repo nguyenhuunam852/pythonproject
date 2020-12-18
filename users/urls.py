@@ -8,8 +8,9 @@ urlpatterns = [
     path('/signup/', SignUpView.as_view(), name='signup'),
     path('/login/', views.user_login, name='login'),
     path('/logout/', views.user_logout, name='logout'),
-    path('/history', TemplateView.as_view(template_name='wordsview.html'), name='history'),
+    path('/history', TemplateView.as_view(template_name='ignoreword.html'), name='history'),
     path('/getignoreinfor',views.getinfor),
+    path('/removeword',views.removeword),
     path('/sigup_user', views.signup, name='newlogin'),
     path('/login_user', views.user_login, name='login'),
 ]

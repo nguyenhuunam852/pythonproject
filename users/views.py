@@ -6,10 +6,12 @@ from .forms import CustomUserCreationForm,CustomUserLoginForm
 from django.http import HttpResponseRedirect, HttpResponse,JsonResponse
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from urlpage.models import Personal_words
+from urlpage.models import Personal_words,Words
 from mymodule.pagi import getpagi
 from django.shortcuts import render, redirect  
 import json
+from django.forms.models import model_to_dict
+
 from users.models import CustomUser
 @login_required
 def special(request):
@@ -72,7 +74,25 @@ def getinfor(request):
     pagi = request.GET.get('page', None)
     pa = (int(pagi)-1)*11
     list_words = Personal_words.objects.filter(iduser=request.user.id).order_by('-created_at')[pa:pa+11]
-    data['items'] = [model_to_dict(item) for item in items]
+    alist = []
+    verifylist=[]
+    for w in list_words:
+        word_infor={}
+        word_infor['word']=model_to_dict(w.idword)
+        word_infor['verify']=str(w.created_at.hour)+":"+str(w.created_at.minute)+" "+str(w.created_at.day)+"/"+str(w.created_at.month)+"/"+str(w.created_at.year)
+        alist.append(word_infor)
+    data['items'] = alist
     data['sumofpages'] = getpagi(list_words,11)
     return JsonResponse(data,safe=False)
- 
+
+def removeword(request):
+    data={}
+    try:
+     jsonpost = json.loads(request.body.decode('UTF-8'))
+     idword = jsonpost["idword"]
+     word = Personal_words.objects.get(idword=idword)
+     word.delete()
+     data['signal']='done'
+    except Exception as e:
+     data['signal']='fail'
+    return JsonResponse(data,safe=False)

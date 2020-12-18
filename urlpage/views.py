@@ -56,7 +56,7 @@ def checkpicagain(request):
         for w1 in w.form_pre.split(','):
           words.append(w1)
       page=Urlspage.objects.get(id=idpage)
-      pic = Analyze(page,words)
+      pic = Analyze(page,words,page.piclink)
       file_name = os.path.basename(pic)
       page.piclink = file_name
       page.save()
@@ -71,6 +71,8 @@ def checkpicagain(request):
        print('wrong')
       json_data = json.dumps(data)  
       return HttpResponse(json_data, content_type='application/json')
+
+
 
 def pictureAnalyze(request):
     data={}
@@ -93,7 +95,7 @@ def pictureAnalyze(request):
       file_name=""
       if (check==""):
         try: 
-         pic = Analyze(page,words)
+         pic = Analyze(page,words,"")
          file_name = os.path.basename(pic)
          page.piclink = file_name
          page.save()
@@ -116,6 +118,7 @@ def pictureAnalyze(request):
 
 
 user_source = {}
+
 def checkref(request):
   global user_source
   if(request.method == "GET"):  
@@ -209,12 +212,14 @@ def poll_state(request):
     test = json.loads(request.body.decode('UTF-8'))
     pagi = test['pagination']
     idDomain = test['idDomain']
+    task = test['task']
     domain = Domain.objects.get(id=(int(idDomain)))
     pa = (int(pagi)-1)*5
     items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
     sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
     data={}
-    if(str(request.user.id)+"_"+str(idDomain) in user_process):
+    if(task==0):
+      if(str(request.user.id)+"_"+str(idDomain) in user_process):
         data['signal']='Work'
         task = AsyncResult(user_process[str(request.user.id)+"_"+str(idDomain)])
         data1 = task.result or task.state
@@ -228,20 +233,27 @@ def poll_state(request):
             user_process.pop(str(request.user.id)+"_"+str(idDomain))
          except Exception as e:
             user_process.pop(str(request.user.id)+"_"+str(idDomain))
-
         else:
           data['signal']='Pending'
-    else:
-      data['signal'] = 'Wait'
-    try:
+      else:
+        data['signal'] = 'Wait'
+      try:
+        data['items']=[model_to_dict(item) for item in items]
+      except:
+        print('wait')
+    if(task==1):
+      items = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True).order_by('-created_at')[pa:pa+5]
+      sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True),5)
       data['items']=[model_to_dict(item) for item in items]
-    except:
-      print('wait')
+    if(task==2):
+      items = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=False).order_by('-created_at')[pa:pa+5]
+      sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain),is_valid=False),5)
+      data['items']=[model_to_dict(item) for item in items]
+
     if(str(request.user.id)+'_'+str(idDomain) in user_process):
       if(data['signal']=='Work'):
          data['state']='active'
       else:
-         print('not dict')
          data = {}
          data['items']=[model_to_dict(item) for item in items]
          data['state']='n-active'
@@ -250,11 +262,8 @@ def poll_state(request):
       data['state']='n-active'
     data['sumofpages']=sumofpage
     data['isdone']=domain.isdone
-    print(data)
     return JsonResponse(data,safe=False)
 
-def test(request):
-    return render(request,"testwebview.html",{})  
 
 def emailtest(request):
 
@@ -369,25 +378,39 @@ def get_all_web(request, id):
     global user_process
     idDomain = id
     pagi = request.GET.get('pagi', None)
-    print(pagi)
+    task = request.GET.get('task', None)
     domain = Domain.objects.get(id=int(id))
+    sumofpage=0
     pa = (int(pagi)-1)*5
-    items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
-    sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
     data={}
-    if(request.user.id in user_process):
+    if task=='0':
+     items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
+     sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
+     data={}
+     if(request.user.id in user_process):
         data['signal']='Work'
         task = AsyncResult(user_process[request.user.id])
         data = task.result or task.state
         if(isinstance(data,dict)==True):
           if(data['process_percent']==100):
             user_process.pop(str(request.user.id)+'_'+str(idDomain))
-    else:
+     else:
       data['signal'] = 'Wait'
-    try:
+     try:
       data['items']=[model_to_dict(item) for item in items]
-    except:
+     except:
       print('wait')
+    if(task=='1'):
+      items = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True).order_by('-created_at')[pa:pa+5]
+      sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True),5)
+      data['items']=[model_to_dict(item) for item in items]
+    if(task=='2'):
+      items = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=False).order_by('-created_at')[pa:pa+5]
+      sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain),is_valid=False),5)
+      data['items']=[model_to_dict(item) for item in items]
+
+
+
     if(str(request.user.id)+'_'+str(idDomain)  in user_process):
       data['state']='active'
     else:

@@ -12,9 +12,14 @@ from django.conf import settings
 from selenium.webdriver.common.action_chains import ActionChains
 
 from mymodule.rotate import rotate_img
+import random
+import string
 
-
-def Analyze(web,words):
+def get_random_string(length):
+    letters = string.ascii_lowercase
+    result_str = ''.join(random.choice(letters) for i in range(length))
+    return result_str
+def Analyze(web,words,oldfile):
   options = Options()
   options.headless = True
   profile = webdriver.FirefoxProfile()
@@ -44,11 +49,14 @@ def Analyze(web,words):
         try:
          text = img.get_attribute('innerHTML')
          import re
-         verify = re.findall('\W'+w+'\W',text)
+         verify = []
+         text1 = " "+text+" "
+         verify = re.findall('[^a-zA-Z0-9]'+w+'[^a-zA-Z0-9]',text1)
+      
          for vword in verify: 
             new = "<span style='background: yellow; border: 2px solid red;'>"+w+"</span>"
             nword = vword.replace(w,new)
-            text = text.replace(vword,nword)
+            text = text.replace(w,nword)
             driver.execute_script("arguments[0].innerHTML=arguments[1]",img,text) 
         except Exception as e:
          print(e)
@@ -56,7 +64,10 @@ def Analyze(web,words):
        print(e)
     except Exception as e:
        print(e)
-   file_name = settings.MEDIA_ROOT + '/picture/'+str(web.id)+'.png'
+   if(oldfile!=""):
+      import os
+      os.remove(settings.MEDIA_ROOT + '/picture/' + oldfile)
+   file_name = settings.MEDIA_ROOT + '/picture/'+get_random_string(8)+'.png'
    driver.execute_script("window.scrollTo(0, "+str(height/2)+"); ")
    driver.set_window_size(width,height)
    driver.save_screenshot(file_name)
