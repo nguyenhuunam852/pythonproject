@@ -158,10 +158,26 @@ ul {
     <a class="navbar-brand" style="color: white;" href="/">Check</a>
    
    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-        <ul class="navbar-nav ml-auto">
-       
+    <ul class="navbar-nav ml-auto">
+    {% if user.is_staff%}
+            
+    {% else %}
+      <li class="nav-item">
+        <a class="nav-link"  style="color: white;">Welcome {{user.email}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  style="color: white;" href="/account/history?page=1"><i class="fa fa-book" aria-hidden="true"></i>
+          Your Library </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  style="color: white;" href="/"><i class="fa fa-list" aria-hidden="true"></i>
+          Your Scanned Domain</a>
+      </li>
+    {% endif %}
+
               <li class="nav-item">
-                 <a class="nav-link"  style="color: white;" href="/account/logout/">Logout</a>
+                 <a class="nav-link"  style="color: white;" href="/account/logout/"><i class="fa fa-sign-out" aria-hidden="true"></i>
+                  Logout</a>
               </li>
         </ul>
     </div>

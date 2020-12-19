@@ -215,9 +215,18 @@ def poll_state(request):
     task = test['task']
     domain = Domain.objects.get(id=(int(idDomain)))
     pa = (int(pagi)-1)*5
-    items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]
-    sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
     data={}
+    check={}
+    sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain)),5)
+    items = Urlspage.objects.filter(idDomain=int(idDomain)).order_by('-created_at')[pa:pa+5]     
+
+    if(domain.isdone==True):
+      get_domain = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True)
+      personal_words = [x.idword.id for x in Personal_words.objects.filter(iduser=request.user)]
+      for page in get_domain:
+       available_word = [x for x in WordUrls.objects.filter(idurl=page.id) if x.idword.id not in personal_words]
+       check[str(page.id)]=len(available_word)
+
     if(task==0):
       if(str(request.user.id)+"_"+str(idDomain) in user_process):
         data['signal']='Work'
@@ -250,6 +259,25 @@ def poll_state(request):
       sumofpage= getpagi(Urlspage.objects.filter(idDomain=int(idDomain),is_valid=False),5)
       data['items']=[model_to_dict(item) for item in items]
 
+    if task==3 or task==4:
+     
+      if(task==3):
+        get_items = [x for x in get_domain if check[str(x.id)]>0]
+        sumofitem = len(get_items)
+       
+      if(task==4):
+        get_items = [x for x in get_domain if check[str(x.id)]==0]
+        sumofitem = len(get_items)
+
+      def myFunc(e):
+        return e.created_at
+      get_items.sort(reverse=True,key=myFunc)
+      items = get_items[pa:pa+5]
+      sumofpage= getpagi(get_items,5)
+      data['items']=[model_to_dict(item) for item in items]
+
+
+
     if(str(request.user.id)+'_'+str(idDomain) in user_process):
       if(data['signal']=='Work'):
          data['state']='active'
@@ -260,7 +288,8 @@ def poll_state(request):
          data['signal'] = 'Pending'
     else:
       data['state']='n-active'
-    for item in data['items']:
+    if(domain.isdone==True):
+     for item in data['items']:
       item['amountofwords']=WordUrls.objects.filter(idurl=int(item["id"])).count()
     data['sumofpages']=sumofpage
     data['isdone']=domain.isdone
@@ -386,6 +415,14 @@ def get_all_web(request, id):
     sumofpage=0
     pa = (int(pagi)-1)*5
     data={}
+    check={}
+    if(domain.isdone==True):
+      get_domain = Urlspage.objects.filter(idDomain=int(idDomain),is_valid=True)
+      personal_words = [x.idword.id for x in Personal_words.objects.filter(iduser=request.user)]
+      for page in get_domain:
+       available_word = [x for x in WordUrls.objects.filter(idurl=page.id) if x.idword.id not in personal_words]
+       check[str(page.id)]=len(available_word)
+
     if task=='0':
      get_items = Urlspage.objects.filter(idDomain=int(idDomain))
      sumofitem = len(get_items)
@@ -417,20 +454,16 @@ def get_all_web(request, id):
       items = get_items.order_by('-created_at')[pa:pa+5]
       sumofpage= getpagi(get_items,5)
       data['items']=[model_to_dict(item) for item in items]
-    if(task=='3'):
-      get_domain = Urlspage.objects.filter(idDomain=int(idDomain))
-      get_items = [x for x in get_domain.filter(is_valid=True) if WordUrls.objects.filter(idurl=x.id).count()>0]
-      sumofitem = len(get_items)
-      def myFunc(e):
-        return e.created_at
-      get_items.sort(reverse=True,key=myFunc)
-      items = get_items[pa:pa+5]
-      sumofpage= getpagi(get_items,5)
-      data['items']=[model_to_dict(item) for item in items]
-    if(task=='4'):
-      get_domain = Urlspage.objects.filter(idDomain=int(idDomain))
-      get_items = [x for x in get_domain.filter(is_valid=True) if WordUrls.objects.filter(idurl=x.id).count()==0 ]
-      sumofitem = len(get_items)
+    if task=='3' or task=='4':
+     
+      if(task=='3'):
+        get_items = [x for x in get_domain if check[str(x.id)]>0]
+        sumofitem = len(get_items)
+       
+      if(task=='4'):
+        get_items = [x for x in get_domain if check[str(x.id)]==0]
+        sumofitem = len(get_items)
+
       def myFunc(e):
         return e.created_at
       get_items.sort(reverse=True,key=myFunc)
@@ -444,7 +477,8 @@ def get_all_web(request, id):
     else:
       data['state']='n-active'
     for item in data['items']:
-      item['amountofwords']=WordUrls.objects.filter(idurl=int(item["id"])).count()
+      if(str(item['id']) in check):
+        item['amountofwords']=int(check[str(item['id'])])
     data['sumofitems']=sumofitem
     data['sumofpages']=sumofpage
     data['isdone']=domain.isdone
