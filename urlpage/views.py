@@ -127,7 +127,7 @@ def checkref(request):
     url = Urlspage.objects.get(id=idurl)
     word = Words.objects.get(id=idword).name
     w_url = WordUrls.objects.get(idurl=idurl,idword=idword)  
-    f= open(settings.MEDIA_ROOT+"/doc/"+str(url.id)+".txt","r")
+    f= open(settings.MEDIA_ROOT+"/doc/"+str(url.id)+".txt","r",encoding='utf8')
     r = f.read()
     f.close()
     soup = BeautifulSoup(r, 'lxml')
@@ -361,6 +361,7 @@ def emailtest(request):
 
 def show(request):
     global user_process
+    print(1)
     user_domain=[]
     pagi = request.GET.get('page', None)
     sort_list=[]
