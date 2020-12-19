@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static "/css/wordform/wordform.css" %}">
 </head>
 <style>
+
 .App{
   width:100%;
   height:100%;
@@ -31,27 +32,27 @@
   background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 .mainForm{
+  position: relative;
   width:100%;
   height:100%;
 }
-
 #tableForm{
    width: 50%;
   }
 td .Buttonstyle{
     resize: none;
     font-size: 0.6rem;
-    width: 15%;
+    width: 35%;
     height: 10%;
     text-align: center;
     padding:5px;
 }
 .tdbutton{
-    width: 30%;
+    width: 10%;
     resize: none;
 }
 .tdsuggest{
-    width: 25%;
+    width: 45%;
     resize: none;
 }
 .tdword{
@@ -62,6 +63,7 @@ td .Buttonstyle{
     padding-left: 0px;
     width:50%;
 }
+
 .button {
     display: block;
     width: 115px;
@@ -95,61 +97,7 @@ td .Buttonstyle{
 </div>
 
 
-<script>
-   var index=0;
-
-  
-  $('#ShowModal2').on('show.bs.modal', function(e) {
-    var id=$(e.relatedTarget).data('id');
-    $('#ignore_page').val(id)
-    $('#ignore_domain').val(id)
-    $('#person').val(id)
-   });
-
-  
-  var personal = function(id)
-  {
-        poll_xhr = $.ajax(
-        {
-        url:'/ignore/personal',
-        type: 'POST',
-        data: {
-            id:id,
-            csrfmiddlewaretoken: "{{csrf_token}}",
-        },
-        success: function(result) {
-            if(result=='success')
-            {
-              window.alert("Your Task is done, Let Checkout!!!");
-            }
-            else
-            {
-              window.alert("Something Went Wrong!!!");
-            }
-            location.reload();
-        }
-        }
-      )
-  }
-
-  $("#person").click(function() {
-    var id = $(this).val();
-    setTimeout(() => {    
-      personal(id);
-    }, 500);
-  });
-
-
-  
-  </script>
-<script>
-    window.items =  "{{list_word}}"
-    
-    console.log(typeof(window.items))
-</script>
-
-
-<script type="text/javascript" src="{% static "/reactjs/wordform.js" %}"> </script>
+<script type="text/javascript" src="{% static "/reactjs/wordview.bundle.js" %}"> </script>
 
 
 {% endif %}

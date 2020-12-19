@@ -9,7 +9,7 @@
 
 	{% block js %}{% endblock %}
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="{% static "styles/default.css"%}">
     <script type="application/javascript" src="{% static "highlight.pack.js"%}"></script>
 
@@ -25,44 +25,76 @@ code mark span{
 
 </style>
 <body>
-
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-  <pre id="code"><code class="html">{{st}}</mark> </code></pre>
-
-
+<pre id="code"><code id="htcode" class="html"></code></pre>
 </body>
 {% endblock %}
 
-{% block javascript %}
+
 <script>
-  var index=0;
-  var a = document.getElementById("code").innerHTML;
-  document.getElementById("code").innerHTML=a.replaceAll("&lt;mark&gt;","<mark>").replaceAll("&lt;/mark&gt;","</mark>")
-  var tg = document.getElementsByTagName("mark");
+  var index = 0;
+  var check = 1;
+  var sum = "{{sum}}";
+  var int_sum = parseInt(sum) 
+  var tg;
+  var text = "";
+  
+  var interval= setInterval(
+    function(){
+    $.ajax({
+        url:'./',
+        type: 'POST',
+        data: {
+            index:check,
+            csrfmiddlewaretoken: "{{csrf_token}}",
+        },
+        success: function(result) {
+            if(check>int_sum)
+            {
+               clearInterval(interval);
+               if(text.length>500000)
+               {
+                 document.getElementById("code").innerHTML = text;
+               }
+               else
+               {
+                document.getElementById("htcode").innerHTML=text;
+               }
+               
+               var a = document.getElementById("code").innerHTML;
+               document.getElementById("code").innerHTML=a.replaceAll("&lt;mark&gt;","<mark>").replaceAll("&lt;/mark&gt;","</mark>")
+               tg = document.getElementsByTagName("mark");
 
-  for(i=0;i<tg.length;i++)
-  {
-    tg[i].innerHTML='<span>'+String("{{word}}")+'<span>'
-  }
-  test(0);
-  document.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelectorAll('pre code').forEach((block) => {
-      hljs.highlightBlock(block);
-    });
-  });
+               for(i=0;i<tg.length;i++)
+                {
+                 tg[i].innerHTML='<span>'+String("{{word}}")+'<span>'
+               }
+               test(0);
+              
+              
+            }
+           else{
+             check+=1;
+             text = text+result.text.replaceAll('<','&lt;').replaceAll('>','&gt;');
+          }
+        }
+  })}, 1000);
 
-
-
+  
   function test(i)
   {
     Element.prototype.documentOffsetTop = function () {
     return this.offsetTop + ( this.offsetParent ? this.offsetParent.documentOffsetTop() : 0 );
     };
     var top = document.getElementsByTagName('mark')[i].documentOffsetTop() - ( window.innerHeight / 2 );
-    window.scrollTo( 0, top );
-    
+    var width = document.getElementsByTagName('mark')[i].getBoundingClientRect().left;
+    console.log(width)
+    //window.scrollTo( 100, top );
+    document.getElementsByTagName('mark')[i].scrollIntoView({
+            behavior: 'auto',
+            block: 'center',
+            inline: 'center'
+        }); 
   }
   window.gotoAnother = function() {
      index+=1;
@@ -82,7 +114,7 @@ code mark span{
   {
      parent.tunnel(myFunction);
   }
-
+ 
 </script>
-{% endblock javascript %}
+
 </html>

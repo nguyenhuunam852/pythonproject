@@ -8,7 +8,10 @@
 <head>  
     <meta charset="UTF-8">  
     <title>URL List</title>  
+    
      {% load static %}  
+     <link rel="stylesheet" href="{% static "/css/wordform/wordform.css" %}">
+
 </head>
 <style>
 .stylebutton{
@@ -19,6 +22,11 @@
 .stylebutton1{
   color: black;
   background-color: green;
+  
+}
+.stylebutton2{
+  color: black;
+  background-color: orange;
   
 }
     .url_row{
@@ -37,22 +45,21 @@
 <br/>
 <body> 
 {% if user.is_authenticated %}
+ 
  <div class="row justify-content-md-center">
-  <div style="width:40%">
-  <div id="root"></div>
+  <div style="width:70%">
+  <div id="webview"></div>
   </div>
  </div>
+ 
 
 
 
 {% endif %}
+
 <script>
     window.id = "{{id}}"
  </script>
-
-
-<script type="text/javascript" src="{% static "/reactjs/bundle.js" %}"> </script>
-
-
+  <script type="text/javascript" src="{% static "/reactjs/webview.bundle.js" %}"> </script>
 {% endblock %}
 </body>

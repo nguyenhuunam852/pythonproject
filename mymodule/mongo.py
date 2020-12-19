@@ -1,14 +1,17 @@
-from pymongo import MongoClient
 import json
-client = MongoClient('mongodb://localhost:27017/?readPreference=primary&authSource=admin&appname=MongoDB%20Compass&ssl=false')
-db = client.acronym_word
+from manager.models import Library_Words
+from manager.models import Library_Words_Web
+from urlpage.models import Urlspage
 
-def checkWord(word):
-    ct = db.word.find({'text': word.upper()}).count()
-    if(ct==0):
-        return 1
-    print('xoa '+word)
-    return 0
+def checkWord(word,website):
+    if(Library_Words.objects.filter(name=word.upper()).exists()):
+         print('xoa '+word)
+         word = Library_Words.objects.get(name=word)
+         page = Urlspage.objects.get(id=website)
+         word_web = Library_Words_Web.objects.create(id_libword=word,id_web=page)
+         return 0
+    return 1
+  
 
         
 

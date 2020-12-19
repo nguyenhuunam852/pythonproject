@@ -14,7 +14,12 @@ SECRET_KEY = 'hrbwqw)*b@3oemy73@z57g6fn9k_!vl35at(81$90z1c!1yb0#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.5.2','localhost']
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+STATICFILES_DIRS = (
+  os.path.join(SITE_ROOT, 'static/'),
+)
 
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
@@ -35,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',         
     'users',
     'urlpage',
+    'manager'
 ]
 
 MIDDLEWARE = [
@@ -125,7 +131,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-
+SECURE_CONTENT_TYPE_NOSNIFF=False
 STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -134,3 +140,11 @@ XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
 BASE_DIR1 = os.path.dirname(os.path.dirname(__file__))
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR1, 'media')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'evannguyen12399@gmail.com'
+EMAIL_HOST_PASSWORD = 'nnhbgbukuhjyhjfl'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'default from email'

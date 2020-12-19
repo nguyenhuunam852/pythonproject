@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}History{% endblock %}
+
+{% block content %}
+{% load static %}
+<style>
+
+table {
+  margin-top:0px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+{% if user.is_authenticated %}
+
+<div style="width:100%;height:100%"> 
+  <div id="ignoreword" style="width:100%"></div>
+</div>
+
+<script type="text/javascript" src="{% static "/reactjs/ignoreword.bundle.js" %}"> </script>
+
+
+{% endif %}
+{% endblock %}
