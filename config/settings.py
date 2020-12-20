@@ -14,7 +14,7 @@ SECRET_KEY = 'hrbwqw)*b@3oemy73@z57g6fn9k_!vl35at(81$90z1c!1yb0#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.5.2','localhost']
+ALLOWED_HOSTS = ['192.168.3.5','localhost']
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 STATICFILES_DIRS = (
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_results',
+    'django_extensions',
     'corsheaders',            
     'rest_framework',         
     'users',

@@ -1,7 +1,7 @@
 from django.db import models
 from users.models import CustomUser
 import datetime
-
+import validators
 
 class Domain(models.Model):
     id = models.AutoField(primary_key=True)
@@ -10,6 +10,24 @@ class Domain(models.Model):
     iduser = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def createDomain(self,name):
+        if(validators.url(name)):
+            domain = self.objects.create(name=name,isdone=False)
+            domain.save()
+            return domain
+        else:
+            return None
+    
+    def sendreport(self):
+        return None
+    
+    def get_all_page(self,id):
+        return None
+        
+
+ 
+
 
 class Urlspage(models.Model):
     id = models.AutoField(primary_key=True)

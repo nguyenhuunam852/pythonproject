@@ -80,9 +80,9 @@ def pictureAnalyze(request):
     if(request.method == "POST"):
       test = json.loads(request.body.decode('UTF-8'))
       idpage = test["idpage"]
-      iduser = test["iduser"]
       user =None
-      if(iduser!=None):
+      if('iduser' in test):
+        iduser = test["iduser"]
         user = CustomUser.objects.get(id=iduser)
       else:
         user=request.user

@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 import django.contrib.auth.password_validation as validators
 
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password, **extra_fields):
         if not email:
@@ -25,12 +26,12 @@ class CustomUserManager(BaseUserManager):
             raise ValueError(_('Superuser must have is_superuser=True.'))
         return self.create_user(email, password, **extra_fields)
 
+
 class CustomUser(AbstractUser):
     username = None
     email = models.EmailField(_('email address'), unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
-    objects = CustomUserManager()
     
     def create_temp_user(self,email):
         if not email:
@@ -71,9 +72,7 @@ class CustomUser(AbstractUser):
     def __str__(self):
         return self.email
 
-# class Domain_User(models.Model):
-#     idurl = models.ForeignKey(Domain,on_delete=models.CASCADE)
-#     iduser = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
+
     
 
 
