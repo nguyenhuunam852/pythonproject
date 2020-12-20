@@ -1,29 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  {% load static %}
   <title>Spell Checker Tool</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <link href="/urlpage/static/asserts/images/favicon.png" rel="icon">
-  <link href="/urlpage/static/asserts/images/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
-  <link href="/urlpage/static/asserts/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/urlpage/static/asserts/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="/urlpage/static/asserts/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/urlpage/static/asserts/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="/urlpage/static/asserts/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="/urlpage/static/asserts/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="/urlpage/static/asserts/vendor/owl.carousel//asserts/owl.carousel.min.css" rel="stylesheet">
-  <link href="/urlpage/static/asserts/vendor/aos/aos.css" rel="stylesheet">
-  <link href="/urlpage/static/asserts/css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static "/asserts/vendor/bootstrap/css/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "/asserts/vendor/icofont/icofont.min.css" %}">
+  <link rel="stylesheet" href="{% static "/asserts/vendor/ionicons/css/ionicons.min.css" %}">
+  <link rel="stylesheet" href="{% static "/asserts/vendor/animate.css/animate.min.css" %}">
+  <link rel="stylesheet" href="{% static "/asserts/vendor/venobox/venobox.css" %}">
+  <link rel="stylesheet" href="{% static "/asserts/vendor/aos/aos.css" %}">
+  <link rel="stylesheet" href="{% static "/asserts/css/style.css" %}">
+  <link rel="stylesheet" href="{% static "/css/wordform/myModal.css" %}">
+  <link rel="stylesheet" href="{% static "/css/wordform/picture-zoom.css" %}">
+  <link rel="stylesheet" href="{% static "/css/wordform/wordform.css" %}">
+
 </head>
 
 <style>
@@ -34,26 +32,13 @@
   .search-box .btn-light {
       border: 1px solid #ced4da;
   }
+  #tableForm{
+   width: 50%;
+  }
   </style>
 
 <body>
-  <header id="header" class="fixed-top header-transparent" style="background-color:#18d26e;">
-    <div class="container-fluid">
-
-      <div class="row justify-content-center">
-        <div class="col-xl-11 d-flex align-items-center">
-          <h1 class="logo mr-auto"><a href="/">Spell Checker Tool</a></h1>
-          <nav class="nav-menu d-none d-lg-block">
-            <ul >
-              <li class="nav-item" ><a  href="/">Home</a></li>
-              <li class="nav-item"><a  href="/account/login/">Login</a></li>
-              <li class="nav-item"><a  href="/account/signup/">Register</a></li>
-
-            </ul>
-        </div>
-      </div>
-    </div>
-  </header>
+  
      
 
   
@@ -65,99 +50,33 @@
 
         <div class="carousel-inner" role="listbox">
 
-          <div class="carousel-item active" style="background-image: url(/urlpage/static/asserts/images/intro-carousel/2.jpg)">
+          <div class="carousel-item active" style="background-image: url({% static "/asserts/images/intro-carousel/3.jpg" %})">
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">We are professional</h2>
                 <p class="animate__animated animate__fadeInUp">Spell Checker Tool has been designed with one goal in mind: to make it extremely simple to keep websites free from spelling errors.We have developed to help identify genuine spelling errors and minimise false positives.Our aim was to build a system that would provide immediate value without complex configuration of custom dictionaries.</p>
                
-                <div class="search-box col-md-5">               
-                  <form action="">
-                      <div class="input-group mb-3">                          
-                          <input type="text" class="form-control" aria-label="Search input with dropdown button" placeholder="Enter your website" >                                        
-                            <div class="input-field second-wrap" >
-                              <div class="form-control ">
-                                <select data-trigger="" name="choices-single-defaul">                                  
-                                  <option  placeholder="">Pages</option>
-                                  <option>1</option>
-                                  <option>5</option>
-                                  <option>10</option>
-                                  <option>20</option>
-                                  <option>50</option>
-                                  <option>100</option>
-                                </select>
-                              </div>
-                            </div>                        
-                          <div class="input-group-append">                          
-                              <button class="btn btn-success" type="button">Check</button>                             
-                          </div>
-                      </div>
-                  </form>
-              </div>
+               
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url(/urlpage/static/asserts/images/intro-carousel/2.jpg)">
+          <div class="carousel-item" style="background-image: url({% static "/asserts/images/intro-carousel/3.jpg" %})">
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">Highlight misspelling</h2>
                 <p class="animate__animated animate__fadeInUp">You can see highlight words on picture and sourcecode clearly</p>
-                <div class="search-box col-md-5">               
-                  <form action="">
-                      <div class="input-group mb-3">                          
-                          <input type="text" class="form-control" aria-label="Search input with dropdown button" placeholder="Enter your website" >                                        
-                            <div class="input-field second-wrap" >
-                              <div class="form-control ">
-                                <select data-trigger="" name="choices-single-defaul">                                  
-                                  <option  placeholder="">Pages</option>
-                                  <option>1</option>
-                                  <option>5</option>
-                                  <option>10</option>
-                                  <option>20</option>
-                                  <option>50</option>
-                                  <option>100</option>
-                                </select>
-                              </div>
-                            </div>                        
-                          <div class="input-group-append">                          
-                              <button class="btn btn-success" type="button">Check</button>                             
-                          </div>
-                      </div>
-                  </form>
-              </div>
+               
               </div>
             </div>
           </div>
 
-          <div class="carousel-item" style="background-image: url(/urlpage/static/asserts/images/intro-carousel/3.jpg)">
+          <div class="carousel-item" style="background-image: url({% static "/asserts/images/intro-carousel/2.jpg" %})">
             <div class="carousel-container">
               <div class="container">
                 <h2 class="animate__animated animate__fadeInDown">Save report</h2>
                 <p class="animate__animated animate__fadeInUp">You can save report via email </p>
-                <div class="search-box col-md-5">               
-                  <form action="">
-                      <div class="input-group mb-3">                          
-                          <input type="text" class="form-control" aria-label="Search input with dropdown button" placeholder="Enter your website" >                                        
-                            <div class="input-field second-wrap" >
-                              <div class="form-control ">
-                                <select data-trigger="" name="choices-single-defaul">                                  
-                                  <option  placeholder="">Pages</option>
-                                  <option>1</option>
-                                  <option>5</option>
-                                  <option>10</option>
-                                  <option>20</option>
-                                  <option>50</option>
-                                  <option>100</option>
-                                </select>
-                              </div>
-                            </div>                        
-                          <div class="input-group-append">                          
-                              <button class="btn btn-success" type="button">Check</button>                             
-                          </div>
-                      </div>
-                  </form>
-              </div>
+               
               </div>
             </div>
           </div>
@@ -167,7 +86,7 @@
         
 
         </div>
-
+      
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
@@ -183,7 +102,8 @@
   </section><!-- End Intro Section -->
 
   <main id="main">
-
+    
+    <div id="testscan"></div>
    
 
     <!-- ======= About Us Section ======= -->
@@ -200,7 +120,7 @@
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div class="about-col">
               <div class="img">
-                <img src="/urlpage/static/asserts/images/about-mission.jpg" alt="" class="img-fluid">
+                <img src="{% static "/asserts/images/about-mission.jpg" %}" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
               </div>
               <h2 class="title"><a href="#">Hint word</a></h2>
@@ -211,7 +131,7 @@
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <div class="about-col">
               <div class="img">
-                <img src="/urlpage/static/asserts/images/about-plan.jpg" alt="" class="img-fluid">
+                <img src="{% static "/asserts/images/about-mission.jpg" %}" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
               <h2 class="title"><a href="#">Highlight misspelling words</a></h2>
@@ -222,7 +142,7 @@
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <div class="about-col">
               <div class="img">
-                <img src="/urlpage/static/asserts/images/about-vision.jpg" alt="" class="img-fluid">
+                <img src="{% static "/asserts/images/about-mission.jpg" %}" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-eye-outline"></i></div>
               </div>
               <h2 class="title"><a href="#">Save report</a></h2>
@@ -302,7 +222,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
-              <img src="/urlpage/static/asserts/images/nam.png" class="img-fluid" alt="">
+              <img src="" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>Evan Nguyen</h4>
@@ -320,7 +240,7 @@
 
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <img src="/urlpage/static/asserts/images/hang.png" class="img-fluid" alt="">
+              <img src="" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h4>HanXu</h4>
@@ -389,36 +309,27 @@
 
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-   
-
-    <div class="container">
-      <div class="copyright">
-        &copy; Thanks for using our service <3      </div>
-    
-    </div>
-  </footer><!-- End Footer -->
-
+ 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
   <!-- <div id="preloader"></div> -->
 
   <!-- Vendor JS Files -->
-  <script src="/urlpage/static/asserts/vendor/jquery/jquery.min.js"></script>
-  <script src="/urlpage/static/asserts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="/urlpage/static/asserts/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="/urlpage/static/asserts/vendor/php-email-form/validate.js"></script>
-  <script src="/urlpage/static/asserts/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="/urlpage/static/asserts/vendor/counterup/counterup.min.js"></script>
-  <script src="/urlpage/static/asserts/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="/urlpage/static/asserts/vendor/venobox/venobox.min.js"></script>
-  <script src="/urlpage/static/asserts/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="/urlpage/static/asserts/vendor/aos/aos.js"></script>
+  <script src="{% static "/asserts/vendor/jquery/jquery.min.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/jquery.easing/jquery.easing.min.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/php-email-form/validate.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/waypoints/jquery.waypoints.min.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/counterup/counterup.min.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/isotope-layout/isotope.pkgd.min.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/venobox/venobox.min.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/owl.carousel/owl.carousel.min.js" %}"> </script>
+  <script src="{% static "/asserts/vendor/aos/aos.js" %}"> </script>
+  <script src="{% static "/asserts/js/main.js" %}"> </script>
+  <script type="text/javascript" src="{% static "/reactjs/testscanned.bundle.js" %}"> </script>
 
-  <!-- Template Main JS File -->
-  <script src="/urlpage/static/asserts/js/main.js"></script>
 
 </body>
 
 </html>
+{% endblock %}

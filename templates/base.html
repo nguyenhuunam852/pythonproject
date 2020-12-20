@@ -6,24 +6,15 @@
   <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   {% load static %} 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
 
   
 </head>
 <style>
-
- html,body
-{
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
-}
 
   @keyframes spinner-line-fade-more {
   0%, 100% {
@@ -160,7 +151,14 @@ ul {
    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
     <ul class="navbar-nav ml-auto">
     {% if user.is_staff%}
-            
+    <li class="nav-item">
+      <a class="nav-link"  style="color: white;" href="/admin/manageuser"><i class="fa fa-book" aria-hidden="true"></i>
+        Manage User </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  style="color: white;" href="/admin/manageword"><i class="fa fa-list" aria-hidden="true"></i>
+        Manage Library </a>
+    </li> 
     {% else %}
       <li class="nav-item">
         <a class="nav-link"  style="color: white;">Welcome {{user.email}}</a>
@@ -187,35 +185,11 @@ ul {
 
 
    {% if user.is_staff%}
-   <!-- <main style="width:100%;height:100%">
-    <div class="test">
-     <div class="row justify-content-md-center">
-      <div style="width:70%">
-        <div class="vertical">
-         <a class="active" style="text-align: center;"><i class="fa fa-tasks" aria-hidden="true"></i> Your Task</a>
-         <a href="/admin/manageuser" class="child"><i class="fa fa-user" aria-hidden="true"></i> User Manage</a>
-         <a href="/admin/manageword" class="child"><i class="fa fa-align-justify" aria-hidden="true"></i> Word Manage</a>
-
-        </div>
-      </div>
-    </div>
-  </div> -->
+  
 
 
    {% else %}
-    <!-- <main style="width:100%;height:100%">
-      <div class="test">
-       <div class="row justify-content-md-center">
-        <div style="width:70%">
-          <div class="vertical">
-           <a class="active" style="text-align: center;"><i class="fa fa-tasks" aria-hidden="true"></i> Your Task</a>
-           <a href="/" class="child"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-           <a href="/account/history?page=1" class="child"><i class="fa fa-history" aria-hidden="true"></i> History</a>
-           <a href="#" class="child"><i class="fa fa-area-chart" aria-hidden="true"></i> Report</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
+   
     {% endif %}
 
 
@@ -249,7 +223,7 @@ ul {
     {% endblock %}
 
     {% block javascript %}
-
+  
     {% endblock javascript %}
   </main>
   <div class="myFooter text-center">

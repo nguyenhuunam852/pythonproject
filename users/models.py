@@ -31,6 +31,15 @@ class CustomUser(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
+    
+    def create_temp_user(self,email):
+        if not email:
+            raise ValueError(_('The Email must be set'))
+        self.email = email
+        self.is_staff = False
+        self.save()
+        return self
+
     def create_user_admin(self,email,password):
         if not email:
             raise ValueError(_('The Email must be set'))

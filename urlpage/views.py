@@ -20,6 +20,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from mymodule.webAnalyze import dataAnalysist
 import cloudscraper
+from users.models import CustomUser
 from hunspell import Hunspell
 current_dic = os.path.dirname(os.path.abspath(__file__))
 spellchecker = Hunspell('en_US',hunspell_data_dir=current_dic+'/dic/')
@@ -79,8 +80,14 @@ def pictureAnalyze(request):
     if(request.method == "POST"):
       test = json.loads(request.body.decode('UTF-8'))
       idpage = test["idpage"]
+      iduser = test["iduser"]
+      user =None
+      if(iduser!=None):
+        user = CustomUser.objects.get(id=iduser)
+      else:
+        user=request.user
       list_word = WordUrls.objects.filter(idurl=idpage)
-      personal_words = Personal_words.objects.filter(iduser=request.user)
+      personal_words = Personal_words.objects.filter(iduser=user)
       list_person=[x.idword.id for x in personal_words]
       list_word_available = []
       for w in list_word:
@@ -116,9 +123,89 @@ def pictureAnalyze(request):
     json_data = json.dumps(data)  
     return HttpResponse(json_data, content_type='application/json')
 
+import re
+regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+def check(email):  
+    if(re.search(regex,email)):  
+        return 1
+    else:  
+        return 0
+
+def quick_scan(web):
+    data={}
+    scraper = cloudscraper.create_scraper()
+    r = scraper.get(web.name,timeout=5)
+    if(r.status_code==200):
+      list_word = []
+      list_word = dataAnalysist(r=r,website_id=web.id,name_array_tag=list_word)
+      lower_array={}
+      try:
+        for word in list_word:
+            if(word.lower() not in lower_array):
+              lower_array[word.lower()]=[word]
+            else:
+              lower_array[word.lower()].append(word)
+         
+        for word in lower_array:
+           check= Words.objects.filter(name=word).exists()
+           if(check==True):
+             save_word = Words.objects.get(name=word)
+           else:
+             suggest = spellchecker.suggest(word)
+             save_word = Words.objects.create(name=word,suggestion=",".join(list(suggest)))
+             save_word.save()
+           save_word_url= WordUrls.objects.create(idurl=web,idword=save_word,form_pre=','.join(lower_array[word]))
+           save_word_url.save() 
+        page = Urlspage.objects.get(id=web.id)
+        page.is_valid=True
+        page.save()
+        data['signal']='done'   
+      except Exception as e:
+        print(e)
+        data['signal']='fail'
+    else:
+      print(e)
+      data['signal']='fail'
+    return data
+
 
 user_source = {}
+def testscan(request):
+  jpost = json.loads(request.body.decode('UTF-8'))
+  webpage = jpost['webpage']
+  email = jpost['email']
+  data={}
+  if(check(email)==1):
+   user = CustomUser()
+   try:
+    user.create_temp_user(email=email)
+    domain = getdomainname(webpage)
+    savedomain = Domain.objects.create(name=domain,iduser=user)
+    data= {}
+    scraper = cloudscraper.create_scraper()
+    r = scraper.get(webpage,timeout=5)
+    if(r.status_code==200):
+      try:
+        web = Urlspage.objects.create(name=webpage,idDomain=savedomain,is_valid=True)
+        data = quick_scan(web)
+        if(data['signal']=='done'):
+         data['signal']='success'
+         data['iduser']=user.id
+         data['id']=web.id          
+         return JsonResponse(data,safe=False)
+      except Exception as e:
+        print(e)
+        data['signal']="check"
+        return JsonResponse(data,safe=False)
+   except Exception as e:
+    if(e[0]==1062):
+     data['signal']="duplicate"
+  else:
+     data['signal']="email"
+  print(data['signal'])
+  return JsonResponse(data,safe=False)
 
+  
 def checkref(request):
   global user_source
   if(request.method == "GET"):  
@@ -167,42 +254,7 @@ def loadagain(request):
     jpost = json.loads(request.body.decode('UTF-8'))
     idweb = jpost['idweb']
     web = Urlspage.objects.get(id=idweb)
-    scraper = cloudscraper.create_scraper()
-    r = scraper.get(web.name,timeout=5)
-    if(r.status_code==200):
-      list_word = []
-      list_word = dataAnalysist(r=r,website_id=idweb,name_array_tag=list_word)
-      lower_array={}
-      data={}
-      try:
-        for word in list_word:
-            if(word.lower() not in lower_array):
-              lower_array[word.lower()]=[word]
-            else:
-              lower_array[word.lower()].append(word)
-         
-         #lưu từng từ vào database
-        for word in lower_array:
-           check= Words.objects.filter(name=word).exists()
-           if(check==True):
-             save_word = Words.objects.get(name=word)
-           else:
-             suggest = spellchecker.suggest(word)
-             save_word = Words.objects.create(name=word,suggestion=",".join(list(suggest)))
-             save_word.save()
-           save_word_url= WordUrls.objects.create(idurl=web,idword=save_word,form_pre=','.join(lower_array[word]))
-           save_word_url.save() 
-        page = Urlspage.objects.get(id=web.id)
-        page.is_valid=True
-        page.save()
-        data['signal']='done'   
-      except Exception as e:
-        print(e)
-        data['signal']='fail'
-    else:
-      print(e)
-      data['signal']='fail'
-    print(data)
+    data = quick_scan(web)
     return JsonResponse(data,safe=False)
 
 
@@ -397,9 +449,10 @@ def show(request):
         current = pagi
       
        page=getpagi(sort_list,3)
-       return render(request,"show.html",{'urls':show_list,'form':form,'page':page,'current':current})  
-     
-    return render(request,"show.html") 
+       if(request.user.is_authenticated):
+         return render(request,"show.html",{'urls':show_list,'form':form,'page':page,'current':current})  
+
+    return render(request,"homepage.html") 
 
 def delete(request, id):  
     url = Domain.objects.get(id=id)  
@@ -485,17 +538,28 @@ def get_all_web(request, id):
     data['isdone']=domain.isdone
     return JsonResponse(data,safe=False)
 
-
-def words(request,id):
-    pagi = request.GET.get('page', None)
+def getwordsfrompage(id,user):
     words = WordUrls.objects.filter(idurl=id)
-    personal_words = Personal_words.objects.filter(iduser=request.user)
+    personal_words = Personal_words.objects.filter(iduser=user)
     list_person=[x.idword.id for x in personal_words]
     list_word = []
     for w in words:
       w.idword.idcommon = w.id
       if(w.idword.id not in list_person):
           list_word.append(w.idword)
+    return list_word
+    
+
+def words(request,id):
+    pagi = request.GET.get('page', None)
+    iduser = request.GET.get('iduser', None)
+    user = None
+    if(iduser!=None):
+      user = CustomUser.objects.get(id=int(iduser))
+    else:
+      user = request.user
+    list_word = getwordsfrompage(id,user)
+
     sumofpages = getpagi(list_word,7)
     if(pagi==None):
       pagi=1

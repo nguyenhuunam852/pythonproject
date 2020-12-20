@@ -117,6 +117,9 @@ def getobject(text):
    return list_name
 
 def dataAnalysist(r,website_id,name_array_tag):
+  f= open(settings.MEDIA_ROOT+"/doc/"+str(website_id)+".txt","a")
+  f.write(r.text)
+  f.close()
   try:
     texts=[]
     n_arrays=[]
@@ -173,9 +176,6 @@ def checkWebsite(url,domain_id,userid,n,reload,server_dict,server_dict_done):
        if(r.status_code==200):
          get_url = Urlspage.objects.create(name=url,idDomain=domain_object,is_valid=True)
          get_url.save()
-         f= open(settings.MEDIA_ROOT+"/doc/"+str(get_url.id)+".txt","a")
-         f.write(r.text)
-         f.close()
          # lấy tát cả internal website
          if(reload!=1):
             get_all_web_domain(domain_object.name,r,userid,n,url)
