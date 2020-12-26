@@ -1,0 +1,1 @@
+{"notes": [{"uuid": "7a0ef386-4ef6-4258-ab3f-4b6d8393c247", "body": "celery -A config worker --loglevel=info\npython3 manage.py runserver\n", "last_modified": "2020-12-26T10:24:26", "properties": {"position": [219, 78], "size": [384, 101], "locked": true}, "cat": ""}], "properties": {"all_visible": true}, "categories": {}}

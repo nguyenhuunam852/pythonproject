@@ -87,8 +87,10 @@ def active(request):
 def adduser(request):
     data={}
     jsonpost = json.loads(request.body.decode('UTF-8'))
-    user = jsonpost['user']
-    try:
+    if('iduser' not in jsonpost):
+     user = jsonpost['user']
+     
+     try:
       User = CustomUser()
       user = User.create_user_admin(user['gmail'],user['password'])
       if(type(user) is tuple):
@@ -97,12 +99,21 @@ def adduser(request):
       else:
         data['signal']='success'
 
-    except Exception as e:
+     except Exception as e:
       print(e)
       if(e.args[0]==1062):
         data['signal']='duplicate'
-    print(data)
+
+    else:
+      iduser = jsonpost['iduser']
+      
+      user = CustomUser.objects.get(id=iduser)
+      user = user.setpassword(jsonpost['user'])
+      if(type(user) is tuple):
+          if(user[0]==1999):
+           data['signal']='password'
+      else:
+          data['signal']='success'
+
     return JsonResponse(data,safe=False)
-
-
 

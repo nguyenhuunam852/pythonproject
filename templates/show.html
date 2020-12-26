@@ -80,6 +80,8 @@
          <td style="width:20%">
           <a href="/view?id={{ url.id }}" class="button" style="background-color:#DF0101;"><i class="fa fa-plus-square" aria-hidden="true"></i></a>  
           <a href="/delete/{{ url.id }}" class="button" style="background-color:#0080ff;"><i class="fa fa-trash" aria-hidden="true"></i></a>  
+          <a id="mail" onclick="mail({{url.id}})" class="button mail" style="background-color:yellow;"><i class="fa fa-plus-square" aria-hidden="true"></i></a>  
+
          </td>
        </tr>
      {% endfor %}
@@ -165,51 +167,30 @@
     $("#google").scrollTop(y).scrollLeft(x);
   }
   */
-  /*
-  var poll = function(){
+  $( ".mail" ).click(function() {
+    
+  });
+  function mail(clicked_id)
+  {
+     poll(clicked_id);
+  }
+  var poll = function(id){
       poll_xhr = $.ajax({
-        url:'./poll_state',
+        url:'./email',
         type: 'POST',
         data: {
+            iddomain:id,
             csrfmiddlewaretoken: "{{csrf_token}}",
         },
         success: function(result) {
-                    if(result=="Wait")
-                    {
-                      willstop=1
-                    }
-                    if(typeof result.process_percent !='undefined')
-                    {
-                      if (result.process_percent==100 && willstop==0)
-                      {
-                        var current_web= result.current_web;
-                        var percent = result.process_percent;
-                        $("#showprogress").empty();
-                        willstop = 1;
-                        window.alert("Your Task is done, Let Checkout!!!");
-                        location.reload();
-                      }
-                      else
-                      {
-        
-                        willstop = 0;
-                        var current_web= result.current_web;
-                        var percent = result.process_percent;
-                        $("#showprogress").empty();
-                        $("#showprogress").append('<span style="margin:20px"><span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Try to Scan Website <a style="color:blue;" href="'+current_web+'">'+current_web+'</a> .... </span> <span>'+percent+'%</span>')
-                      }
-                    }
-                    else
-                    {
-                      
-                    }
-                }
-      });
+            
+        }
+      })
     };
   
   
   
-  
+  /*
   $("#submit").submit(function (e) {
       
       e.preventDefault();

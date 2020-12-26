@@ -198,11 +198,10 @@ def testscan(request):
         data['signal']="check"
         return JsonResponse(data,safe=False)
    except Exception as e:
-    if(e[0]==1062):
+    if(e.args[0]==1062):
      data['signal']="duplicate"
   else:
      data['signal']="email"
-  print(data['signal'])
   return JsonResponse(data,safe=False)
 
   
@@ -350,9 +349,9 @@ def poll_state(request):
 
 def emailtest(request):
 
-    idDomain = 80
+    idDomain = request.POST.get('iddomain')
 
-    domain = Urlspage.objects.filter(idDomain=idDomain)
+    domain = Urlspage.objects.filter(idDomain=int(idDomain))
     sumofWebsite = domain.count()
     sumofsuccessWebsite = domain.filter(is_valid=True).count()
     sumoffailWebsite = sumofWebsite-sumofsuccessWebsite

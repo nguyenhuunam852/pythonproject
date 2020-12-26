@@ -68,7 +68,15 @@ class CustomUser(AbstractUser):
         self.is_staff = False
         self.save()
         return self
-        
+    def setpassword(self,password):
+        try:
+          validators.validate_password(password=password)
+          self.set_password(password)
+          self.is_staff = False
+          self.save()
+        except Exception as e:
+          print(e)
+          return (1999,'PasswordFail')
     def __str__(self):
         return self.email
 
